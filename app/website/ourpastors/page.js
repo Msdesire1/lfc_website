@@ -1,10 +1,10 @@
 import React from 'react'
-import Ouripastors from '../../../components/website/ourpastors/Ouripastors'
+import Pastors from '../../../components/Pastors/Pastors'
 
 const page = () => {
   return (
     <div>
-        <Ouripastors/>
+      <Pastors />
     </div>
   )
 }

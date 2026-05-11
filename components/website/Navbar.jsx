@@ -4,6 +4,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ministriesLinks = [
   { label: "Main's Church", href: "/website/mainchurch" },
@@ -66,7 +67,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 bg-white
       ${
         scrolled
-          ? "bg-[#0A0A0F]/90 backdrop-blur-xl border-b border-[#C9A84C]/20"
+          ? "bg-[#0A0A0F]/90"
           : "bg-transparent"
       }
       animate-[slideDown_0.6s_cubic-bezier(0.16,1,0.3,1)]`}
@@ -75,22 +76,13 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-[38px] h-[38px] border border-[#C9A84C] rounded-full flex items-center justify-center">
-            <div className="w-[14px] h-[14px] relative">
-              <span className="absolute w-[2px] h-full bg-[#C9A84C] left-1/2 -translate-x-1/2"></span>
-              <span className="absolute h-[2px] w-full bg-[#C9A84C] top-[35%]"></span>
-            </div>
-          </div>
-
-          <div className="flex flex-col leading-none">
+          <div className="flex items-center gap-4  leading-none">
+            <Image src="/logo.svg" alt="Logo" width={50} height={48} />
             <span
-              className={`text-[20px] font-bold tracking-wide font-serif
-              ${scrolled ? "text-[#F0EDE6]" : "text-gray-900"}`}
+              className={`text-[16px] font-medium tracking-wide font-serif
+              ${scrolled ? "text-[#121212]" : "text-[#121212]"}`}
             >
-              WordFaith
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.18em] text-[#C9A84C] mt-[2px]">
-              International
+              LFC NEW JERUSALEM, ILORIN
             </span>
           </div>
         </Link>
@@ -109,7 +101,7 @@ export default function Navbar() {
                 className={`group relative flex items-center gap-1 px-3 py-1 text-[15px] font-medium transition-all
                 ${
                   scrolled
-                    ? "text-[#F0EDE6]/60 hover:text-white"
+                    ? "text-[#000000]/50 hover:text-white"
                     : "text-black hover:text-red-400"
                 }`}
               >

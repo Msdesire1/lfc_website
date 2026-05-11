@@ -21,9 +21,9 @@ export default function Footer() {
           {/* Content */}
           <div className="absolute inset-0 top-3 flex flex-col items-center justify-center px-6 text-center">
             <h2 className="max-w-3xl text-[18px] font-semibold leading-relaxed text-white md:text-[20px]">
-            Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap.
-              <br/>
-     <span className="lg:text-[32px] text-[16px]"> Luke 6:38</span>
+              Give, and it will be given to you. A good measure, pressed down, shaken together and running over, will be poured into your lap.
+              <br />
+              <span className="lg:text-[32px] text-[16px]"> Luke 6:38</span>
             </h2>
 
             <Link href={"/website/giveonline"} className="mt-8 rounded-[12px] bg-[#EC3237] px-8 py-3 text-sm font-medium text-white transition hover:bg-red-700">

@@ -215,7 +215,7 @@ const Contact = () => {
     </div>
   </section>
 <div className='lg:pt-10'>
-<Footer />
+{/* <Footer /> */}
 </div>
 
     </div>

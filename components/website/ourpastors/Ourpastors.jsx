@@ -7,14 +7,15 @@ const Ourpastors = () => {
       role: "State/Residence Pastor"
     },
     {
-      image: "/pastor2.svg",
-      name: "Kemishola Animasahun",
-      role: "Associate Pastor"
-    },
-    {
       image: "/pastor3.svg",
       name: "Kemishola Animasahun",
       role: "Assistant Residence Pastor"
+    },
+
+     {
+      image: "/pastor2.svg",
+      name: "Kemishola Animasahun",
+      role: "Associate Pastor"
     },
   ]
   return (
@@ -23,7 +24,7 @@ const Ourpastors = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 w-full lg:grid-cols-3 gap-6">
         {pastors.map((pastor, idx) => (
           <div key={idx}
-            className="relative rounded-xl overflow-hidden shadow-lg min-h-[474px] flex flex-col pb-6 px-6 justify-end bg-cover bg-center"
+            className="relative rounded-xl overflow-hidden shadow-lg min-h-[400px] flex flex-col pb-6 px-6 justify-end bg-cover bg-center"
             style={{ backgroundImage: `url(${pastor.image})` }}
           >
             <h3 className="text-xl font-semibold text-[#FDFDFD]">{pastor.name}</h3>

@@ -11,7 +11,7 @@ const Hero = () => {
     },
     {
       id: 2,
-      image: "/sliide2.svg",
+      image: "/call.svg",
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ const Hero = () => {
   return (
     <section className="w-full py-8 px-4 md:px-10 lg:px-20">
       <div className="relative w-full mx-auto overflow-hidden rounded-[30px]">
-        
+
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{

@@ -15,7 +15,6 @@ const ministriesLinks = [
 
 const wsfLinks = [
   { label: "WSF Locations", href: "/website/wsflocation" },
-  { label: "WSF Resources", href: "/wsf/resources" },
 ];
 
 const educationLinks = [

@@ -75,3 +75,21 @@ export const infos = [
         image: "/medical.svg"
     },
 ]
+
+
+export const teams = [
+    "Children's Ministry",
+    "Choir",
+    "Decoration",
+    "Drama Team",
+    "Hospitality",
+    "Sanctuary Keepers",
+    "Security",
+    "Media Team",
+    "Medical Team",
+    "Protocol Team",
+    "Transportation Team",
+    "Usher Team",
+    "Follow-up Team",
+    "Parking Team",
+]

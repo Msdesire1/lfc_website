@@ -5,7 +5,7 @@ import Join from '../../../components/website/service-unit/Join'
 
 const page = () => {
   return (
-    <div>
+    <div className="my-20 flex flex-col gap-16">
       <Unit />
       <Discover />
       <Join />

@@ -7,6 +7,7 @@ import {
   MessageCircle,
   X,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Quick() {
   const [open, setOpen] = useState(false);
@@ -106,20 +107,27 @@ export default function Quick() {
               className="fixed bottom-24 right-6 z-50 w-[95%] sm:w-95 h-120 bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
             >
             {/* Header */}
-            <div className="bg-[#EC3237] text-white p-4 flex items-center justify-between">
+            <div className="bg-white text-[#EC3237]] p-4 flex items-center justify-center">
               <div>
+              <div className=" flex flex-col  justify-center items-center">
+     <div className="flex justify-center items-center">
+    <Image src="/logo.svg" alt="Logo" width={50} height={48} />
+     </div>
                 <h2 className="font-semibold text-lg">
                   LFC Assistant
                 </h2>
+                  </div>
 
-                <p className="text-xs text-gray-200">
+                <p className="text-xs text-black">
                   Ask anything instantly
                 </p>
               </div>
 
-              <button onClick={() => setOpen(false)}>
+<div className="absolute top-4 right-4">
+  <button onClick={() => setOpen(false)}>
                 <X />
               </button>
+</div>
             </div>
 
             {/* Messages */}

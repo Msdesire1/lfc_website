@@ -63,9 +63,7 @@ const Giveonline = () => {
       </h1>
 
       <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
-        Your giving supports the mission of the church, helps reach more lives,
-        and enables impactful work within the community. Every contribution
-        makes a difference.
+       Your giving is an act of worship and a seed of faith. Every seed sown into the Kingdom of God carries a divine harvest. Give generously and expect God&apos;s supernatural multiplication in your life.
       </p>
 
       <button className="rounded-[12px] bg-[#AC1E1E] px-8 py-3 text-sm font-semibold text-white transition hover:bg-red-700">
@@ -87,7 +85,7 @@ const Giveonline = () => {
         <div className="md:pl-40">
           <p className="max-w-md text-[16px] leading-6 text-gray-700">
             We’ve made giving simple and accessible. Explore the different
-            options available and choose what works best for you.
+
           </p>
         </div>
       </div>
@@ -264,12 +262,12 @@ const Giveonline = () => {
       </div>
     </section>
 
-<footer className="w-full bg-[#121212] px-6 py-16 text-white md:px-14 lg:px-20">
+{/* <footer className="w-full bg-[#121212] px-6 py-16 text-white md:px-14 lg:px-20">
   <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-6">
-    {/* Logo + About */}
+
     <div className='col-span-2'>
       <div className="mb-5 flex items-center gap-3  ">
-        {/* Logo */}
+
         <Image
           src="/footerlo.svg"
           alt="logo"
@@ -292,7 +290,7 @@ height={48}
       </p>
     </div>
 
-    {/* Church Links */}
+
     <div>
       <h3 className="mb-6 text-lg font-semibold text-white">
         Church Links
@@ -331,7 +329,7 @@ height={48}
       </ul>
     </div>
 
-    {/* Weekly Service */}
+
     <div>
       <h3 className="mb-6 text-lg font-semibold text-white">
         Weekly Service
@@ -345,7 +343,7 @@ height={48}
       </ul>
     </div>
 
-    {/* Ministries */}
+
     <div>
       <h3 className="mb-6 text-lg font-semibold text-white">
         Ministries
@@ -390,7 +388,7 @@ height={48}
       </ul>
     </div>
 
-    {/* Contact */}
+
     <div>
       <h3 className="mb-6 text-lg font-semibold text-white">
         Contact Us
@@ -407,7 +405,7 @@ height={48}
     </div>
   </div>
 
-  {/* Bottom Line */}
+
   <div className="mt-14 border-t border-[#FFFFFF33] pt-6 text-center">
     <p className="text-[14px] text-[#FDFDFD] ">
       © 2026 LFC New Jerusalem, Ilorin Church. All Right Reserved.
@@ -419,7 +417,7 @@ height={48}
          </span>
     </p>
   </div>
-</footer>
+</footer> */}
     </div>
   )
 }

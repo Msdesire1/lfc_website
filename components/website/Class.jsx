@@ -18,11 +18,11 @@ const Class = () => {
                 </div>
 
                 {/* Right Content */}
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-4">
 
                     {/* Heading */}
                     <div className="flex flex-wrap items-center gap-3">
-                        <h2 className="text-[40px] md:text-[52px] font-bold text-[#EC3237] leading-tight">
+                        <h2 className="text-[40px] md:text-[50px] font-bold text-[#EC3237] leading-tight">
                             Believers&apos;
                         </h2>
 
@@ -46,13 +46,13 @@ const Class = () => {
                     </p>
 
                     {/* Courses */}
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-3">
 
                         <h3 className="text-[28px] font-semibold text-[#121212]">
                             Courses Covered
                         </h3>
 
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-2">
 
                             {[
                                 "WORD FOUNDATION",
@@ -64,7 +64,7 @@ const Class = () => {
                                     key={index}
                                     className="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-1"
                                 >
-                                    <div className="w-10 h-10 rounded-full bg-[#EC3237] text-white flex items-center justify-center font-semibold">
+                                    <div className="w-7 h-7 rounded-full bg-[#EC3237] text-white flex items-center justify-center font-semibold">
                                         {index + 1}
                                     </div>
 

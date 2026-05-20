@@ -232,7 +232,7 @@ export default function Footer() {
               target="_blank"
               className="ml-1 font-medium text-white transition hover:text-red-500"
             >
-              Created by Dev Desire
+              Created by Desire
             </Link>
           </p>
         </div>

@@ -8,6 +8,7 @@ import Books from "@/components/website/Books";
 import Done from "@/components/website/Done";
 import NewHere from "@/components/website/NewHere";
 import Class from "@/components/website/Class";
+import ServiceMarquee from "@/components/website/ServiceMarquee";
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     <div className="my-20 flex flex-col gap-16">
       <Hero />
       <OurMission />
+     <ServiceMarquee />
       <ServiceTime />
       <Pillars />
       <Books />

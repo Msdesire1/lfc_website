@@ -4,7 +4,7 @@ import { teams } from '../../libs/data'
 
 const Join = () => {
   return (
-    <div className='bg-[#F5F5F5] w-full py-8 px-4 md:px-10 min-h-[857px]  flex justify-between gap-[40px] lg:px-16'>
+    <div className='bg-[#F5F5F5] w-full py-8 px-4 md:px-10 min-h-[857px]  flex lg:flex-row flex-col justify-between gap-[40px] lg:px-16'>
       <div className='w-full flex flex-col gap-10'>
         <div>
           <h2 className='text-[#121212] text-[40px] leading-[50px] font-semibold'>

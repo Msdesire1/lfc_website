@@ -3,9 +3,9 @@ import React from 'react'
 
 const Ministries = () => {
   return (
-    <div>
- <div className="pb-12 mt-36 px-4 md:px-10 flex items-center gap-12 justify-between lg:px-20">
-      <div className='flex flex-col gap-[24px]'>
+    <div className='lg:px-20 px-6'>
+ <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
+      <div className='flex flex-col  gap-[24px]'>
         <h2 className='text-[60px] font-semibold text-[#000000]'  >
          One Church, Many Expressions of Faith
         </h2>

@@ -4,14 +4,15 @@ import React from 'react'
 const Speech = () => {
     return (
         <div>
-            <div className="py-12 px-4 md:px-10 flex items-center gap-12 justify-between lg:px-16">
-                <span className='text-[16px] font-normal w-[750px] text-[#121212]'>
-                    Welcome to Winners Chapel International, Dartford European headquarters. We are an arm of the Living Faith Church Worldwide. Our vision, as delivered to the Presiding Bishop, Dr David Oyedepo, is to preach the Word of Faith, liberating men everywhere from every oppression of the devil. <br />
-                    We are dedicated to accomplishing this task throughout the United Kingdom, and Europe at large.
-                    Our church in London was officially inaugurated in 2002 to spread the Word of Faith and to bring the liberation mandate to the United Kingdom and Europe. We have experienced diverse testimonies as individuals and as a church ever since. We currently occupy a 1500 seater Campus in the district of Dartford, a Children’s Church capacity of 500 and Teens Church of 300 seating capacity where the Word of Faith is preached in our various services and the people of God are empowered to live a life of dominion.
-                    <br />We are glad you have come to this website because we know your life will never be the same again. Take time to browse through the site and we know it would be a blessing to you. Also, join any of our weekly & Sunday services and as you come to visit us, God will meet you at every point of your need.
+            <div className="py-20 px-4 md:px-10 flex items-center gap-12 justify-between lg:px-20">
+                <span className='text-[18px] font-normal w-[750px] text-[#121212]'>
+Welcome to the Living Faith Church New Jerusalem, Ilorin a divine vision and a landmark sanctuary dedicated to the advancement of God’s kingdom and the spread of the Word of Faith. As an arm of the Living Faith Church Worldwide, under the leadership of Bishop David Oyedepo, our mandate remains the liberation of mankind from every oppression of the devil through the preaching of the Word of Faith.<br/><br/>
+
+For over years, the LFC New Jerusalem Church in Ilorin has stood as a symbol of faith, sacrifice, dedication, and unwavering commitment to God’s vision. This glorious sanctuary is being built to serve as a spiritual home where lives will be transformed, destinies restored, and generations empowered to live victoriously in Christ.<br/><br/>
+
+The LFC New Jerusalem church  is more than just a church building  it is a prophetic landmark designed to accommodate thousands of worshippers, raise kingdom ambassadors, and provide an atmosphere where the presence and power of God will be experienced mightily. Through this divine project, countless souls shall encounter salvation, healing, breakthroughs, and supernatural restoration.
                 </span>
-                <Image src="/speech.svg" alt="Speech" width={690} height={536} className='h-auto rounded-[20px] object-cover' />
+                <Image src="/speech.svg" alt="Speech" width={600} height={450} className='h-auto rounded-[20px] object-cover' />
             </div>
             <div
                 className="py-12 px-4 md:px-10 flex items-center justify-end h-[745px] text-[40px] font-semibold text-[#FDFDFD] bg-cover bg-center lg:px-16"

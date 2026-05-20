@@ -6,9 +6,9 @@ import Footer from '../Footer';
 
 const faqData = [
   {
-    question: "How do i find a tutor?",
+    question: "How do i find lfc NEW JERUSALEM ILORIN?",
     answer:
-      "Use the search bar and filters on the 'Find a Tutor' page to search for tutors by subject, availability, rating, and more.",
+      "Located at Gaa-imam beside ITC company.",
   },
   {
     question: "How do i book a session?",
@@ -71,7 +71,8 @@ const Contact = () => {
     We&apos;re here for you!
       </h1>
       <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
-      If you would like to talk to us, please call us at +2347080638000 <br/> or send an email to contactcentre@lfcww.org
+      If you would like to talk to us, please call us at +2347080638000 <br/> or send an email to lfcwwilr@yahoo.com or
+Kwara.state@lfcww.org
       </p>
     </div>
   </div>
@@ -82,7 +83,7 @@ const Contact = () => {
       className="w-full bg-cover bg-center bg-no-repeat py-16 px-4 md:px-10 lg:px-20"
     >
 
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className="relative z-10  grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* FAQ Section */}
         <div>
           <h2 className="text-3xl md:text-4xl font-semibold text-black mb-10">

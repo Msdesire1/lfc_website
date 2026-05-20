@@ -4,14 +4,14 @@ import Image from 'next/image'
 
 const Children = () => {
   return (
-   <div>
-      <div className="pb-12 mt-36 px-4 md:px-10 flex items-center gap-12 justify-between lg:px-16">
+        <div className='lg:px-20 px-6'>
+ <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
           <div className='flex flex-col gap-[24px]'>
             <h2 className='text-[60px] font-semibold text-[#000000]'  >
-    Growing in Faith, Finding Your Voice
+    God’s Little Stars, Shining Bright
             </h2>
-            <span className='text-[24px] font-normal w-[723px] text-[#121212]'>
-    A supportive space where teens can explore their faith, build confidence, and navigate life with guidance and truth.
+            <span className='text-[24px] font-normal lg:w-[723px] text-[#121212]'>
+    A supportive space where children can explore their faith, build confidence, and navigate life with guidance and truth.
             </span>
           </div>
 
@@ -28,11 +28,11 @@ const Children = () => {
           </h2>
 
           <p className="text-base leading-9 text-gray-700 md:text-lg">
-            This ministry is designed to support children and teens at
-            every stage of their growth. Through age-appropriate
-            teaching, guidance, and engaging activities, we help them
-            build a strong foundation in faith while developing confidence
-            and values for life.
+            This ministry is dedicated to helping children grow in the knowledge
+            and love of God. Through Bible-based teachings, caring guidance,
+            and fun learning activities, we nurture young hearts to develop
+            strong faith, godly values, and a joyful relationship with Christ.
+
           </p>
         </div>
 
@@ -66,7 +66,7 @@ const Children = () => {
           </h2>
 
           <p className="mb-5 max-w-xl text-base leading-8 text-gray-600">
-            Be part of our Sunday service where teens gather to worship,
+            Be part of our Sunday service where children gather to worship,
             learn, and grow in a supportive faith community.
           </p>
 

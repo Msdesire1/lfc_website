@@ -3,13 +3,13 @@ import React from 'react'
 
 const Teenschurch = () => {
   return (
-     <div>
-      <div className="pb-12 mt-36 px-4 md:px-10 flex items-center gap-12 justify-between lg:px-16">
+           <div className='lg:px-20 px-6'>
+ <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
           <div className='flex flex-col gap-[24px]'>
             <h2 className='text-[60px] font-semibold text-[#000000]'  >
-    Growing in Faith, Finding Your Voice
+  Growing with God, Standing Out with Purpose
             </h2>
-            <span className='text-[24px] font-normal w-[723px] text-[#121212]'>
+            <span className='text-[24px] font-normal lg:w-[723px] text-[#121212]'>
     A supportive space where teens can explore their faith, build confidence, and navigate life with guidance and truth.
             </span>
           </div>
@@ -27,11 +27,10 @@ const Teenschurch = () => {
           </h2>
 
           <p className="text-base leading-9 text-gray-700 md:text-lg">
-            This ministry is designed to support children and teens at
-            every stage of their growth. Through age-appropriate
-            teaching, guidance, and engaging activities, we help them
-            build a strong foundation in faith while developing confidence
-            and values for life.
+            This ministry is focused on guiding teenagers to grow in Christ
+             and build a strong spiritual foundation. Through sound teaching,
+              mentorship, and interactive activities, we inspire teens to
+              live with confidence, purpose, and godly character in today’s world.
           </p>
         </div>
 
@@ -52,7 +51,7 @@ const Teenschurch = () => {
         {/* Left Image */}
         <div className="overflow-hidden rounded-[24px]">
           <img
-            src="/teensthree.svg"
+            src="/teenthree.svg"
             alt="Church Worship Service"
             className="h-[450px] w-full object-cover"
           />
@@ -65,7 +64,7 @@ const Teenschurch = () => {
           </h2>
 
           <p className="mb-5 max-w-xl text-base leading-8 text-gray-600">
-            Be part of our Sunday service where teens gather to worship,
+            Be part of our Sunday service where teenagers gather to worship,
             learn, and grow in a supportive faith community.
           </p>
 

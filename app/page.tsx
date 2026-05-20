@@ -7,7 +7,7 @@ import Pillars from "@/components/website/Pillars";
 import Books from "@/components/website/Books";
 import Done from "@/components/website/Done";
 import NewHere from "@/components/website/NewHere";
-
+import Class from "@/components/website/Class";
 
 
 export default function Home() {
@@ -21,6 +21,7 @@ export default function Home() {
       < OurPastors />
       <Done />
       <NewHere />
+<Class/>
     </div>
   );
 }

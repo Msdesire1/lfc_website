@@ -10,30 +10,34 @@ const Pastors = () => {
         },
         {
             image: "/pastor3.svg",
-            name: "Kemishola Animasahun",
+ name: "Pastor Christian Femi Ekpekhio",
             role: "Assistant Residence Pastor"
         },
 
          {
             image: "/pastor2.svg",
-            name: "Kemishola Animasahun",
+ name: "Pastor Salami Opeyemi",
             role: "Associate Pastor"
         },
     ]
     return (
-        <div className='flex flex-col gap-16 mb-12 flex flex-col px-4 md:px-10 mt-28 lg:px-16 w-full items-center gap-[20px]'>
-            <div className='flex items-center w-full justify-between'>
+        <div className='flex flex-col gap-16 mb-12 flex flex-col px-4 md:px-10 mt-28 lg:px-20 w-full items-center gap-[20px]'>
+            <div className='flex items-center lg:flex-row flex-col w-full justify-between'>
                 <div className='flex flex-col gap-6'>
                     <h2 className='text-[40px] font-semibold'>
                         OUR STATE PASTOR
                     </h2>
-                    <p className='text-[#000000] text-[20px] font-normal'>
-                        Pastor Kayode Martins is currently serving as the Resident <br /> Pastor of Living Faith Chapel, New Jerusalem. <br />
-                        He is committed passionately to the preaching of the Word of <br /> God and teaching the principles of faith in fulfilment of destiny. <br />
-                        In his assignment, he pursues doggedly the delivery of the <br /> liberation mandate in the life of everyone he comes in contact <br /> with. His message is centred on the liberation mandate as <br /> revealed to the Presiding Bishop, Dr. David O. Oyedepo by God in <br /> a vision over three decades ago
-                    </p>
+<p className='text-[#000000] text-[20px] font-normal  w-[750px]'>
+  Pastor Kayode Martins currently serves as the State and Resident Pastor of Living Faith Church, New Jerusalem, Ilorin, following his transfer to Ilorin in August 2025. A devoted servant of God, he is passionately committed to the preaching of the Word and the advancement of the liberation mandate. <br /><br />
+
+Through his teachings and leadership, many lives have continued to experience transformation, restoration, and spiritual growth. His ministry is centered on faith, kingdom service, and raising believers to fulfil their glorious destinies in Christ. <br /><br />
+
+Pastor Kayode Martins remains dedicated to serving God wholeheartedly, impacting lives, and advancing the kingdom of God in Ilorin and beyond, in line with the divine vision delivered to Bishop David Oyedepo.
+
+</p>
+
                 </div>
-                <Image src="/state.svg" alt="Pastors" width={500} height={400} className='' />
+                <Image src="/pkm.jpg" alt="Pastors" width={600} height={500} className=' rounded-[32px]' />
             </div>
             <div className="py-8 w-full flex flex-col items-center justify-center gap-[40px]">
                 <h2 className="text-[40px] font-semibold text-center text-[#000]">Our Pastors</h2>

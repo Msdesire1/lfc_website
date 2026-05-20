@@ -3,7 +3,7 @@ import React from 'react'
 
 const OurMission = () => {
     return (
-        <div className='py-8 px-4 md:px-10 flex items-center justify-between lg:px-16'>
+        <div className='py-8 px-4 md:px-10 flex items-center justify-between lg:px-20'>
             <div>
                 <h2 className='text-[#000000] text-[40px] font-semibold'>
                     Our Mission

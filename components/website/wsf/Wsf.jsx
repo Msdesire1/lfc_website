@@ -25,10 +25,10 @@ const Wsf = () => {
   {/* Main Content */}
   <div className="relative z-10 flex h-full items-center justify-center px-4">
     <div className="max-w-2xl text-center text-white pt-20">
-      <h1 className="mb-3 text-[60px] font-bold md:text-[30px]">
+  <h1 className="mb-3 text-[60px] font-bold md:text-[30px">
         Winners Satellite Fellowship
       </h1>
-      <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
+  <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
         “For where two or three are gathered together in My name, I am<br/> there in the midst of them.” Matt. 18:20.
       </p>
     </div>
@@ -102,7 +102,7 @@ const Wsf = () => {
 
         {/* LEFT CONTENT */}
         <div className="space-y-6">
-          <h2 className="lg:text-[35px] font-semibold leading-tight text-[#1e1e1e] text-xl">
+  <h2 className="lg:text-[35px] font-semibold leading-tight text-[#1e1e1e] text-xl">
           Winners Satellite Fellowship Objectives
           </h2>
 
@@ -163,7 +163,7 @@ const Wsf = () => {
             </p>
 
              <p>
-                <span className='font-bold'>Email:</span> wsfcentralteam@winners-chapel.com
+                <span className='font-bold'>Email:</span>lfcwwilr@yahoo.com
             </p>
 
             <p>

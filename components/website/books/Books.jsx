@@ -1,8 +1,13 @@
 import React from 'react'
+import Herobooks from './Herobooks'
+import Booksection from './Booksection'
 
 const Books = () => {
   return (
-    <div>Books</div>
+    <div>
+<Herobooks />
+<Booksection />
+    </div>
   )
 }
 

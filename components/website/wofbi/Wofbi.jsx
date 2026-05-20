@@ -89,11 +89,12 @@ const Wofbi = () => {
     }
   };
   return (
-    <div>
+
+    <div className='lg:px-20 px-6'>
 {/* 1 */}
 <section className="w-full ">
- <div className="pb-12 mt-36 px-6  flex items-center gap-12 justify-between lg:px-32 ">
-      <div className='flex flex-col gap-[24px]'>
+ <div className="pb-12 mt-36 px-6 lg:flex-row flex-col  flex items-center gap-12 justify-between ">
+      <div className='flex flex-col   gap-[24px]'>
         <h2 className='text-[40px] font-semibold text-[#000000]'  >
 Word of Faith Bible <br/> Institute (WOFBI)
         </h2>
@@ -108,7 +109,7 @@ It takes training to triumph and no one arms a man who
         </span>
 
         <div>
-          <button className='px-8 py-3 bg-[#AC1E1E] text-white rounded-[12px] text-[16px] font-medium'>
+          <button className='px-8 py-3 bg-[#EC3237] text-white rounded-[12px] text-[16px] font-medium'>
            Register
           </button>
         </div>
@@ -120,8 +121,8 @@ It takes training to triumph and no one arms a man who
 
 {/*  */}
 
- <section className="w-full py-20 px-6 lg:px-20">
-      <div className="mx-auto max-w-7xl">
+ <section className="w-full py-20 px-6 ">
+      <div className="">
         {/* HEADER */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <div className="mb-4 flex items-center justify-center gap-4">
@@ -187,11 +188,11 @@ It takes training to triumph and no one arms a man who
       </div>
     </section>
 {/* 3 */}
- <section className="w-full bg-[#B91C1C] px-6 py-24 md:px-12 lg:px-20">
+ <section className="w-full bg-[#B91C1C] px-6 py-24  rounded-[12px]">
       <div className="mx-auto max-w-5xl text-center text-white">
 
         {/* TOP TITLE */}
-        <h4 className="mb-10 font-serif text-4xl font-bold tracking-wide md:text-5xl">
+        <h4 className="mb-10 font-serif text-[60px] font-bold tracking-wide md:text-[60px">
           The Institute
         </h4>
 
@@ -214,8 +215,8 @@ It takes training to triumph and no one arms a man who
       </div>
     </section>
     {/* 4 */}
-  <section className="w-full  py-16 px-4 md:px-10 lg:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <section className="w-full  py-16 px-4 ">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* Left Image */}
         <div className="w-full">
@@ -235,11 +236,11 @@ It takes training to triumph and no one arms a man who
 
           {/* Small Heading */}
           <div className="flex items-center gap-3">
-            <span className="w-10 h-[1px] bg-[#AC1E1E]"></span>
-            <p className="text-[#AC1E1E] text-sm font-medium tracking-wide">
+            <span className="w-10 h-[1px] bg-[#EC3237]"></span>
+            <p className="text-[#EC3237] text-sm font-medium tracking-wide">
               What we do
             </p>
-            <span className="w-10 h-[1px] bg-[#AC1E1E]"></span>
+            <span className="w-10 h-[1px] bg-[#EC3237]"></span>
           </div>
 
           {/* Main Title */}
@@ -260,24 +261,24 @@ It takes training to triumph and no one arms a man who
     </section>
 
 {/* 5 */}
- <section className="w-full py-16 px-4 md:px-10 lg:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+ <section className="w-full py-16 px-4 ">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* Right Content */}
         <div className="space-y-6">
 
           {/* Small Heading */}
           <div className="flex items-center gap-3">
-            <span className="w-10 h-[1px] bg-[#AC1E1E]"></span>
-            <p className="text-[#AC1E1E] text-sm font-medium tracking-wide">
+            <span className="w-10 h-[1px] bg-[#EC3237]"></span>
+            <p className="text-[#EC3237] text-sm font-medium tracking-wide">
               What we do
             </p>
-            <span className="w-10 h-[1px] bg-[#AC1E1E]"></span>
+            <span className="w-10 h-[1px] bg-[#EC3237]"></span>
           </div>
 
           {/* Main Title */}
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Our Vision
+          Our Primary Goal
           </h2>
 
           {/* Paragraph */}
@@ -292,7 +293,7 @@ Our primary goal is to provide God centered spiritual education that engenders e
         <div className="w-full">
           <div className="relative w-full h-[260px] md:h-[350px] rounded-lg overflow-hidden">
             <Image
-              src="/wobi.svg"
+              src="/wobiimage.jpg"
               alt="Our Vision"
               fill
               className="object-cover"
@@ -303,11 +304,11 @@ Our primary goal is to provide God centered spiritual education that engenders e
       </div>
     </section>
 
-  <section className="w-full bg-[#F5F5F5] py-20 px-4 sm:px-6 md:px-10 lg:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  <section className="w-full bg-[#F5F5F5] py-20 rounded-[12px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
         {/* LEFT SIDE */}
-        <div className="space-y-8">
+        <div className="space-y-8 px-5">
           <div className="space-y-5">
             <h2 className="text-3xl md:text-5xl font-semibold text-[#111111] leading-tight">
               Frequently Asked Questions
@@ -319,7 +320,7 @@ Our primary goal is to provide God centered spiritual education that engenders e
             </p>
           </div>
 
-          <button className="bg-[#B91C1C] hover:bg-red-700 transition-all duration-300 text-white px-8 py-4 rounded-lg font-medium">
+          <button className="bg-[#EC3237] hover:bg-red-700 transition-all duration-300 text-white px-8 py-4 rounded-lg font-medium">
             Contact Us
           </button>
         </div>

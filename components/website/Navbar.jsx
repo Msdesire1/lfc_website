@@ -15,6 +15,7 @@ const ministriesLinks = [
 
 const wsfLinks = [
   { label: "WSF Locations", href: "/website/wsflocation" },
+  { label: "Books", href: "/website/books" },
 ];
 
 const educationLinks = [
@@ -100,7 +101,7 @@ export default function Navbar() {
                 className={`group relative flex items-center gap-1 px-3 py-1 text-[15px] font-medium transition-all
                 ${
                   scrolled
-                    ? "text-[#000000]/50 hover:text-white"
+                    ? "text-[#000000]/50 hover:text-black"
                     : "text-black hover:text-red-400"
                 }`}
               >

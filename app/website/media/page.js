@@ -4,7 +4,7 @@ import Media from '../../../components/website/media/Media'
 const page = () => {
   return (
     <div>
-<Media/>
+<Media />
     </div>
   )
 }

@@ -136,7 +136,7 @@ export default function Navbar() {
               {/* Dropdown */}
               {item.dropdown && (
                 <div
-                  className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 w-[210px]
+                  className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 lg:w-[210px]
                    bg-black backdrop-blur-xl border border-[#C9A84C]/20 rounded-[10px] text-black p-2 shadow-xl
                   transition-all duration-200
                   ${
@@ -172,11 +172,25 @@ export default function Navbar() {
         {/* Mobile Burger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-expanded={mobileOpen}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           className="lg:hidden flex flex-col gap-1 ml-auto"
         >
-          <span className="w-6 h-[2px] bg-black"></span>
-          <span className="w-6 h-[2px] bg-black"></span>
-          <span className="w-6 h-[2px] bg-black"></span>
+          <span
+            className={`w-6 h-[2px] bg-black transition-all duration-300 ${
+              mobileOpen ? "translate-y-[6px] rotate-45" : ""
+            }`}
+          ></span>
+          <span
+            className={`w-6 h-[2px] bg-black transition-all duration-300 ${
+              mobileOpen ? "opacity-0" : ""
+            }`}
+          ></span>
+          <span
+            className={`w-6 h-[2px] bg-black transition-all duration-300 ${
+              mobileOpen ? "-translate-y-[6px] -rotate-45" : ""
+            }`}
+          ></span>
         </button>
       </div>
 

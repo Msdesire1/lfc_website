@@ -20,7 +20,7 @@ const Ourpastors = () => {
   ]
   return (
     <div className="py-8 px-4 md:px-10 flex flex-col items-center gap-[40px] lg:px-20">
-      <h2 className="text-[40px] font-semibold text-center text-[#000]">Our Pastors</h2>
+      <h2 className="text-[30px] font-semibold text-center text-[#000]">Our Pastors</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 w-full lg:grid-cols-3 gap-6">
         {pastors.map((pastor, idx) => (
           <div key={idx}

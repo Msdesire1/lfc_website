@@ -79,7 +79,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4  leading-none">
             <Image src="/logo.svg" alt="Logo" width={50} height={48} />
             <span
-              className={`text-[16px] font-medium tracking-wide font-serif
+              className={`text-[14px] font-medium tracking-wide font-serif
               ${scrolled ? "text-[#121212]" : "text-[#121212]"}`}
             >
               LFC NEW JERUSALEM, ILORIN
@@ -98,7 +98,7 @@ export default function Navbar() {
             >
               <Link
                 href={item.href}
-                className={`group relative flex items-center gap-1 px-3 py-1 text-[15px] font-medium transition-all
+                className={`group relative flex items-center gap-1 px-3 py-1 text-[14px] font-medium transition-all
                 ${
                   scrolled
                     ? "text-[#000000]/50 hover:text-black"

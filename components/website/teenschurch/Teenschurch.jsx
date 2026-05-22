@@ -6,15 +6,15 @@ const Teenschurch = () => {
            <div className='lg:px-20 px-6'>
  <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
           <div className='flex flex-col gap-[24px]'>
-            <h2 className='text-[60px] font-semibold text-[#000000]'  >
-  Growing with God, Standing Out with Purpose
+            <h2 className='text-[40px] font-semibold text-[#000000]'  >
+  Growing with God,<br/> Standing Out with Purpose
             </h2>
-            <span className='text-[24px] font-normal lg:w-[723px] text-[#121212]'>
+            <span className='text-[16px] font-normal lg:w-[500px] text-[#121212]'>
     A supportive space where teens can explore their faith, build confidence, and navigate life with guidance and truth.
             </span>
           </div>
 
-          <Image width={660} height={486} src="/teensone.svg" alt="mandate" className='object-cover' />
+          <Image width={500} height={486} src="/teensone.svg" alt="mandate" className='object-cover' />
         </div>
     {/*  */}
     <section className="w-full bg-[#F5F5F5] px-6 py-20 ">
@@ -26,7 +26,7 @@ const Teenschurch = () => {
             About This Ministry
           </h2>
 
-          <p className="text-base leading-9 text-gray-700 md:text-lg">
+          <p className="text-[16px] leading-9 text-gray-700 ">
             This ministry is focused on guiding teenagers to grow in Christ
              and build a strong spiritual foundation. Through sound teaching,
               mentorship, and interactive activities, we inspire teens to
@@ -59,7 +59,7 @@ const Teenschurch = () => {
 
         {/* Right Content */}
         <div>
-          <h2 className="mb-5 text-[40px] font-bold text-[#111111] md:text-4xl">
+          <h2 className="mb-5 text-[30px] font-bold text-[#111111] md:text-4xl">
             Join Us to Worship
           </h2>
 
@@ -70,11 +70,11 @@ const Teenschurch = () => {
 
           {/* Service Time */}
           <div>
-            <h3 className="mb-3 text-2xl font-semibold text-[#111111]">
+            <h3 className="mb-3 text-xl font-semibold text-[#111111]">
               Service Time:
             </h3>
 
-            <div className="space-y-3 text-sm leading-7 text-gray-700 md:text-base">
+            <div className="space-y-3 text-[14px] leading-7 text-gray-700">
               <p>
                 Word Encounter Service (Every Sunday) - 7:30am
               </p>

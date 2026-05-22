@@ -7,17 +7,17 @@ const Join = () => {
     <div className='bg-[#F5F5F5] w-full py-8 px-4 md:px-10 min-h-[857px]  flex lg:flex-row flex-col justify-between gap-[40px] lg:px-16'>
       <div className='w-full flex flex-col gap-10'>
         <div>
-          <h2 className='text-[#121212] text-[40px] leading-[50px] font-semibold'>
+          <h2 className='text-[#121212] text-[30px] leading-[50px] font-semibold'>
             Join a Ministry
           </h2>
-          <p className='text-[#000000CC] lg:w-[625px] text-[16px] w-full md:w-[625px]'>
+          <p className='text-[#000000CC] lg:w-[600px] text-[16px] w-full md:w-[50px]'>
             Take the next step by signing up for a ministry that aligns with your interests, gifts, and availability. We are excited to have you serve and grow with us.
           </p>
         </div>
-        <Image width={700} height={610} src="/cars.svg" alt="join" className="object-cover" />
+        <Image width={700} height={600} src="/cars.svg" alt="join" className="object-cover" />
       </div>
       <div className='bg-[#FDFDFD] rounded-[20px] h-fit py-4 w-full px-5'>
-        <h2 className='text-[#121212] text-[20px] font-semibold'>
+        <h2 className='text-[#121212] text-[14px] font-semibold'>
           Please fill out the form below and we will be in contact with you with your next step.
         </h2>
         <form className='mt-5'>
@@ -62,7 +62,7 @@ const Join = () => {
           </div>
 
           <div className='flex flex-col gap-4'>
-            <label className='text-[#121212] text-[16px] font-medium'>
+            <label className='text-[#121212] text-[14px] font-medium'>
               Message
             </label>
             <textarea className='w-full border-[1px] border-[#00000033] rounded-[8px] h-[100px] p-2' />

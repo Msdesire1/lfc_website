@@ -54,7 +54,7 @@ const ServiceTime = () => {
             }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.03 }}
-            className="relative rounded-xl overflow-hidden shadow-lg min-h-[474px] flex flex-col justify-center bg-cover bg-center group cursor-pointer"
+            className="relative rounded-xl overflow-hidden shadow-lg min-h-[400px] w-full flex flex-col justify-center bg-cover bg-center group cursor-pointer"
             style={{ backgroundImage: `url(${item.image})` }}
           >
             {/* Dark Overlay */}
@@ -68,11 +68,11 @@ const ServiceTime = () => {
               viewport={{ once: true }}
               className="relative z-10 p-4 flex flex-col pt-40 items-center text-white text-center"
             >
-              <h3 className="font-semibold text-[22px] mb-3">
+              <h3 className="font-semibold text-[16px] mb-3">
                 {item.name}
               </h3>
 
-              <p className="text-[18px] text-white font-normal">
+              <p className="text-[14px] text-white font-normal">
                 {item.time1}
               </p>
             </motion.div>

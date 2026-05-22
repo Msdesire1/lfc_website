@@ -151,7 +151,7 @@ const Pillars = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="text-[40px] font-semibold mb-8 text-[#000] text-center"
+        className="text-[30px] font-semibold mb-8 text-[#000] text-center"
       >
         The 12 Pillars of Our Faith
       </motion.h2>

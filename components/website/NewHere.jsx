@@ -6,7 +6,7 @@ const NewHere = () => {
     return (
         <div className="py-12 px-4 md:px-10 flex flex-col items-center gap-6 bg-[#F9F9F9] lg:px-20">
             <div className="flex flex-col gap-[16px] w-full items-center">
-                <h2 className="text-[40px] font-semibold text-[#121212]">
+                <h2 className="text-[30px] font-semibold text-[#121212]">
                     New Here?
                 </h2>
 

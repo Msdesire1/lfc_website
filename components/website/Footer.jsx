@@ -3,26 +3,24 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <section className="relative mt-32">
+    <section className="relative lg:mt-32">
       {/* ================= CTA SECTION ================= */}
-      <div className="absolute left-1/2 top-0 z-20 w-[92%] max-w-6xl -translate-x-1/2 -translate-y-1/2">
+      {/* <div className="absolute left-1/2 top-0 z-20 lg:w-[92%] w-full max-w-6xl -translate-x-1/2 -translate-y-1/2">
         <div className="relative overflow-hidden rounded-3xl">
-          {/* Background Image */}
+
           <Image
-            src="/cta.svg" // your image
+            src="/cta.svg"
             alt="cta image"
             width={1400}
             height={500}
-            className="w-full object-cover"
+            className="lg:w-full object-cover"
           />
-
-          {/* Content */}
           <div className="absolute inset-0 top-3 flex flex-col items-center justify-center px-6 text-center">
-            <h2 className="max-w-3xl text-[18px] font-semibold leading-relaxed text-white md:text-[20px]">
+            <h2 className="max-w-3xl text-[12px] font-semibold leading-relaxed text-white md:text-[18px]">
               Give, and it will be given to you. A good measure, pressed down,
               shaken together and running over, will be poured into your lap.
               <br />
-              <span className="lg:text-[32px] text-[16px]"> Luke 6:38</span>
+              <span className="lg:text-[16px] text-[14px]"> Luke 6:38</span>
             </h2>
 
             <Link
@@ -33,8 +31,40 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
+
+<div className="absolute left-1/2 top-0 z-20 w-[95%] max-w-6xl -translate-x-1/2 -translate-y-1/2">
+  <div className="relative overflow-hidden rounded-2xl md:rounded-3xl">
+    {/* Background Image */}
+    <Image
+      src="/cta.svg"
+      alt="cta image"
+      width={1400}
+      height={500}
+      className="h-[180px] w-full object-cover sm:h-[220px] md:h-[260px] lg:h-auto"
+    />
+
+    {/* Content */}
+    <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center sm:px-6">
+      <h2 className="max-w-3xl text-[11px] font-semibold leading-relaxed text-white sm:text-[14px] md:text-[18px]">
+        Give, and it will be given to you. A good measure, pressed down,
+        shaken together and running over, will be poured into your lap.
+        <br />
+        <span className="text-[12px] sm:text-[13px] md:text-[16px]">
+          Luke 6:38
+        </span>
+      </h2>
+
+      <Link
+        href={"/website/giveonline"}
+        className="mt-4 rounded-[10px] bg-[#EC3237] px-5 py-2 text-xs font-medium text-white transition hover:bg-red-700 sm:mt-6 sm:px-6 sm:py-3 sm:text-sm md:mt-8 md:px-8"
+      >
+        Give Now
+      </Link>
+    </div>
+  </div>
+</div>
       {/* ================= FOOTER ================= */}
       <footer className="w-full bg-[#0A0A0A] px-6 pb-10 pt-52 text-white md:px-14 lg:px-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-6">
@@ -157,22 +187,13 @@ export default function Footer() {
                   href="https://www.tiktok.com/@winnerchapelnewjerusalem?_r=1&_t=ZS-9408MXlHQzR"
                   className="transition hover:text-red-500"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <g fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path d="M2.5 12c0-4.23 0-6.345 1.198-7.747q.256-.3.555-.555C5.655 2.5 7.77 2.5 12 2.5s6.345 0 7.747 1.198q.3.256.555.555C21.5 5.655 21.5 7.77 21.5 12s0 6.345-1.198 7.747q-.256.3-.555.555C18.345 21.5 16.23 21.5 12 21.5s-6.345 0-7.747-1.198q-.3-.256-.555-.555C2.5 18.345 2.5 16.23 2.5 12Z" />
-                      <circle cx="12" cy="12" r="6" />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M9.875 12H9.75m4.625.001h-.125M10 12a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0m4.5.001a.25.25 0 1 1-.5 0a.25.25 0 0 1 .5 0"
-                      />
-                    </g>
-                  </svg>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
+  <path d="M0 0h14v14H0z" fill="none" />
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5.671 6.655a1.99 1.99 0 1 0 1.99 1.99v-5.28c.308 1.321 1.195 2.242 2.658 2.242" />
+    <path d="M.96 10.269a3.13 3.13 0 0 0 2.753 2.76c1.07.119 2.167.221 3.287.221s2.218-.102 3.287-.222a3.13 3.13 0 0 0 2.753-2.76c.114-1.063.21-2.155.21-3.268s-.096-2.205-.21-3.269a3.13 3.13 0 0 0-2.753-2.76C9.217.853 8.12.75 7 .75S4.782.852 3.713.972A3.13 3.13 0 0 0 .96 3.732C.846 4.794.75 5.886.75 7s.096 2.205.21 3.269" />
+  </g>
+</svg>
                 </a>
                 <a
                   href="https://t.me/+LNIVt-0iDflkMzg0"

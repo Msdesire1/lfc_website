@@ -104,7 +104,7 @@ export default function Quick() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 40 }}
               onClick={(e) => e.stopPropagation()}
-              className="fixed bottom-24 right-6 z-50 w-[95%] sm:w-95 h-120 bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+              className="fixed bottom-24 right-6 z-50 w-[95%] sm:w-95 h-100 bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
             >
             {/* Header */}
             <div className="bg-white text-[#EC3237]] p-4 flex items-center justify-center">

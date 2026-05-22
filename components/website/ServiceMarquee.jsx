@@ -19,7 +19,7 @@ export default function ServiceMarquee() {
             className="flex items-center gap-3 whitespace-nowrap"
           >
             <span className="h-2 w-2 rounded-full bg-[#605a5a]" />
-            <p className="text-[20px]  text-white font-medium">
+            <p className="text-[18px]  text-white font-medium">
               {service}
             </p>
           </div>

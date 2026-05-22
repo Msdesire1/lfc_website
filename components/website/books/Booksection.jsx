@@ -34,7 +34,7 @@ const books = [
   },
   {
     id: 5,
-    title: "A Believer’s Guide to Effective Fasting and Prayer",
+    title: "Effective Fasting and Prayer",
     author: "David & Faith Oyedepo",
     price: "3000",
     image: "/book5.png",
@@ -195,7 +195,7 @@ export default function Booksection() {
               <div className="mt-5">
                 <p className="text-sm text-gray-500">{book.author}</p>
 
-                <h3 className="mt-2 text-[17px] font-bold leading-snug text-gray-900 group-hover:text-[#EC3237] transition duration-300">
+                <h3 className="mt-2 text-[14px] font-bold leading-snug text-gray-900 group-hover:text-[#EC3237] transition duration-300">
                   {book.title}
                 </h3>
 

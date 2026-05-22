@@ -8,12 +8,12 @@ const Mandate = () => {
         <h2 className='text-[40px] font-semibold text-[#000000]'  >
           Our Mandate
         </h2>
-        <span className='text-[20px] font-normal lg:w-[723px] text-[#121212]'>
+        <span className='text-[20px] font-normal lg:w-[600px] text-[#121212]'>
           Our mandate defines the purpose and direction of the church. It reflects our calling to spread God’s word, build lives, and raise individuals who live with faith, purpose, and impact.
         </span>
       </div>
 
-      <Image width={660} height={486} src="/mandate.svg" alt="mandate" className='object-cover' />
+      <Image width={500} height={486} src="/mandate.svg" alt="mandate" className='object-cover' />
     </div>
   )
 }

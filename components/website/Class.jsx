@@ -21,25 +21,25 @@ const Class = () => {
                 <div className="flex flex-col gap-4">
 
                     {/* Heading */}
-                    <div className="flex flex-wrap items-center gap-3">
-                        <h2 className="text-[40px] md:text-[50px] font-bold text-[#EC3237] leading-tight">
+                    <div className="flex flex-1 items-center gap-3">
+                        <h2 className="lg:text-[30px] md:text-[50px] font-bold text-[#EC3237] leading-tight">
                             Believers&apos;
                         </h2>
 
-                        <h2 className="text-[40px] md:text-[52px] font-light text-[#1E1E1E] leading-tight">
+                        <h2 className="lg:text-[30px] font-light text-[#1E1E1E] leading-tight">
                             Foundation Class
                         </h2>
                     </div>
 
                     {/* Intro Text */}
-                    <p className="text-black text-[18px] leading-[42px] font-light">
+                    <p className="text-black text-[16px] font-light">
                         The Believers&apos; Foundation Class and Membership Classes at
                         Living Faith Church (Winners Chapel) is a platform for all
                         new believers and first-time worshippers to be established
                         in the faith.
                     </p>
 
-                    <p className="text-black text-[18px] leading-[42px] font-light">
+                    <p className="text-black text-[16px] font-light">
                         In this class, new members are inducted into the principles
                         and Christian beliefs of the ministry. Everyone is encouraged
                         to attend and become grounded in the Word of God.
@@ -48,7 +48,7 @@ const Class = () => {
                     {/* Courses */}
                     <div className="flex flex-col gap-3">
 
-                        <h3 className="text-[28px] font-semibold text-[#121212]">
+                        <h3 className="text-[20px] font-semibold text-[#121212]">
                             Courses Covered
                         </h3>
 
@@ -62,9 +62,9 @@ const Class = () => {
                             ].map((item, index) => (
                                 <div
                                     key={index}
-                                    className="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-1"
+                                    className="flex items-center gap-4 bg-white rounded-xl px-5 py-2 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-1"
                                 >
-                                    <div className="w-7 h-7 rounded-full bg-[#EC3237] text-white flex items-center justify-center font-semibold">
+                                    <div className="w-7 h-5 rounded-full bg-[#EC3237] text-white flex items-center justify-center font-semibold">
                                         {index + 1}
                                     </div>
 
@@ -78,7 +78,7 @@ const Class = () => {
                     </div>
 
                     {/* Bottom Text */}
-                    <p className="text-black text-[18px] leading-[42px] font-light">
+                    <p className="text-black text-[16px]  font-light">
                         Every growth-thirsty Christian should seek to attend the
                         Believers Class. It helps to create a solid spiritual
                         foundation that is strong enough to withstand the challenges

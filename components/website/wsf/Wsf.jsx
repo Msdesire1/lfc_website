@@ -28,7 +28,7 @@ const Wsf = () => {
   <h1 className="mb-3 text-[60px] font-bold md:text-[30px">
         Winners Satellite Fellowship
       </h1>
-  <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
+  <p className="mx-auto mb-8 max-w-xl text-[16px] leading-7 text-gray-200 md:text-base">
         “For where two or three are gathered together in My name, I am<br/> there in the midst of them.” Matt. 18:20.
       </p>
     </div>
@@ -41,11 +41,11 @@ const Wsf = () => {
 
         {/* LEFT CONTENT */}
         <div className="space-y-6">
-          <h2 className="lg:text-[35px] font-semibold leading-tight text-[#1e1e1e] text-xl">
+          <h2 className="lg:text-[30px] font-semibold leading-tight text-[#1e1e1e] text-xl">
             Winners Satellite Fellowship
           </h2>
 
-          <div className="space-y-4 text-[15px] leading-8 text-[#333333] md:text-base">
+          <div className="space-y-4 text-[14px] leading-8 text-[#333333] md:text-base">
             <p>
               Acts 2:46 (King James Version KJV)
               “And they, continuing daily with one accord in the temple, and
@@ -73,7 +73,7 @@ const Wsf = () => {
           <Image
             src="/wsf.svg"
             alt="Winners Satellite Fellowship"
-            width={700}
+            width={600}
             height={500}
             className="h-full w-full object-cover transition duration-500 hover:scale-105"
             priority
@@ -91,7 +91,7 @@ const Wsf = () => {
             src="/wsfone.svg"
             alt="Winners Satellite Fellowship"
             width={600}
-            height={500}
+            height={400}
             className="h-full w-full object-cover transition duration-500 hover:scale-105"
             priority
           />
@@ -101,12 +101,12 @@ const Wsf = () => {
 
 
         {/* LEFT CONTENT */}
-        <div className="space-y-6">
-  <h2 className="lg:text-[35px] font-semibold leading-tight text-[#1e1e1e] text-xl">
+        <div className="space-y-3">
+  <h2 className="lg:text-[18px] font-semibold leading-tight text-[#1e1e1e] text-xl">
           Winners Satellite Fellowship Objectives
           </h2>
 
-          <div className="space-y-4 text-[15px] leading-8 text-[#333333] md:text-base">
+          <div className="space-y-2 text-[14px] leading-8 text-[#333333] md:text-base">
             <p>
 <ol className="list-decimal list-inside">
   <li>To Care – Hearts of compassion</li>
@@ -143,11 +143,11 @@ const Wsf = () => {
 
         {/* LEFT CONTENT */}
         <div className="space-y-6">
-          <h2 className="lg:text-[35px] font-semibold leading-tight text-[#1e1e1e] text-xl">
+          <h2 className="lg:text-[30px] font-semibold leading-tight text-[#1e1e1e] text-xl">
             Meeting Times
           </h2>
 
-          <div className="space-y-4 text-[15px] leading-8 text-[#333333] md:text-base">
+          <div className="space-y-4 text-[14px] leading-8 text-[#333333] md:text-base">
              <p>
            <span className='font-bold'>Date:</span> Every Saturday
             </p>
@@ -177,7 +177,7 @@ const Wsf = () => {
           <Image
             src="/wsftwo.svg"
             alt="Winners Satellite Fellowship"
-            width={700}
+            width={500}
             height={500}
             className="h-full w-full object-cover transition duration-500 hover:scale-105"
             priority

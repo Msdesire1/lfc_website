@@ -6,18 +6,18 @@ const Ministries = () => {
     <div className='lg:px-20 px-6'>
  <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
       <div className='flex flex-col  gap-[24px]'>
-        <h2 className='text-[60px] font-semibold text-[#000000]'  >
-         One Church, Many Expressions of Faith
+        <h2 className='text-[40px] font-semibold text-[#000000]'  >
+         One Church, Many <br/>Expressions of Faith
         </h2>
-        <span className='text-[24px] font-normal  text-[#121212]'>
+        <span className='text-[16px] font-normal  text-[#121212]'>
 At Winners Chapel, every age group is nurtured through a dedicated ministry designed to support spiritual growth, build strong community, and make learning God’s word relatable at every stage of life.
         </span>
       </div>
 
-      <Image width={600} height={486} src="/mainch.svg" alt="mandate" className='object-cover' />
+      <Image width={500} height={486} src="/mainch.svg" alt="mandate" className='object-cover' />
     </div>
     <div className='py-10 justify-center items-center flex'>
-<h1 className='font-bold text-[40px] text-center'> Explore Our Church <br/> Ministries</h1>
+<h1 className='font-bold text-[30px] text-center'> Explore Our Church <br/> Ministries</h1>
     </div>
 
 {/* 1 */}
@@ -46,7 +46,7 @@ At Winners Chapel, every age group is nurtured through a dedicated ministry desi
         <img
           src="/mainone.svg"
           alt="Adult Church"
-          className="h-[356px] w-full max-w-[600px] object-cover"
+          className="h-[356px] w-full max-w-[500px] object-cover"
         />
       </div>
     </div>
@@ -61,7 +61,7 @@ At Winners Chapel, every age group is nurtured through a dedicated ministry desi
         <img
           src="/theyouth.svg"
           alt="Adult Church"
-          className="h-[356px] w-full max-w-[600px] object-cover"
+          className="h-[356px] w-full max-w-[500px] object-cover"
         />
       </div>
     </div>
@@ -102,7 +102,7 @@ Teens church
         <img
           src="/theteen.svg"
           alt="Adult Church"
-          className="h-[356px] w-full max-w-[600px] object-cover"
+          className="h-[356px] w-full max-w-[500px] object-cover"
         />
       </div>
     </div>
@@ -116,7 +116,7 @@ Teens church
         <img
           src="/thekids.svg"
           alt="Adult Church"
-          className="h-[356px] w-full max-w-[600px] object-cover"
+          className="h-[356px] w-full max-w-[500px] object-cover"
         />
       </div>
     </div>

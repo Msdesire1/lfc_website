@@ -7,15 +7,15 @@ const Children = () => {
         <div className='lg:px-20 px-6'>
  <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
           <div className='flex flex-col gap-[24px]'>
-            <h2 className='text-[60px] font-semibold text-[#000000]'  >
-    God’s Little Stars, Shining Bright
+            <h2 className='text-[40px] font-semibold text-[#000000]'  >
+    God’s Little Stars,<br/> Shining Bright
             </h2>
-            <span className='text-[24px] font-normal lg:w-[723px] text-[#121212]'>
+            <span className='text-[16px] font-normal lg:w-[500px] text-[#121212]'>
     A supportive space where children can explore their faith, build confidence, and navigate life with guidance and truth.
             </span>
           </div>
 
-          <Image width={660} height={486} src="/childone.svg" alt="mandate" className='object-cover' />
+          <Image width={500} height={486} src="/childone.svg" alt="mandate" className='object-cover' />
         </div>
     {/*  */}
     <section className="w-full bg-[#F5F5F5] px-6 py-20 ">
@@ -27,7 +27,7 @@ const Children = () => {
             About This Ministry
           </h2>
 
-          <p className="text-base leading-9 text-gray-700 md:text-lg">
+          <p className="text-[16px] leading-9 text-gray-700">
             This ministry is dedicated to helping children grow in the knowledge
             and love of God. Through Bible-based teachings, caring guidance,
             and fun learning activities, we nurture young hearts to develop
@@ -61,11 +61,11 @@ const Children = () => {
 
         {/* Right Content */}
         <div>
-          <h2 className="mb-5 text-[40px] font-bold text-[#111111] md:text-4xl">
+          <h2 className="mb-5 text-[30px] font-bold text-[#111111] md:text-4xl">
             Join Us to Worship
           </h2>
 
-          <p className="mb-5 max-w-xl text-base leading-8 text-gray-600">
+          <p className="mb-5 max-w-xl text-[16px] leading-8 text-gray-600">
             Be part of our Sunday service where children gather to worship,
             learn, and grow in a supportive faith community.
           </p>
@@ -76,7 +76,7 @@ const Children = () => {
               Service Time:
             </h3>
 
-            <div className="space-y-3 text-sm leading-7 text-gray-700 md:text-base">
+            <div className="space-y-3 text-[14px] leading-7 text-gray-700">
               <p>
                 Word Encounter Service (Every Sunday) - 7:30am
               </p>

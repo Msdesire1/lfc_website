@@ -27,7 +27,7 @@ const Pastors = () => {
                     <h2 className='text-[40px] font-semibold'>
                         OUR STATE PASTOR
                     </h2>
-<p className='text-[#000000] text-[20px] font-normal  w-[750px]'>
+<p className='text-[#000000] text-[14px] font-normal  lg:w-[600px]'>
   Pastor Kayode Martins currently serves as the State and Resident Pastor of Living Faith Church, New Jerusalem, Ilorin, following his transfer to Ilorin in August 2025. A devoted servant of God, he is passionately committed to the preaching of the Word and the advancement of the liberation mandate. <br /><br />
 
 Through his teachings and leadership, many lives have continued to experience transformation, restoration, and spiritual growth. His ministry is centered on faith, kingdom service, and raising believers to fulfil their glorious destinies in Christ. <br /><br />
@@ -37,7 +37,7 @@ Pastor Kayode Martins remains dedicated to serving God wholeheartedly, impacting
 </p>
 
                 </div>
-                <Image src="/pkm.jpg" alt="Pastors" width={600} height={500} className=' rounded-[32px]' />
+                <Image src="/pkm.jpg" alt="Pastors" width={500} height={500} className=' rounded-[32px]' />
             </div>
             <div className="py-8 w-full flex flex-col items-center justify-center gap-[40px]">
                 <h2 className="text-[40px] font-semibold text-center text-[#000]">Our Pastors</h2>

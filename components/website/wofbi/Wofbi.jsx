@@ -22,7 +22,7 @@ const courses = [
     title: "Basic Certificate Course",
     description:
       "To lay a solid foundation in the word of God for students and to provoke their understanding.",
-    button: "Start Course Now",
+    button: "Start Course",
     image: "/step-two.png",
   },
   {
@@ -98,7 +98,7 @@ const Wofbi = () => {
         <h2 className='text-[40px] font-semibold text-[#000000]'  >
 Word of Faith Bible <br/> Institute (WOFBI)
         </h2>
-        <span className='text-[20px] font-normal  text-[#121212]'>
+        <span className='text-[16px] font-normal  text-[#121212]'>
 It takes training to triumph and no one arms a man who
 {/* <br/> */}
  is not trained. That is what WOFBI stands for, and
@@ -115,7 +115,7 @@ It takes training to triumph and no one arms a man who
         </div>
       </div>
 
-      <Image width={660} height={486} src="/wobi.svg" alt="mandate" className='object-cover rounded-[32px]' />
+      <Image width={500} height={486} src="/wobi.svg" alt="mandate" className='object-cover rounded-[32px]' />
     </div>
 </section>
 
@@ -133,7 +133,7 @@ It takes training to triumph and no one arms a man who
             <span className="h-[1px] w-12 bg-[#d62d20]" />
           </div>
 
-          <h2 className="mb-6 text-4xl font-bold leading-tight text-black md:text-5xl">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-black md:text-4xl">
             Unlock Your Spiritual Potentials
           </h2>
 
@@ -152,7 +152,7 @@ It takes training to triumph and no one arms a man who
             >
               {/* TAG */}
               <div className="mb-10 inline-block rounded-full bg-[#e5e2df] px-6 py-3">
-                <p className="text-xs font-semibold uppercase tracking-wide text-[#4b5563]">
+                <p className="text-[12px] font-semibold uppercase tracking-wide text-[#4b5563]">
                   {course.tag}
                 </p>
               </div>
@@ -169,17 +169,17 @@ It takes training to triumph and no one arms a man who
               </div>
 
               {/* TITLE */}
-              <h3 className="mb-5 text-[16px] font-semibold leading-snug text-[#c61f16]">
+              <h3 className="mb-5 text-[12px] font-semibold leading-snug text-[#c61f16]">
                 {course.title}
               </h3>
 
               {/* DESCRIPTION */}
-              <p className="mb-8 text-[14px] leading-9 text-[#555]">
+              <p className="mb-8 text-[14px] leading-5 text-[#555]">
                 {course.description}
               </p>
 
               {/* BUTTON */}
-              <button className="rounded-xl border border-[#d9a24a] px-8 py-4 text-base font-medium text-[#555] transition duration-300 hover:bg-[#d9a24a] hover:text-white">
+              <button className="rounded-[12px] border border-[#d9a24a] px-8 py-4 text-[14px] font-medium text-[#555] transition duration-300 hover:bg-[#d9a24a] hover:text-white">
                 {course.button}
               </button>
             </div>
@@ -192,12 +192,12 @@ It takes training to triumph and no one arms a man who
       <div className="mx-auto max-w-5xl text-center text-white">
 
         {/* TOP TITLE */}
-        <h4 className="mb-10 font-serif text-[60px] font-bold tracking-wide md:text-[60px">
+        <h4 className="mb-10 font-serif text-[40px] font-bold tracking-wide md:text-[60px">
           The Institute
         </h4>
 
         {/* MAIN CONTENT */}
-        <h2 className="mx-auto  lg:text-[50px] font-semibold leading-[1.6] md:text-5xl md:leading-[1.5]">
+        <h2 className="mx-auto  lg:text-[30px] font-semibold leading-[1.6] md:text-5xl md:leading-[1.5]">
           The Word of Faith Bible Institute is the training arm of the Living
           Faith Church Worldwide. It was established on September 1, 1986,
           fulfillment of the mandate God gave his Servant, Bishop David Oyedepo
@@ -244,12 +244,12 @@ It takes training to triumph and no one arms a man who
           </div>
 
           {/* Main Title */}
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-3xl font-bold text-gray-900">
             Our Vision
           </h2>
 
           {/* Paragraph */}
-          <p className="text-gray-700 leading-9 text-[17px] max-w-xl">
+          <p className="text-gray-700 leading-9 text-[16px] max-w-xl">
             The Vision of the Institute is in line with the mandate of the
             Living Faith Church Worldwide as given to is servant Bishop David
             Oyedepo. For this reason, the Institute&apos;s Curriculum is
@@ -277,12 +277,12 @@ It takes training to triumph and no one arms a man who
           </div>
 
           {/* Main Title */}
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-3xl font-bold text-gray-900">
           Our Primary Goal
           </h2>
 
           {/* Paragraph */}
-          <p className="text-gray-700 leading-9 text-[17px] max-w-xl">
+          <p className="text-gray-700 leading-9 text-[16px] max-w-xl">
            The anchor scripture given to His servant at the onset of the institute is Genesis 14:14. &quot;And when Abram heard that his brother was taken captive, he armed His trained servants born in his own house, three hundred and eighteen, and pursued them into Dan&quot;..
 Our primary goal is to provide God centered spiritual education that engenders enlightenment and mental empowerment for daily exploits. To this end, the Courses offered at the Word of Faith Bible Institute are tailored to reveal God to man and enable him walk in dominion on earth.
           </p>
@@ -291,7 +291,7 @@ Our primary goal is to provide God centered spiritual education that engenders e
 
   {/* Left Image */}
         <div className="w-full">
-          <div className="relative w-full h-[260px] md:h-[350px] rounded-lg overflow-hidden">
+          <div className="relative w-full h-[268px] md:h-[350px] rounded-lg overflow-hidden">
             <Image
               src="/wobiimage.jpg"
               alt="Our Vision"
@@ -310,11 +310,11 @@ Our primary goal is to provide God centered spiritual education that engenders e
         {/* LEFT SIDE */}
         <div className="space-y-8 px-5">
           <div className="space-y-5">
-            <h2 className="text-3xl md:text-5xl font-semibold text-[#111111] leading-tight">
+            <h2 className="text-3xl md:text-3xl font-semibold text-[#111111] leading-tight">
               Frequently Asked Questions
             </h2>
 
-            <p className="text-gray-700 text-lg leading-8 max-w-lg">
+            <p className="text-gray-700 text-[16px] leading-8 max-w-lg">
               It facilitate communication by answering common questions
               and equipping users with essential information.
             </p>
@@ -340,7 +340,7 @@ Our primary goal is to provide God centered spiritual education that engenders e
                   onClick={() => toggleFaq(index)}
                   className="w-full flex items-center justify-between px-6 py-5 text-left"
                 >
-                  <span className="text-[#222222] text-sm md:text-base font-medium pr-4">
+                  <span className="text-[#222222] text-[14px] md:text-base font-medium pr-4">
                     {faq.question}
                   </span>
 

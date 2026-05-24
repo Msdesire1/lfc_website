@@ -27,7 +27,7 @@ const Teenschurch = () => {
           </h2>
 
           <p className="text-[16px] leading-9 text-gray-700 ">
-            This ministry is focused on guiding teenagers to grow in Christ
+            This ministry is focused on guiding pre-teens to grow in Christ
              and build a strong spiritual foundation. Through sound teaching,
               mentorship, and interactive activities, we inspire teens to
               live with confidence, purpose, and godly character in today’s world.
@@ -64,7 +64,7 @@ const Teenschurch = () => {
           </h2>
 
           <p className="mb-5 max-w-xl text-base leading-8 text-gray-600">
-            Be part of our Sunday service where teenagers gather to worship,
+            Be part of our Sunday service where pre-teens gather to worship,
             learn, and grow in a supportive faith community.
           </p>
 

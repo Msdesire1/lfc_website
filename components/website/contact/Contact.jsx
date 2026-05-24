@@ -71,7 +71,7 @@ const Contact = () => {
     We&apos;re here for you!
       </h1>
       <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
-      If you would like to talk to us, please call us at +2347080638000 <br/> or send an email to lfcwwilr@yahoo.com or
+      If you would like to talk to us,<br/>  please call us at +234 811 078 2906 and +234 816 160 8839 <br/> or send an email to lfcwwilr@yahoo.com or
 Kwara.state@lfcww.org
       </p>
     </div>
@@ -172,7 +172,7 @@ Kwara.state@lfcww.org
 
                 <input
                   type="text"
-                  placeholder="+234 708 063 8000"
+                  placeholder="+234 816 160 8839"
                   className="w-full h-11 border border-gray-300 rounded-md px-4 outline-none focus:border-red-600"
                 />
               </div>

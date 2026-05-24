@@ -8,8 +8,8 @@ import Image from "next/image";
 
 const ministriesLinks = [
   { label: "Main's Church", href: "/website/mainchurch" },
-  { label: "Youth Church", href: "/website/youthchurch" },
-  { label: "Teens Church", href: "/website/teenschurch" },
+  { label: "Teens", href: "/website/youthchurch" },
+  { label: "Pre-Teens Church", href: "/website/teenschurch" },
   { label: "Children's Church", href: "/website/childrenchurch" },
 ];
 

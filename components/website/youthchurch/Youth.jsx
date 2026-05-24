@@ -29,7 +29,7 @@ A supportive space where youth can explore their faith,<br/> build confidence, a
 
       <p className="leading-9 text-gray-700 text-[16px]">
        This ministry is committed to raising a generation of passionate
-        and purpose-driven youths. Through inspiring teachings, mentorship,
+        and purpose-driven Teens. Through inspiring teachings, mentorship,
          fellowship, and engaging activities, we help young people grow in faith,
          discover their purpose, and develop Godly values for a successful and impactful life.
       </p>
@@ -65,7 +65,7 @@ A supportive space where youth can explore their faith,<br/> build confidence, a
       </h2>
 
       <p className="mb-5 max-w-xl text-base leading-8 text-gray-600">
-        Be part of our Sunday service where youth gather to worship,
+        Be part of our Sunday service where teens gather to worship,
         learn, and grow in a supportive faith community.
       </p>
 

@@ -117,7 +117,7 @@ const Faithacademy = () => {
               Faith Academy is a Christian secondary school located in the
               Ita-Alamu area along Ajasse-Ipo Road, Ilorin, Kwara State,
               Nigeria. The school is part of the Faith Academy Network
-              established by Bishop David Oyedepo under Living Faith Church
+              established by God Servant David Oyedepo under Living Faith Church
               Worldwide. Faith Academy is known for combining academic
               excellence with strong spiritual and moral training, helping
               students grow intellectually, socially, and spiritually. The

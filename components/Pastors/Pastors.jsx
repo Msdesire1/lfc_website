@@ -10,7 +10,7 @@ const Pastors = () => {
         },
         {
             image: "/pastor3.svg",
- name: "Pastor Christian Femi Ekpekhio",
+  name: "Pastor Christian Femi Ekpenkhio",
             role: "Assistant Residence Pastor"
         },
 
@@ -32,7 +32,7 @@ const Pastors = () => {
 
 Through his teachings and leadership, many lives have continued to experience transformation, restoration, and spiritual growth. His ministry is centered on faith, kingdom service, and raising believers to fulfil their glorious destinies in Christ. <br /><br />
 
-Pastor Kayode Martins remains dedicated to serving God wholeheartedly, impacting lives, and advancing the kingdom of God in Ilorin and beyond, in line with the divine vision delivered to Bishop David Oyedepo.
+Pastor Kayode Martins remains dedicated to serving God wholeheartedly, impacting lives, and advancing the kingdom of God in Ilorin and beyond, in line with the divine vision delivered to  God Servant David Oyedepo.
 
 </p>
 

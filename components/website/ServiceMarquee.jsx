@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function ServiceMarquee() {
   const services = [
      "Covenant Hour of Prayer (Monday-Saturday) - 6:00am - 7:00am",
@@ -11,14 +13,15 @@ export default function ServiceMarquee() {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-[#EC3237] py-4 border-y border-white/10">
+    <div className="relative overflow-hidden bg-[#b7676a] py-4 border-y border-white/10">
       <div className="flex w-max animate-marquee gap-10">
         {[...services, ...services].map((service, index) => (
           <div
             key={index}
             className="flex items-center gap-3 whitespace-nowrap"
           >
-            <span className="h-2 w-2 rounded-full bg-[#605a5a]" />
+            {/* <span className="h-2 w-2 rounded-full bg-white" /> */}
+             <Image src="/logo.svg" alt="Logo" width={35} height={35} />
             <p className="text-[18px]  text-white font-medium">
               {service}
             </p>

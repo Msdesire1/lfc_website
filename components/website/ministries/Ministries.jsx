@@ -70,7 +70,7 @@ At Winners Chapel, every age group is nurtured through a dedicated ministry desi
     <div className="flex justify-center">
       <div className="max-w-md text-center">
         <h2 className="mb-5 text-2xl font-bold text-[#111111] md:text-3xl">
-          Youth Church
+          Teens Church
         </h2>
 
         <p className="text-sm leading-7 text-gray-600 md:text-base text-center">
@@ -87,11 +87,11 @@ A vibrant community designed to help young people discover purpose, grow in thei
     <div className="flex justify-center">
       <div className="max-w-md text-center">
         <h2 className="mb-5 text-2xl font-bold text-[#111111] md:text-3xl">
-Teens church
+Pre-Teens church
         </h2>
 
         <p className="text-sm leading-7 text-gray-600 md:text-base text-center">
-         A supportive and engaging environment where teenagers can build a strong foundation in faith while developing character, confidence, and a sense of identity. It encourages open learning, guidance, and connection with like-minded peers.
+         A supportive and engaging environment where pre-teens can build a strong foundation in faith while developing character, confidence, and a sense of identity. It encourages open learning, guidance, and connection with like-minded peers.
         </p>
       </div>
     </div>

@@ -5,7 +5,7 @@ const socialLinks = {
   tiktok: "https://www.tiktok.com/@winnerchapelnewjerusalem?_r=1&_t=ZS-9408MXlHQzR",
   youtube: "https://www.youtube.com/@lfcilorin",
   instagram: "https://www.instagram.com/lfcilorin?igsh=ejAzdGp0dHB2b3Z2",
-  whatsapp: "https://chat.whatsapp.com/J9iSiRwHBNq6vdS2u7jbpy?mode=gi_t",
+  whatsapp: "",
 };
 
 const videos = [

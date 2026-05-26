@@ -1,10 +1,11 @@
+
 import React from 'react'
-import Media from '../../../components/website/media/Media'
+import Landmark from '../../../components/website/landmark/Landmark '
 
 const page = () => {
   return (
     <div>
-<Media />
+<Landmark/>
     </div>
   )
 }

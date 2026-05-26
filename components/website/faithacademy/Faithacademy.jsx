@@ -108,7 +108,7 @@ const Faithacademy = () => {
 
       {/* About School Section */}
       <section className="py-16 px-4 md:px-10 lg:px-20 bg-gray-50">
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-[1500px] mx-auto">
           <div className="mb-12">
             <h2 className="text-4xl md:text-4xl font-bold text-gray-900 mb-6">
               About Faith Academy
@@ -117,7 +117,7 @@ const Faithacademy = () => {
               Faith Academy is a Christian secondary school located in the
               Ita-Alamu area along Ajasse-Ipo Road, Ilorin, Kwara State,
               Nigeria. The school is part of the Faith Academy Network
-              established by Bishop David Oyedepo under Living Faith Church
+              established by God Servant David Oyedepo under Living Faith Church
               Worldwide. Faith Academy is known for combining academic
               excellence with strong spiritual and moral training, helping
               students grow intellectually, socially, and spiritually. The
@@ -299,7 +299,7 @@ const Faithacademy = () => {
                 >
                   Start Registration
                 </Link>
-                <button className="border-2 border-red-500 text-red-500 px-8 py-3 rounded-[12px] font-semibold hover:bg-red-50 transition-all">
+                <button className="border-2  border-red-500 text-red-500 px-8 py-3 rounded-[12px] font-semibold hover:bg-red-50 transition-all">
                   Download Forms
                 </button>
               </div>

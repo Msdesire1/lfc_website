@@ -6,34 +6,28 @@ import Footer from '../Footer';
 
 const faqData = [
   {
-    question: "How do i find lfc NEW JERUSALEM ILORIN?",
-    answer:
-      "Located at Gaa-imam beside ITC company.",
+    question: "Where is LFC New Jerusalem Ilorin located?",
+    answer: "We are at Gaa-Imam, beside the ITC Company, Ilorin, Kwara State.",
   },
   {
-    question: "How do i book a session?",
-    answer:
-      "Select your preferred tutor, choose an available time slot, and confirm your booking directly from the tutor profile.",
+    question: "When are your main worship services?",
+    answer: "Sundays: 7:30 AM (Family Service) and 9:30 AM. Midweek service: Wednesdays at 50:00PM -6:30PM.",
   },
   {
-    question: "What if i need to cancel or reschedule a session?",
-    answer:
-      "You can cancel or reschedule sessions from your dashboard before the scheduled session time.",
+    question: "How can I give or support the church?",
+    answer: "You can give online via our website, drop offerings during services, or contact the office for bank transfer details.",
   },
   {
-    question: "How do I pay for sessions?",
-    answer:
-      "Payments can be made securely online using your debit card, bank transfer, or other supported payment methods.",
+    question: "How do I contact the church office?",
+    answer: "Call +234 811 078 2906 or +234 816 160 8839, or email lfcwwilr@yahoo.com.",
   },
   {
-    question: "What should I do if my tutor doesn't show up?",
-    answer:
-      "Please contact support immediately and we will assist you with rescheduling or issuing a refund if necessary.",
+    question: "Do you have children's and youth programs?",
+    answer: "Yes — we run Children's Church and Youth Fellowship during Sunday services and weekly midweek meetings.",
   },
   {
-    question: "How do I leave feedback for my tutor?",
-    answer:
-      "After every completed session, you can leave a rating and feedback from your dashboard.",
+    question: "How do I join a  WSF?",
+    answer: "Visit the Welcome Desk after service or email Kwara.state@lfcww.org to be connected to a ministry leader.",
   },
 ];
 
@@ -71,7 +65,7 @@ const Contact = () => {
     We&apos;re here for you!
       </h1>
       <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
-      If you would like to talk to us, please call us at +2347080638000 <br/> or send an email to lfcwwilr@yahoo.com or
+      If you would like to talk to us,<br/>  please call us at +234 811 078 2906 and +234 816 160 8839 <br/> or send an email to lfcwwilr@yahoo.com or
 Kwara.state@lfcww.org
       </p>
     </div>
@@ -172,7 +166,7 @@ Kwara.state@lfcww.org
 
                 <input
                   type="text"
-                  placeholder="+234 708 063 8000"
+                  placeholder="+234 816 160 8839"
                   className="w-full h-11 border border-gray-300 rounded-md px-4 outline-none focus:border-red-600"
                 />
               </div>

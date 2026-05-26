@@ -59,10 +59,12 @@ const Class = () => {
                                 "EFFECTIVE PRAYER LIFE",
                                 "KINGDOM STEWARDSHIP",
                                 "HOLY GHOST BAPTISM",
+                                 "KINGDOM STEWARDSHIP",
+                                "HOLY GHOST BAPTISM",
                             ].map((item, index) => (
                                 <div
                                     key={index}
-                                    className="flex items-center gap-4 bg-white rounded-xl px-5 py-2 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-1"
+                                    className="flex items-center gap-4 bg-white text-[12px] rounded-xl px-5 py-2 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-1"
                                 >
                                     <div className="w-7 h-5 rounded-full bg-[#EC3237] text-white flex items-center justify-center font-semibold">
                                         {index + 1}
@@ -86,11 +88,11 @@ const Class = () => {
                     </p>
 
                     {/* Button */}
-                    <div>
+                    {/* <div>
                         <button className="bg-[#EC3237] hover:bg-[#EC3237] transition duration-300 text-white px-8 py-4 rounded-xl text-[16px] font-semibold shadow-md hover:scale-105">
                             Join Foundation Class
                         </button>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

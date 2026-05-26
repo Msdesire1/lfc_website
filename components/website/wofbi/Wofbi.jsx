@@ -109,7 +109,7 @@ It takes training to triumph and no one arms a man who
         </span>
 
         <div>
-          <button className='px-8 py-3 bg-[#EC3237] text-white rounded-[12px] text-[16px] font-medium'>
+          <button className='px-8 py-3  bg-[#EC3237] text-white rounded-[12px] text-[16px] font-medium'>
            Register
           </button>
         </div>
@@ -200,7 +200,7 @@ It takes training to triumph and no one arms a man who
         <h2 className="mx-auto  lg:text-[30px] font-semibold leading-[1.6] md:text-5xl md:leading-[1.5]">
           The Word of Faith Bible Institute is the training arm of the Living
           Faith Church Worldwide. It was established on September 1, 1986,
-          fulfillment of the mandate God gave his Servant, Bishop David Oyedepo
+          fulfillment of the mandate God gave his Servant, David Oyedepo
           who is the President of the institute, and on May 11, 1983, God told
           him:
         </h2>

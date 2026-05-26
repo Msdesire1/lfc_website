@@ -8,7 +8,7 @@ const Ourpastors = () => {
     },
     {
       image: "/pastor3.svg",
-      name: "Pastor Christian Femi Ekpekhio",
+      name: "Pastor Christian Femi Ekpenkhio",
       role: "Assistant Residence Pastor"
     },
 

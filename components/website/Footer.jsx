@@ -4,36 +4,6 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <section className="relative lg:mt-32">
-      {/* ================= CTA SECTION ================= */}
-      {/* <div className="absolute left-1/2 top-0 z-20 lg:w-[92%] w-full max-w-6xl -translate-x-1/2 -translate-y-1/2">
-        <div className="relative overflow-hidden rounded-3xl">
-
-          <Image
-            src="/cta.svg"
-            alt="cta image"
-            width={1400}
-            height={500}
-            className="lg:w-full object-cover"
-          />
-          <div className="absolute inset-0 top-3 flex flex-col items-center justify-center px-6 text-center">
-            <h2 className="max-w-3xl text-[12px] font-semibold leading-relaxed text-white md:text-[18px]">
-              Give, and it will be given to you. A good measure, pressed down,
-              shaken together and running over, will be poured into your lap.
-              <br />
-              <span className="lg:text-[16px] text-[14px]"> Luke 6:38</span>
-            </h2>
-
-            <Link
-              href={"/website/giveonline"}
-              className="mt-8 rounded-[12px] bg-[#EC3237] px-8 py-3 text-sm font-medium text-white transition hover:bg-red-700"
-            >
-              Give Now
-            </Link>
-          </div>
-        </div>
-      </div> */}
-
-
 <div className="absolute left-1/2 top-0 z-20 w-[95%] max-w-6xl -translate-x-1/2 -translate-y-1/2">
   <div className="relative overflow-hidden rounded-2xl md:rounded-3xl">
     {/* Background Image */}
@@ -70,15 +40,10 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-6">
           {/* Logo + About */}
           <div className="lg:col-span-2">
-            <div className="mb-6 flex items-start gap-3">
-              <Image
-                src="/footerlo.svg"
-                alt="logo"
-                width={50}
-                height={48}
-                className="object-contain"
-              />
-
+            <div className="flex gap-2 ">
+            <div className="h-16 w-16 rounded-full bg-white justify-center items-center flex">
+            <Image src="/logo.svg" alt="Logo" width={60} height={80} />
+            </div>
               <h2 className="text-[24px] font-semibold uppercase leading-8">
                 Living Faith New
                 <br />
@@ -144,7 +109,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="www.youtube.com/@lfcilorin"
+                  href="https://www.youtube.com/@lfcilorin"
                   className="transition hover:text-red-500"
                 >
                   <svg
@@ -162,27 +127,6 @@ export default function Footer() {
                     </g>
                   </svg>
                 </a>
-
-                <a
-                  href="https://chat.whatsapp.com/J9iSiRwHBNq6vdS2u7jbpy?mode=gi_t"
-                  className="transition hover:text-red-500"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <g fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path
-                        stroke-linejoin="round"
-                        d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12c0 1.379.28 2.693.784 3.888c.279.66.418.99.436 1.24c.017.25-.057.524-.204 1.073L2 22l3.799-1.016c.549-.147.823-.22 1.073-.204c.25.018.58.157 1.24.436A10 10 0 0 0 12 22Z"
-                      />
-                      <path d="m8.588 12.377l.871-1.081c.367-.456.82-.88.857-1.488c.008-.153-.1-.841-.315-2.218C9.916 7.049 9.41 7 8.973 7c-.57 0-.855 0-1.138.13c-.358.163-.725.622-.806 1.007c-.064.305-.016.515.079.935c.402 1.783 1.347 3.544 2.811 5.009c1.465 1.464 3.226 2.409 5.01 2.811c.42.095.629.143.934.079c.385-.08.844-.448 1.008-.806c.129-.283.129-.568.129-1.138c0-.438-.049-.943-.59-1.028c-1.377-.216-2.065-.323-2.218-.315c-.607.036-1.032.49-1.488.857l-1.081.87" />
-                    </g>
-                  </svg>
-                </a>
-
                 <a
                   href="https://www.tiktok.com/@winnerchapelnewjerusalem?_r=1&_t=ZS-9408MXlHQzR"
                   className="transition hover:text-red-500"

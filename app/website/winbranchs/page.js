@@ -1,10 +1,10 @@
 import React from 'react'
-import Media from '../../../components/website/media/Media'
+import Branchs from '../../../components/website/winbranchs/Branchs'
 
 const page = () => {
   return (
     <div>
-<Media />
+<Branchs/>
     </div>
   )
 }

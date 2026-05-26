@@ -109,7 +109,7 @@ It takes training to triumph and no one arms a man who
         </span>
 
         <div>
-          <button className='px-8 py-3 bg-[#EC3237] text-white rounded-[12px] text-[16px] font-medium'>
+          <button className='px-8 py-3  bg-[#EC3237] text-white rounded-[12px] text-[16px] font-medium'>
            Register
           </button>
         </div>

@@ -13,7 +13,7 @@ export default function ServiceMarquee() {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-[#b7676a] py-4 border-y border-white/10">
+    <div className="relative overflow-hidden bg-[#343A40] py-4 border-y border-white/10">
       <div className="flex w-max animate-marquee gap-10">
         {[...services, ...services].map((service, index) => (
           <div
@@ -21,7 +21,9 @@ export default function ServiceMarquee() {
             className="flex items-center gap-3 whitespace-nowrap"
           >
             {/* <span className="h-2 w-2 rounded-full bg-white" /> */}
-             <Image src="/logo.svg" alt="Logo" width={35} height={35} />
+            <div className="h-10 w-10 rounded-full bg-white justify-center items-center flex">
+            <Image src="/logo.svg" alt="Logo" width={35} height={35} />
+            </div>
             <p className="text-[18px]  text-white font-medium">
               {service}
             </p>

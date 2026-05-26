@@ -9,6 +9,7 @@ import Done from "@/components/website/Done";
 import NewHere from "@/components/website/NewHere";
 import Class from "@/components/website/Class";
 import ServiceMarquee from "@/components/website/ServiceMarquee";
+import Download from "@/components/website/Download";
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <ServiceTime />
       <Pillars />
       <Books />
+      <Download/>
       < OurPastors />
       <Done />
       <NewHere />

@@ -226,7 +226,7 @@ export default function Booksection() {
   viewport={{ once: true }}
   className="mt-10 text-center"
 >
-  <p className="text-black lg:text-[20px] text-[14px] font-medium">
+  <p className="text-black lg:text-[30px] text-[14px] font-medium">
     For more informations kindly call{" "}
     <span className="text-[#EC3237] font-bold">
       Pastor Babatunde
@@ -235,7 +235,7 @@ export default function Booksection() {
 
   <a
     href="tel:+234 813 073 5584"
-    className="inline-block mt-3 text-black font-semibold hover:text-[#c5a46d] transition duration-300"
+    className="inline-block mt-3 text-[30px] text-black font-semibold hover:text-[#c5a46d] transition duration-300"
   >
     +234 813 073 5584
   </a>

@@ -76,8 +76,8 @@ const Core = () => {
                 animate={isInView ? "visible" : "hidden"}
                 className='w-full flex flex-col lg:flex-row items-center gap-6 sm:gap-8 md:gap-10 lg:gap-[50px] justify-between'
             >
-                <Image width={600} height={544} src="/depo.svg" alt="core" className='object-cover' />
-                <div className='flex flex-col gap-[32px]'>
+                <Image width={500} height={500} src="/dep.svg" alt="core" className='object-cover' />
+                <div className='flex flex-col gap-[40px]'>
                     <h2 className='text-[#000000] text-[16px] font-normal'>
                         Our Core Mandate speaks of liberation in all facets of human existence. <br />
                         We focus mainly on transforming destinies that have been afflicted, <br /> battered, beaten, tattered, deformed and subsequently in groaning and <br /> agonies, as a result of pains, pangs and crying. <br />

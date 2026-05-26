@@ -21,12 +21,14 @@ const wsfLinks = [
 const educationLinks = [
   { label: "KHMS", href: "/website/khms" },
   { label: "Faith Academy", href: "/website/faithacademy" },
+    { label: "Landmark University", href: "/website/landmark" },
 ];
 
 const aboutLinks = [
-  { label: "The Mandate", href: "/website/mandate" },
-  { label: "Our Pastors", href: "/website/ourpastors" },
-   { label: "Service Unit", href: "/website/service-unit" },
+  { label:"The Mandate", href: "/website/mandate" },
+  { label:"Our Pastors", href: "/website/ourpastors" },
+   { label:"Service Unit", href: "/website/service-unit" },
+{ label: "Other Branches ", href: "/website/winbranchs" },
 ];
 
 const navLinks = [
@@ -72,17 +74,17 @@ export default function Navbar() {
       }
       animate-[slideDown_0.6s_cubic-bezier(0.16,1,0.3,1)]`}
     >
-      <div className="flex items-center h-[72px] px-8 gap-8">
+      <div className="flex items-center h-[60px] px-8 gap-8">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <div className="flex items-center gap-4  leading-none">
-            <Image src="/logo.svg" alt="Logo" width={50} height={48} />
+            <Image src="/logo.svg" alt="Logo" width={50} height={48} className="mb-4" />
             <span
               className={`text-[14px] font-medium tracking-wide font-serif
               ${scrolled ? "text-[#121212]" : "text-[#121212]"}`}
             >
-              LFC NEW JERUSALEM, ILORIN
+              LFC NEW JERUSALEM, ILORIN<br/> THE STATE CHURCH
             </span>
           </div>
         </Link>
@@ -197,7 +199,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed top-[72px] left-0 right-0 bg-[#0A0A0F]/95 backdrop-blur-xl
-        border-b border-[#C9A84C]/20 transition-all duration-500 overflow-hidden
+         border-[#C9A84C]/20 transition-all duration-500 overflow-hidden
         ${mobileOpen ? "max-h-[90vh]" : "max-h-0"}`}
       >
         <div className="px-6 py-4">

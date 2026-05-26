@@ -4,36 +4,6 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <section className="relative lg:mt-32">
-      {/* ================= CTA SECTION ================= */}
-      {/* <div className="absolute left-1/2 top-0 z-20 lg:w-[92%] w-full max-w-6xl -translate-x-1/2 -translate-y-1/2">
-        <div className="relative overflow-hidden rounded-3xl">
-
-          <Image
-            src="/cta.svg"
-            alt="cta image"
-            width={1400}
-            height={500}
-            className="lg:w-full object-cover"
-          />
-          <div className="absolute inset-0 top-3 flex flex-col items-center justify-center px-6 text-center">
-            <h2 className="max-w-3xl text-[12px] font-semibold leading-relaxed text-white md:text-[18px]">
-              Give, and it will be given to you. A good measure, pressed down,
-              shaken together and running over, will be poured into your lap.
-              <br />
-              <span className="lg:text-[16px] text-[14px]"> Luke 6:38</span>
-            </h2>
-
-            <Link
-              href={"/website/giveonline"}
-              className="mt-8 rounded-[12px] bg-[#EC3237] px-8 py-3 text-sm font-medium text-white transition hover:bg-red-700"
-            >
-              Give Now
-            </Link>
-          </div>
-        </div>
-      </div> */}
-
-
 <div className="absolute left-1/2 top-0 z-20 w-[95%] max-w-6xl -translate-x-1/2 -translate-y-1/2">
   <div className="relative overflow-hidden rounded-2xl md:rounded-3xl">
     {/* Background Image */}
@@ -70,15 +40,10 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-6">
           {/* Logo + About */}
           <div className="lg:col-span-2">
-            <div className="mb-6 flex items-start gap-3">
-              <Image
-                src="/footerlo.svg"
-                alt="logo"
-                width={50}
-                height={48}
-                className="object-contain"
-              />
-
+            <div className="flex gap-2 ">
+            <div className="h-16 w-16 rounded-full bg-white justify-center items-center flex">
+            <Image src="/logo.svg" alt="Logo" width={60} height={80} />
+            </div>
               <h2 className="text-[24px] font-semibold uppercase leading-8">
                 Living Faith New
                 <br />

@@ -27,7 +27,7 @@ const OurMission = () => {
             </div>
 
             <div className=''>
-                <Image src="/mission.svg" alt="Our Mission" width={638} height={404} className='h-auto object-cover rounded-lg' />
+                <Image src="/papa6.jpg" alt="Our Mission" width={638} height={450} className='h-auto object-cover rounded-lg' />
             </div>
         </div>
     )

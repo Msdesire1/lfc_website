@@ -303,14 +303,26 @@ const parseHomecellData = (source) => {
     /^Zone\s*\d+/i.test(line) || /^ZONE\s*\d+/i.test(line);
 
   const parseRow = (line) => {
-    const splitByTabs = line.split(/\t+/).map((part) => normalize(part)).filter(Boolean);
+    const rawFields = line.split(/\t+/).filter(Boolean);
+    const fields = rawFields.map((part) => normalize(part)).filter(Boolean);
+
     if (/^\d+\b/.test(line)) {
-      if (splitByTabs.length >= 4) {
+      if (fields.length >= 4) {
+        const id = fields[0];
+        const leader = fields[2];
+        const phone = normalize(fields.slice(3).join(" "));
+
+        const rawNameField = rawFields[1] || "";
+        const nameParts = rawNameField.split(/\s{2,}/).map((part) => normalize(part)).filter(Boolean);
+        const name = nameParts[0] || normalize(rawNameField);
+        const address = nameParts.length > 1 ? nameParts.slice(1).join(" ") : "";
+
         return {
-          id: normalize(splitByTabs[0]),
-          name: normalize(splitByTabs[1]),
-          leader: normalize(splitByTabs[2]),
-          phone: normalize(splitByTabs.slice(3).join(" ")),
+          id,
+          name,
+          address,
+          leader,
+          phone,
         };
       }
 
@@ -319,24 +331,27 @@ const parseHomecellData = (source) => {
         return {
           id: normalize(match[1]),
           name: normalize(match[2]),
+          address: "",
           leader: normalize(match[3]),
           phone: normalize(match[4]),
         };
       }
 
-      if (splitByTabs.length === 3) {
+      if (fields.length === 3) {
         return {
-          id: normalize(splitByTabs[0]),
-          name: normalize(splitByTabs[1]),
-          leader: normalize(splitByTabs[2]),
+          id: fields[0],
+          name: fields[1],
+          address: "",
+          leader: fields[2],
           phone: "",
         };
       }
 
-      if (splitByTabs.length === 2) {
+      if (fields.length === 2) {
         return {
-          id: normalize(splitByTabs[0]),
-          name: normalize(splitByTabs[1]),
+          id: fields[0],
+          name: fields[1],
+          address: "",
           leader: "",
           phone: "",
         };
@@ -402,10 +417,10 @@ export default function HomeCellDirectory() {
   const [sortConfig, setSortConfig] = useState({ key: "zone", direction: "asc" });
 
   const filteredRows = useMemo(() => {
+    const query = search.toLowerCase();
     return tableData.filter((item) => {
       if (item.type === "zone") return false;
-      const query = search.toLowerCase();
-      return [item.zone, item.name, item.leader, item.phone]
+      return [item.zone, item.name, item.address, item.leader, item.phone]
         .filter(Boolean)
         .some((value) => value.toLowerCase().includes(query));
     });
@@ -424,13 +439,15 @@ export default function HomeCellDirectory() {
   }, [filteredRows, sortConfig]);
 
   const totalPages = Math.max(1, Math.ceil(sortedRows.length / entriesPerPage));
-  const paginatedRows = sortedRows.slice((currentPage - 1) * entriesPerPage, currentPage * entriesPerPage);
+  const currentPageClamped = Math.min(Math.max(currentPage, 1), totalPages);
+  const paginatedRows = sortedRows.slice((currentPageClamped - 1) * entriesPerPage, currentPageClamped * entriesPerPage);
 
   const handleSort = (key) => {
     setSortConfig((prev) => ({
       key,
       direction: prev.key === key && prev.direction === "asc" ? "desc" : "asc",
     }));
+    setCurrentPage(1);
   };
 
   return (
@@ -528,14 +545,14 @@ export default function HomeCellDirectory() {
 
       <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="text-sm text-gray-600">
-          Showing {Math.min((currentPage - 1) * entriesPerPage + 1, sortedRows.length)} to {Math.min(currentPage * entriesPerPage, sortedRows.length)} of {sortedRows.length} entries
+          Showing {Math.min((currentPageClamped - 1) * entriesPerPage + 1, sortedRows.length)} to {Math.min(currentPageClamped * entriesPerPage, sortedRows.length)} of {sortedRows.length} entries
         </div>
 
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            onClick={() => setCurrentPage((prev) => Math.max(Math.min(prev, totalPages) - 1, 1))}
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-300 bg-white text-gray-700 transition hover:bg-gray-100"
-            disabled={currentPage === 1}
+            disabled={currentPageClamped === 1}
           >
             <ChevronLeft size={18} />
           </button>
@@ -545,7 +562,7 @@ export default function HomeCellDirectory() {
                 key={page}
                 onClick={() => setCurrentPage(page)}
                 className={`h-10 min-w-[2.5rem] rounded-xl border px-3 text-sm font-semibold transition ${
-                  currentPage === page ? "bg-[#EC3237] text-white border-[#EC3237]" : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
+                  currentPageClamped === page ? "bg-[#EC3237] text-white border-[#EC3237]" : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
                 }`}
               >
                 {page}
@@ -553,9 +570,9 @@ export default function HomeCellDirectory() {
             ))}
           </div>
           <button
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            onClick={() => setCurrentPage((prev) => Math.min(Math.min(prev, totalPages) + 1, totalPages))}
             className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-300 bg-white text-gray-700 transition hover:bg-gray-100"
-            disabled={currentPage === totalPages}
+            disabled={currentPageClamped === totalPages}
           >
             <ChevronRight size={18} />
           </button>

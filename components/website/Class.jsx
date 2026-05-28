@@ -19,7 +19,7 @@ const Class = () => {
 
                 {/* Right Content */}
                 <div className="flex flex-col gap-4">
-
+  Believers Foundation Class
                     {/* Heading */}
                     <div className="flex flex-1 items-center gap-3">
                         <h2 className="lg:text-[30px] md:text-[50px] font-bold text-[#EC3237] leading-tight">

@@ -27,7 +27,7 @@ const Books = () => {
     ]
   return (
     <div className="py-12 px-4 md:px-10 flex flex-col gap-6 bg-[#F9F9F9] lg:px-20">
-        <h2 className="lg:text-[30px] font-semibold w-[587px] leading-12 mb-8 text-[#000] text-center justify-center mx-auto">
+        <h2 className="lg:text-[30px] font-semiboldlg:w-[587px] leading-12 mb-8 text-[#000] text-center justify-center mx-auto">
             Recommended Book of The Months
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

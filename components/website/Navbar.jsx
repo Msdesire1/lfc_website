@@ -81,7 +81,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4  leading-none">
             <Image src="/logo.svg" alt="Logo" width={50} height={48} className="mb-4" />
             <span
-              className={`text-[14px] font-medium tracking-wide font-serif
+              className={` lg:text-[14px] text[10px] font-medium tracking-wide font-serif
               ${scrolled ? "text-[#121212]" : "text-[#121212]"}`}
             >
               LFC NEW JERUSALEM, ILORIN<br/> THE STATE CHURCH

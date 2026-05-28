@@ -13,7 +13,7 @@ const Download = () => {
       <img
         src="/bookshop.jpg"
         alt="Section Image"
-        className="lg:h-full w-full object-cover"
+        className="lg:h-[740px] w-full object-cover"
       />
     </div>
 
@@ -26,7 +26,7 @@ const Download = () => {
           <img
             src="/bbb.jpg"
             alt="Card"
-            className="h-[460px]  full object-obtain  hover:scale-105 transition duration-500"
+            className="h-[460px] object-obtain  hover:scale-105 transition duration-500"
           />
         </div>
 

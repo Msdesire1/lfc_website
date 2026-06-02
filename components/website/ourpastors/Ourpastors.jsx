@@ -27,8 +27,8 @@ const Ourpastors = () => {
             className="relative rounded-xl overflow-hidden shadow-lg min-h-[400px] flex flex-col pb-6 px-6 justify-end bg-cover bg-center"
             style={{ backgroundImage: `url(${pastor.image})` }}
           >
-            <h3 className="text-xl font-semibold text-[#FDFDFD]">{pastor.name}</h3>
-            <p className="text-[16px] font-normal text-[#FDFDFD]">{pastor.role}</p>
+            <h3 className="text-[18px] font-semibold text-[#FDFDFD]">{pastor.name}</h3>
+            <p className="text-[14px] font-normal text-[#FDFDFD]">{pastor.role}</p>
           </div>
         ))}
       </div>

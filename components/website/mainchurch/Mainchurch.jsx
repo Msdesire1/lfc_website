@@ -14,7 +14,11 @@ A supportive space where adults can explore their faith, build confidence, and n
         </span>
       </div>
 
-      <Image width={500} height={486} src="/ad.svg" alt="mandate" className='object-cover' />
+      <Image width={500} height={486}
+      // src="/ad.svg"
+        src="/newmain.jpg"
+       alt="mandate"
+       className='object-cover rounded-[15px]' />
     </div>
 {/*  */}
 <section className="w-full bg-[#F5F5F5] px-6 py-20 ">
@@ -52,7 +56,7 @@ A supportive space where adults can explore their faith, build confidence, and n
     {/* Left Image */}
     <div className="overflow-hidden rounded-[24px]">
       <img
-        src="/adtwo.svg"
+        src="/ad.svg"
         alt="Church Worship Service"
         className="h-[420px] w-full object-cover"
       />

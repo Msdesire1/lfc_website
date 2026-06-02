@@ -1,141 +1,168 @@
 import Image from 'next/image'
 import React from 'react'
 
+const campuses = [
+  {
+    name: 'Gaa-Imam Campus',
+    address: 'Gaa-Imam Road, Ilorin',
+    highlight: 'Primary and secondary school classrooms with strong academics, character development, and safe campus life.',
+    image: '/khmsi.jpg',
+  },
+  {
+    name: 'Olunlade Campus',
+    address: 'Olunlade Street, Ilorin',
+    highlight: 'A nurturing campus for primary and secondary learners with a focus on excellence and Christian values.',
+    image: '/khmsii.jpg',
+  },
+  {
+    name: 'Sango Campus',
+    address: 'Sango District, Ilorin',
+    highlight: 'A vibrant school location delivering quality primary and secondary education for growing learners.',
+    image: '/khmsi.jpg',
+  },
+  {
+    name: 'Omu-Aran Campus',
+    address: 'Omu-Aran Road, Ilorin',
+    highlight: 'A trusted campus for both primary and secondary students with strong academic support and community care.',
+    image: '/khmsii.jpg',
+  },
+]
+
+const programs = [
+  {
+    title: 'Primary School',
+    description:
+      'A strong primary school program that combines foundational academics with Bible-based values, creativity, and character development.',
+    image: '/khmsi.jpg',
+    alt: 'Primary School',
+    reverse: false,
+  },
+  {
+    title: 'Secondary School',
+    description:
+      'A focused secondary school program that prepares students for exams, leadership, and life with academic excellence rooted in faith.',
+    image: '/khmsii.jpg',
+    alt: 'Secondary School',
+    reverse: true,
+  },
+  {
+    title: 'Academic Support',
+    description:
+      'Exam preparation, mentoring, and study resources designed to help primary and secondary students succeed in school.',
+    image: '/khmsi.jpg',
+    alt: 'Academic Support',
+    reverse: false,
+  },
+]
+
 const Khms = () => {
   return (
-<div className='lg:px-20 px-6'>
- <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
-      <div className='flex flex-col  gap-[24px]'>
-        <h2 className='text-[40px] font-semibold text-[#000000]'  >
-         One Church, Many <br/>Expressions of Faith
-        </h2>
-        <span className='text-[16px] font-normal  text-[#121212]'>
-At Winners Chapel, every age group is nurtured through a dedicated ministry designed to support spiritual growth, build strong community, and make learning God’s word relatable at every stage of life.
-        </span>
-      </div>
+    <div className="lg:px-20 px-6">
+      <section className="mt-24 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+        <div>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#EC3237]">KHMS School Network</p>
+          <h1 className="mt-5 text-4xl font-semibold text-[#111111] md:text-5xl">
+            KHMS Primary & Secondary School Network
+          </h1>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-[#444444]">
+            Discover the KHMS campuses at Gaa-Imam, Olunlade, Sango, and Omu-Aran. Each location delivers strong primary and secondary education rooted in Christian values, academic excellence, and student care.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-3xl bg-[#F8FAFC] p-6 shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#111111]">Locations</p>
+              <p className="mt-3 text-sm text-[#555555]">Gaa-Imam, Olunlade, Sango, Omu-Aran</p>
+            </div>
+            <div className="rounded-3xl bg-[#F8FAFC] p-6 shadow-sm">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#111111]">School Levels</p>
+              <p className="mt-3 text-sm text-[#555555]">Primary School & Secondary School</p>
+            </div>
+          </div>
+        </div>
 
-      <Image width={500} height={486} src="/mainch.svg" alt="mandate" className='object-cover' />
-    </div>
-    <div className='py-10 justify-center items-center flex'>
-<h1 className='font-bold text-[30px] text-center'> Explore Our Church <br/> Ministries</h1>
-    </div>
+        <div className="relative overflow-hidden rounded-4xl bg-[#F4F4F4] shadow-lg">
+          <Image
+            src="/mainch.svg"
+            alt="KHMS school campus hero"
+            width={700}
+            height={560}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </section>
 
-{/* 1 */}
-<section className="w-full py-10">
-  <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-    {/* Text Content */}
-    <div className="flex justify-center">
-      <div className="max-w-md text-center">
-        <h2 className="mb-5 text-2xl font-bold text-[#111111] md:text-3xl">
-          Adult Church
-        </h2>
+      <section className="mt-16">
+        <div className="text-center">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#EC3237]">Campus locations</p>
+          <h2 className="mt-4 text-3xl font-semibold text-[#111111] md:text-4xl">
+            KHMS schools across Ilorin and Omu-Aran
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#444444]">
+            Each campus is designed to support spiritual growth, academic development, and community connection through age-appropriate teaching and ministry.
+          </p>
+        </div>
 
-        <p className="text-sm leading-7 text-gray-600 md:text-base text-center">
-          A space for spiritual growth, deeper understanding of God’s
-          word, and active participation in church life. Here, adults are
-          equipped to strengthen their faith, build meaningful
-          relationships, and live out godly principles in their daily
-          lives.
-        </p>
-      </div>
-    </div>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {campuses.map((campus, index) => (
+            <article key={index} className="overflow-hidden rounded-3xl border border-[#E7E7E7] bg-white shadow-sm transition hover:-translate-y-1">
+              <div className="relative h-52 w-full overflow-hidden bg-[#F4F4F4]">
+                <Image
+                  src={campus.image}
+                  alt={campus.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+              </div>
+              <div className="space-y-4 p-6">
+                <h3 className="text-xl font-semibold text-[#111111]">{campus.name}</h3>
+                <p className="text-sm leading-7 text-[#555555]">{campus.highlight}</p>
+                <div className="rounded-2xl bg-[#FAFAFA] p-4 text-sm">
+                  <p className="font-semibold text-[#111111]">Address</p>
+                  <p className="mt-2 text-[#444444]">{campus.address}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-    {/* Image */}
-    <div className="flex justify-center lg:justify-end">
-      <div className="overflow-hidden rounded-md">
-        <img
-          src="/mainone.svg"
-          alt="Adult Church"
-          className="h-[356px] w-full max-w-[500px] object-cover"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-{/* 2 */}
-<section className="w-full py-10">
-  <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+      <section className="mt-16 pb-20">
+        <div className="text-center">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#EC3237]">KHMS school levels</p>
+          <h2 className="mt-4 text-3xl font-semibold text-[#111111] md:text-4xl">
+            Primary and Secondary School Programs
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#444444]">
+            KHMS offers a complete school experience for primary and secondary learners, with strong academics, mentoring, and character development at every level.
+          </p>
+        </div>
 
- <div className="flex justify-center lg:justify-start">
-      <div className="overflow-hidden rounded-md">
-        <img
-          src="/theyouth.svg"
-          alt="Adult Church"
-          className="h-[356px] w-full max-w-[500px] object-cover"
-        />
-      </div>
-    </div>
-
-  {/* Text Content */}
-    <div className="flex justify-center">
-      <div className="max-w-md text-center">
-        <h2 className="mb-5 text-2xl font-bold text-[#111111] md:text-3xl">
-          Teens Church
-        </h2>
-
-        <p className="text-sm leading-7 text-gray-600 md:text-base text-center">
-A vibrant community designed to help young people discover purpose, grow in their relationship with God, and navigate life with clarity and confidence. It’s a place to connect, learn, and be empowered to make impactful decisions.
-        </p>
-      </div>
-    </div>
-</div>
-</section>
-{/* 3 */}
-<section className="w-full py-10">
-  <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-    {/* Text Content */}
-    <div className="flex justify-center">
-      <div className="max-w-md text-center">
-        <h2 className="mb-5 text-2xl font-bold text-[#111111] md:text-3xl">
-Pre-Teens church
-        </h2>
-
-        <p className="text-sm leading-7 text-gray-600 md:text-base text-center">
-         A supportive and engaging environment where pre-teens can build a strong foundation in faith while developing character, confidence, and a sense of identity. It encourages open learning, guidance, and connection with like-minded peers.
-        </p>
-      </div>
-    </div>
-
-    {/* Image */}
-    <div className="flex justify-center lg:justify-end">
-      <div className="overflow-hidden rounded-md">
-        <img
-          src="/theteen.svg"
-          alt="Adult Church"
-          className="h-[356px] w-full max-w-[500px] object-cover"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-{/* 2 */}
-<section className="w-full py-10 pb-20">
-  <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
- <div className="flex justify-center lg:justify-start">
-      <div className="overflow-hidden rounded-md">
-        <img
-          src="/thekids.svg"
-          alt="Adult Church"
-          className="h-[356px] w-full max-w-[500px] object-cover"
-        />
-      </div>
-    </div>
-
-  {/* Text Content */}
-    <div className="flex justify-center">
-      <div className="max-w-md text-center">
-        <h2 className="mb-5 text-2xl font-bold text-[#111111] md:text-3xl">
-Children Church
-        </h2>
-
-        <p className="text-sm leading-7 text-gray-600 md:text-base text-center">
-A fun, safe, and nurturing space where children are introduced to God’s word in simple and engaging ways. Through interactive teaching and care, they begin to understand faith, values, and how to grow in God’s love.
-        </p>
-      </div>
-    </div>
-</div>
-</section>
-
+        <div className="mt-12 space-y-16">
+          {programs.map((program) => (
+            <section key={program.title} className="w-full">
+              <div className={`mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 ${program.reverse ? 'lg:flex-row-reverse' : ''}`}>
+                <div className="flex justify-center">
+                  <div className="overflow-hidden rounded-3xl shadow-sm">
+                    <Image
+                      src={program.image}
+                      alt={program.alt}
+                      width={560}
+                      height={360}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-center">
+                  <div className="max-w-md text-center lg:text-left">
+                    <h3 className="mb-5 text-2xl font-bold text-[#111111] md:text-3xl">{program.title}</h3>
+                    <p className="text-sm leading-7 text-[#555555] md:text-base">{program.description}</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

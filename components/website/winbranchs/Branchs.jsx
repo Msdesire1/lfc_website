@@ -1,84 +1,129 @@
 "use client"
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const heroSlides = [
   {
+  // NEW JERUSALEM, ILORIN
     title: 'Explore our growing branch network',
-    subtitle: 'Twelve Living Faith locations across Ilorin and nearby districts, designed for worship, prayer, and community support.',
+    subtitle: 'Living Faith church New Jerusalem Ilorin, The State church.',
     note: 'Each branch delivers dedicated fellowship and a warm welcome for families, students, and professionals alike.',
-    image: '/mainch.svg',
+    image: '/newmain.jpg',
   },
   {
     title: 'Discover our newest ministry hubs',
+    subtitle: 'Offa Garage Railway Line, Ilorin',
+    note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
+    image: '/firstchurch.jpg',
+  },
+ {
+    title: 'Discover our newest ministry hubs',
     subtitle: 'University Road and GRA branches are now open with fresh outreach and student-friendly experiences.',
     note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
-    image: '/church.svg',
+    image: '/taken.jpg',
+  },
+ {
+    title: 'Discover our newest ministry hubs',
+    subtitle: 'Adewole area, Ilorin',
+    note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
+    image: '/adewoie.jpg',
+  },
+   {
+    title: 'Discover our newest ministry hubs',
+    subtitle: 'Airport Road, Ilorin',
+    note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
+    image: '/airport.jpg',
+  },
+   {
+    title: 'Discover our newest ministry hubs',
+    subtitle: 'Omuaran area, Ilorin',
+    note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
+    image: '/omu.jpg',
+  },
+   {
+    title: 'Discover our newest ministry hubs',
+    subtitle: 'Malete area, Ilorin',
+    note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
+    image: '/malete.jpg',
+  },
+   {
+    title: 'Discover our newest ministry hubs',
+    subtitle: 'offa, kwara state',
+    note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
+    image: '/offa.jpg',
+  },
+   {
+    title: 'Discover our newest ministry hubs',
+    subtitle: 'Taoheed Road, off Basin Road, IlorinW',
+    note: 'Join transformative praise sessions, Bible teaching, and life-changing gatherings near you.',
+    image: '/basin.jpg',
   },
 ]
 
 const branchList = [
+
+   {
+    name: 'Living Faith First Church',
+    address: 'Offa Garage Railway Line, Ilorin',
+    highlight: 'Known for restorative worship and life-changing encounters.',
+    image: '/firstchurch.jpg',
+    badge: 'First Church',
+  },
   {
     name: 'Living Faith Church Irewolede',
     address: 'Irewolede Road, Ilorin',
     highlight: 'A warm worship center known for its vibrant and engaging services.',
-    image: '/sitea.webp',
+    image: '/kemis.jpg',
     badge: 'Ilorin  Branch',
   },
   {
     name: 'Living Faith Church Tanke',
     address: 'Wura Owolabi Street, opposite Chapel Secondary School junction',
     highlight: 'Strong family ministry with inspiring midweek Bible studies.',
-    image: '/siteb.webp',
+    image: '/taken.jpg',
     badge: 'Ilorin  Branch',
   },
   {
     name: 'Living Faith Church Ganmo',
     address: 'Near NTA Transmission Station junction, Ilorin',
     highlight: 'Dedicated Sunday worship and prayer gatherings for all ages.',
-    image: '/sitec.jpg',
+    image: '/ganmo.jpg',
    badge: 'Ilorin  Branch',
   },
   {
     name: 'Living Faith Church Adewole',
     address: 'Adewole area, Ilorin',
     highlight: 'A growing fellowship with strong discipleship and outreach.',
-    image: '/sited.jpg',
+    image: '/adewoie.jpg',
     badge: 'Ilorin  Branch',
   },
-  {
-    name: 'Living Faith First Church',
-    address: 'Offa Garage Railway Line, Ilorin',
-    highlight: 'Known for restorative worship and life-changing encounters.',
-    image: '/sitee.jpg',
-    badge: 'First Church',
-  },
+
   {
     name: 'Living Faith Church Basin',
     address: '71 Taoheed Road, off Basin Road, Ilorin',
     highlight: 'A strategic location that welcomes families and students alike.',
-    image: '/faithi.jpg',
+    image: '/basin.jpg',
    badge: 'Ilorin  Branch',
   },
   {
-    name: 'Living Faith Church Akerebiata',
-    address: 'Sobi Road, Ilorin',
-    highlight: 'A place of bold teaching and community care.',
-    image: '/faithii.jpg',
+    name: 'Living Faith Church omuaran',
+    address: 'Omuaran area, Ilorin',
+    highlight: 'A vibrant branch with a focus on youth engagement and community outreach.',
+    image: '/omu.jpg',
    badge: 'Ilorin  Branch',
   },
   {
     name: 'Living Faith Church Amilegbe',
     address: 'Muritala Mohammed Way, Ilorin',
     highlight: 'A ministry space focused on strong spiritual formation.',
-    image: '/faithiii.jpg',
+    image: '/firstwin.jpg',
     badge: 'Ilorin  Branch',
   },
   {
-    name: 'Winners Chapel Offa',
+    name: 'Living Faith Church Offa',
     address: 'Muu Road, Offa',
     highlight: 'An outreach-focused branch serving the teaching and commerce district.',
-    image: '/faithv.avif',
+    image: '/offa.jpg',
     badge: 'Offa Branch',
     outside: true,
   },
@@ -86,31 +131,39 @@ const branchList = [
     name: 'Living Faith Church Oyun',
     address: 'Share-Oja Oba Road, Apata Yakuba',
     highlight: 'Supporting believers with faithful teaching and practical outreach.',
-    image: '/wobiimage.jpg',
+    image: '/oyun.jpg',
     badge: 'Oyun branch',
     outside: true,
   },
   {
-    name: 'Living Faith Church University',
-    address: 'University Road, Ilorin',
-    highlight: 'A student-friendly branch with focused campus ministry and vibrant fellowship.',
-    image: '/mainone.svg',
-    badge: 'Campus Ministry',
+    name: 'Living Faith Church Airport',
+    address: 'Airport Road, Ilorin',
+    highlight: 'A Friendly branch with focused on ministry and vibrant fellowship.',
+    image: '/airport.jpg',
+    badge: 'Airport Branch',
   },
   {
-    name: 'Living Faith Church GRA',
-    address: 'GRA District, Ilorin',
-    highlight: 'An accessible branch serving families and professionals with rich worship experiences.',
-    image: '/wobi.svg',
-    badge: 'GRA Branch',
+    name: 'Living Faith Church Malete',
+    address: 'Church Malete ',
+    highlight: 'A branch with a strong focus on student ministry and campus outreach.',
+    image: '/malete.jpg',
+    badge: 'Malete Branch',
   },
 ]
 
 const Branchs = () => {
   const [activeHero, setActiveHero] = useState(0)
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveHero((prev) => (prev + 1) % heroSlides.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <div className="lg:px-20 px-6  py-24">
+    <div className="lg:px-20 px-6 py-24">
       <section className="mb-12 rounded-4xl bg-[#F8FAFC] px-6 py-12 shadow-md sm:px-10 lg:px-14">
         <div className="mx-auto flex flex-col gap-10 lg:flex-row lg:items-center">
           <div className="lg:w-1/2">
@@ -155,7 +208,7 @@ const Branchs = () => {
 
       <section className="pt-8 pb-12 text-center">
         <p className="text-sm uppercase tracking-[0.25em] text-[#EC3237]">
-          Our Branches
+          Few Of Our Branches in Ilorin
         </p>
         <h1 className="mt-4 text-[18px] font-semibold text-[#111111] md:text-[30px]">
           Other Living Faith Branches
@@ -182,7 +235,7 @@ const Branchs = () => {
             </div>
 
             <div className="space-y-5 p-6">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex items-start justify-between flex-col gap-4">
                 <h2 className="text-[18px] font-semibold text-[#111111]">
                   {branch.name}
                 </h2>

@@ -53,7 +53,7 @@ const Children = () => {
         {/* Left Image */}
         <div className="overflow-hidden rounded-[24px]">
           <img
-            src="/childthree.svg"
+            src="/kiddd.jpg"
             alt="Church Worship Service"
             className="h-[450px] w-full object-cover"
           />

@@ -42,7 +42,7 @@ const testimonies = [
     text: "For over a year, I was trusting God for a job. I applied to countless places and faced repeated rejections. It got to a point where I almost gave up, but I kept holding on to God’s word and stayed committed to prayer. Today, I’m working in a stable role, and God has restored my confidence and peace. Truly, God is faithful and He shows up right on time.",
   },
   {
-    name: "Samuel Adeyemi",
+    name: "Bella e",
     text: "God healed me from constant fear and anxiety. Through prayers and fellowship, I found peace again. My life has completely changed and I now walk boldly with confidence.",
   },
   {

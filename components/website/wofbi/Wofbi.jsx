@@ -10,7 +10,7 @@ const courses = [
   {
     id: 1,
     tag: "SPECIALISED COURSE",
-    title: "3-Day Specialized WOFBI",
+    title: "2 weeks Specialized WOFBI",
     description:
       "To lay a solid foundation in the word of God for students and to provoke their understanding.",
     button: "Coming Soon",
@@ -90,10 +90,10 @@ const Wofbi = () => {
   };
   return (
 
-    <div className='lg:px-20 px-6'>
+    <div className=''>
 {/* 1 */}
 <section className="w-full ">
- <div className="pb-12 mt-36 px-6 lg:flex-row flex-col  flex items-center gap-12 justify-between ">
+ <div className="pb-12 mt-36 lg:px-20 px-6 lg:flex-row flex-col  flex items-center gap-12 justify-between ">
       <div className='flex flex-col   gap-[24px]'>
         <h2 className='text-[40px] font-semibold text-[#000000]'  >
 Word of Faith Bible <br/> Institute (WOFBI)
@@ -121,7 +121,7 @@ It takes training to triumph and no one arms a man who
 
 {/*  */}
 
- <section className="w-full py-20 px-6 ">
+ <section className="w-full py-20 lg:px-20 px-6 ">
       <div className="">
         {/* HEADER */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
@@ -152,7 +152,7 @@ It takes training to triumph and no one arms a man who
             >
               {/* TAG */}
               <div className="mb-10 inline-block rounded-full bg-[#e5e2df] px-6 py-3">
-                <p className="text-[12px] font-semibold uppercase tracking-wide text-[#4b5563]">
+                <p className="text-[10px] font-semibold uppercase tracking-wide text-[#4b5563]">
                   {course.tag}
                 </p>
               </div>
@@ -188,7 +188,7 @@ It takes training to triumph and no one arms a man who
       </div>
     </section>
 {/* 3 */}
- <section className="w-full bg-[#B91C1C] px-6 py-24  rounded-[12px]">
+ <section className="w-full bg-[#B91C1C]  py-24  ">
       <div className="mx-auto max-w-5xl text-center text-white">
 
         {/* TOP TITLE */}
@@ -215,7 +215,7 @@ It takes training to triumph and no one arms a man who
       </div>
     </section>
     {/* 4 */}
-  <section className="w-full  py-16 px-4 ">
+  <section className="w-full  py-16 lg:px-20 px-6">
       <div className=" grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* Left Image */}
@@ -261,7 +261,7 @@ It takes training to triumph and no one arms a man who
     </section>
 
 {/* 5 */}
- <section className="w-full py-16 px-4 ">
+ <section className="w-full py-16 lg:px-20 px-6 ">
       <div className=" grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* Right Content */}
@@ -304,8 +304,8 @@ Our primary goal is to provide God centered spiritual education that engenders e
       </div>
     </section>
 
-  <section className="w-full bg-[#F5F5F5] py-20 rounded-[12px]">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  <section className="w-full bg-[#F5F5F5] py-20  ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start lg:px-20 px-6">
 
         {/* LEFT SIDE */}
         <div className="space-y-8 px-5">

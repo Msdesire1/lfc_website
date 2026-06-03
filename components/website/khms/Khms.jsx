@@ -3,25 +3,25 @@ import React from 'react'
 
 const campuses = [
   {
-    name: 'Gaa-Imam Campus',
+    name: 'Gaa-Imam School',
     address: 'Gaa-Imam Road, Ilorin',
     highlight: 'Primary and secondary school classrooms with strong academics, character development, and safe campus life.',
     image: '/khmsi.jpg',
   },
   {
-    name: 'Olunlade Campus',
+    name: 'Olunlade School',
     address: 'Olunlade Street, Ilorin',
     highlight: 'A nurturing campus for primary and secondary learners with a focus on excellence and Christian values.',
     image: '/khmsii.jpg',
   },
   {
-    name: 'Sango Campus',
+    name: 'Sango School',
     address: 'Sango District, Ilorin',
     highlight: 'A vibrant school location delivering quality primary and secondary education for growing learners.',
     image: '/khmsi.jpg',
   },
   {
-    name: 'Omu-Aran Campus',
+    name: 'Omu-Aran Schools',
     address: 'Omu-Aran Road, Ilorin',
     highlight: 'A trusted campus for both primary and secondary students with strong academic support and community care.',
     image: '/khmsii.jpg',
@@ -61,11 +61,11 @@ const Khms = () => {
       <section className="mt-24 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
         <div>
           <p className="text-sm uppercase tracking-[0.3em] text-[#EC3237]">KHMS School Network</p>
-          <h1 className="mt-5 text-4xl font-semibold text-[#111111] md:text-5xl">
-            KHMS Primary & Secondary School Network
+          <h1 className="mt-5 text-[30px] font-semibold text-[#111111] ">
+            KHMS Primary & Secondary Schools
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-8 text-[#444444]">
-            Discover the KHMS campuses at Gaa-Imam, Olunlade, Sango, and Omu-Aran. Each location delivers strong primary and secondary education rooted in Christian values, academic excellence, and student care.
+            Discover the KHMS schools at Gaa-Imam, Olunlade, Sango, and Omu-Aran. Each location delivers strong primary and secondary education rooted in Christian values, academic excellence, and student care.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="rounded-3xl bg-[#F8FAFC] p-6 shadow-sm">
@@ -92,12 +92,12 @@ const Khms = () => {
 
       <section className="mt-16">
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#EC3237]">Campus locations</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#EC3237]">Schools locations</p>
           <h2 className="mt-4 text-3xl font-semibold text-[#111111] md:text-4xl">
-            KHMS schools across Ilorin and Omu-Aran
+            KHMS schools across Ilorin, kwara-state
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#444444]">
-            Each campus is designed to support spiritual growth, academic development, and community connection through age-appropriate teaching and ministry.
+            Each schools is designed to support spiritual growth, academic development, and community connection through age-appropriate teaching and ministry.
           </p>
         </div>
 
@@ -146,9 +146,9 @@ const Khms = () => {
                     <Image
                       src={program.image}
                       alt={program.alt}
-                      width={560}
-                      height={360}
-                      className="h-full w-full object-cover"
+                      width={500}
+                      height={300}
+                      className="object-cover"
                     />
                   </div>
                 </div>

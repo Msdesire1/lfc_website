@@ -47,7 +47,7 @@ const Contact = () => {
   }}
 >
 
-  {/* Top Left Small Preview */}
+
   <div className="absolute top-2 left-4 z-20">
     <div className="overflow-hidden border border-white/10 shadow-lg">
       <img
@@ -210,7 +210,6 @@ Kwara.state@lfcww.org
     </div>
   </section>
 <div className='lg:pt-10'>
-{/* <Footer /> */}
 </div>
 
     </div>

@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Send,
-  MessageCircle,
   X,
 } from "lucide-react";
 import Image from "next/image";

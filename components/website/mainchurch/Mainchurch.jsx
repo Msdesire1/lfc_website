@@ -15,7 +15,6 @@ A supportive space where adults can explore their faith, build confidence, and n
       </div>
 
       <Image width={500} height={486}
-      // src="/ad.svg"
         src="/newmain.jpg"
        alt="mandate"
        className='object-cover rounded-[15px]' />

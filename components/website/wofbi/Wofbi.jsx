@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import Link from 'next/link';
 
 
 const courses = [
@@ -320,9 +321,9 @@ Our primary goal is to provide God centered spiritual education that engenders e
             </p>
           </div>
 
-          <button className="bg-[#EC3237] hover:bg-red-700 transition-all duration-300 text-white px-8 py-4 rounded-lg font-medium">
+          <Link href={'/website/contact'} className="bg-[#EC3237] hover:bg-red-700 transition-all duration-300 text-white px-8 py-4 rounded-lg font-medium">
             Contact Us
-          </button>
+          </Link>
         </div>
 
         {/* RIGHT SIDE */}

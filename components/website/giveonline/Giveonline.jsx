@@ -5,7 +5,6 @@ import React from 'react'
 import { useState } from 'react';
 
 const Giveonline = () => {
-  // separate copied state for each account
   const [copiedStates, setCopiedStates] = useState({
     tithe: false,
     project: false,
@@ -17,13 +16,11 @@ const Giveonline = () => {
     try {
       await navigator.clipboard.writeText(text);
 
-      // update only clicked account
       setCopiedStates((prev) => ({
         ...prev,
         [key]: true,
       }));
 
-      // reset only clicked account
       setTimeout(() => {
         setCopiedStates((prev) => ({
           ...prev,
@@ -66,10 +63,6 @@ const Giveonline = () => {
       <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
        Your giving is an act of worship and a seed of faith. Every seed sown into the Kingdom of God carries a divine harvest. Give generously and expect God&apos;s supernatural multiplication in your life.
       </p>
-{/*
-      <button className="rounded-[12px] bg-[#AC1E1E] px-8 py-3 text-sm font-semibold text-white transition hover:bg-red-700">
-        Give now
-      </button> */}
     </div>
   </div>
 </section>

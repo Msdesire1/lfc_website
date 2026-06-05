@@ -1,12 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  ArrowUpDown,
-  ChevronLeft,
-  ChevronRight,
-  Search,
-} from "lucide-react";
+import { ArrowUpDown, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { Table } from "antd";
 
 const rawHomecellText = `ZONE\tNAMES OF HOME CELLS/ADDRESSES\tCELL LEADERS\tPHONE NO.
 Zone 1\tDcns. E.T. Owolabi - 08030699102       / Pst. Babatunde A. - 08130735584\t\t
@@ -442,6 +438,48 @@ export default function HomeCellDirectory() {
   const currentPageClamped = Math.min(Math.max(currentPage, 1), totalPages);
   const paginatedRows = sortedRows.slice((currentPageClamped - 1) * entriesPerPage, currentPageClamped * entriesPerPage);
 
+  const dataSource = sortedRows.map((item, idx) => ({
+    key: `${item.zone}-${item.id}-${idx}`,
+    zone: item.zone,
+    name: item.name,
+    address: item.address,
+    leader: item.leader,
+    phone: item.phone || "-",
+  }));
+
+  const columns = [
+    {
+      title: "Zone",
+      dataIndex: "zone",
+      key: "zone",
+      sorter: (a, b) => a.zone.localeCompare(b.zone),
+    },
+    {
+      title: "Home Cell / Address",
+      dataIndex: "name",
+      key: "name",
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      render: (text, record) => (
+        <div>
+          <div className="font-semibold text-gray-900">{text}</div>
+          {record.address ? <div className="mt-1 text-sm text-gray-500">{record.address}</div> : null}
+        </div>
+      ),
+    },
+    {
+      title: "Cell Leader",
+      dataIndex: "leader",
+      key: "leader",
+      sorter: (a, b) => (a.leader || "").localeCompare(b.leader || ""),
+    },
+    {
+      title: "Phone No.",
+      dataIndex: "phone",
+      key: "phone",
+      sorter: (a, b) => (a.phone || "").localeCompare(b.phone || ""),
+    },
+  ];
+
   const handleSort = (key) => {
     setSortConfig((prev) => ({
       key,
@@ -492,90 +530,32 @@ export default function HomeCellDirectory() {
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-gray-300 bg-white shadow-sm">
-        <table className="w-full min-w-[1000px] border-collapse text-left">
-          <thead className="bg-[#f9fafb]">
-            <tr>
-              {headerColumns.map((column) => (
-                <th
-                  key={column.key}
-                  onClick={() => handleSort(column.key)}
-                  className="cursor-pointer whitespace-nowrap border-b border-gray-200 px-6 py-4 text-sm font-semibold text-gray-700"
-                >
-                  <div className="flex items-center gap-2">
-                    {column.label}
-                    <ArrowUpDown size={16} className="text-gray-400" />
-                  </div>
-                </th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody>
-            {paginatedRows.length === 0 ? (
-              <tr>
-                <td colSpan={4} className="px-6 py-10 text-center text-gray-500">
-                  No records match your search.
-                </td>
-              </tr>
-            ) : (
-              paginatedRows.map((item, index) => (
-                <tr key={`${item.zone}-${item.id}-${index}`} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-5 align-top text-sm font-medium text-gray-800 whitespace-nowrap">
-                    {item.zone}
-                  </td>
-                  <td className="px-6 py-5 align-top text-sm text-gray-700">
-                    <div className="font-semibold text-gray-900">{item.name}</div>
-                    {item.address ? (
-                      <div className="mt-1 text-sm text-gray-500">{item.address}</div>
-                    ) : null}
-                  </td>
-                  <td className="px-6 py-5 align-top text-sm text-gray-700 whitespace-nowrap">
-                    {item.leader}
-                  </td>
-                  <td className="px-6 py-5 align-top text-sm text-gray-700 whitespace-nowrap">
-                    {item.phone || "-"}
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+      <div className="overflow-x-auto rounded-2xl border border-gray-300 bg-white shadow-sm p-4">
+        <Table
+          columns={columns}
+          dataSource={dataSource}
+          pagination={{
+            current: currentPageClamped,
+            pageSize: entriesPerPage,
+            total: sortedRows.length,
+            onChange: (page, pageSize) => {
+              setCurrentPage(page);
+              setEntriesPerPage(pageSize);
+            },
+            showSizeChanger: false,
+          }}
+          onChange={(pagination, filters, sorter) => {
+            if (sorter && sorter.field) {
+              setSortConfig({ key: sorter.field, direction: sorter.order === "ascend" ? "asc" : "desc" });
+            }
+            setCurrentPage(pagination.current);
+          }}
+        />
       </div>
 
       <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="text-sm text-gray-600">
           Showing {Math.min((currentPageClamped - 1) * entriesPerPage + 1, sortedRows.length)} to {Math.min(currentPageClamped * entriesPerPage, sortedRows.length)} of {sortedRows.length} entries
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setCurrentPage((prev) => Math.max(Math.min(prev, totalPages) - 1, 1))}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-300 bg-white text-gray-700 transition hover:bg-gray-100"
-            disabled={currentPageClamped === 1}
-          >
-            <ChevronLeft size={18} />
-          </button>
-          <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }, (_, idx) => idx + 1).map((page) => (
-              <button
-                key={page}
-                onClick={() => setCurrentPage(page)}
-                className={`h-10 min-w-[2.5rem] rounded-xl border px-3 text-sm font-semibold transition ${
-                  currentPageClamped === page ? "bg-[#EC3237] text-white border-[#EC3237]" : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50"
-                }`}
-              >
-                {page}
-              </button>
-            ))}
-          </div>
-          <button
-            onClick={() => setCurrentPage((prev) => Math.min(Math.min(prev, totalPages) + 1, totalPages))}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gray-300 bg-white text-gray-700 transition hover:bg-gray-100"
-            disabled={currentPageClamped === totalPages}
-          >
-            <ChevronRight size={18} />
-          </button>
         </div>
       </div>
     </div>

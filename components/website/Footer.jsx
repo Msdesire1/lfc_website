@@ -259,7 +259,7 @@ export default function Footer() {
               </li>
 
               <li>
-                <a href="#" className="transition hover:text-red-500">
+                <a href="/website/education" className="transition hover:text-red-500">
                   Education
                 </a>
               </li>
@@ -292,7 +292,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/website/teens"
+                  href="https://faithtabernacle.org.ng"
                   className="transition hover:text-red-500"
                 >
                   David Oyedepo Ministries
@@ -300,7 +300,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/website/teens"
+                  href="https://faithoyedepo.org"
                   className="transition hover:text-red-500"
                 >
                   Faith Oyedepo Ministries

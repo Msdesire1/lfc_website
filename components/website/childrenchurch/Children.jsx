@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 const Children = () => {
   return (
-        <div className='lg:px-20 px-6'>
- <div className="pb-12 mt-36 px-4 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
+        <div className=''>
+ <div className="pb-12 mt-36 lg:px-20 px-6 md:px-10 flex items-center lg:flex-row flex-col gap-12 justify-between">
           <div className='flex flex-col gap-[24px]'>
             <h2 className='text-[40px] font-semibold text-[#000000]'  >
     God’s Little Stars,<br/> Shining Bright
@@ -18,8 +18,8 @@ const Children = () => {
           <Image width={500} height={486} src="/childone.svg" alt="mandate" className='object-cover' />
         </div>
     {/*  */}
-    <section className="w-full bg-[#F5F5F5] px-6 py-20 ">
-      <div className="mx-auto max-w-7xl">
+    <section className="w-full bg-[#F5F5F5]  py-20 ">
+      <div className="mx-auto max-w-7xl lg:px-20 px-6">
 
         {/* Top Content */}
         <div className="relative z-10 mx-auto max-w-2xl px-8 py-10 text-center  md:px-14">

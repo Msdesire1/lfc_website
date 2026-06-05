@@ -17,7 +17,7 @@ const Hero = () => {
   {
     id: 3,
     image: "/slide3.svg",
-    text: "GOD'S WORD STILL WORKS ",
+    text: "I AM THE CHID OF DESTINY",
     subText: "Experience God's Presence With Us",
   },
 ];
@@ -68,8 +68,8 @@ const Hero = () => {
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
         <h1 className="text-white text-3xl md:text-6xl font-bold">
           {slide.text}
-<p className="py-2">WONDERS TODAY</p>
-<p>PSALM 119:18</p>
+{/* <p className="py-2">WONDERS TODAY</p> */}
+<p>ROMAMS  8:29-30</p>
         </h1>
 
         <p className="text-white mt-4 text-sm md:text-xl max-w-2xl">

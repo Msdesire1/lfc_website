@@ -2,7 +2,7 @@
 import React from 'react'
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import Footer from '../Footer';
+// import Footer from '../Footer';
 
 const faqData = [
   {
@@ -34,12 +34,73 @@ const faqData = [
 
 const Contact = () => {
    const [activeIndex, setActiveIndex] = useState(0);
+   const [formData, setFormData] = useState({
+     name: "",
+     email: "",
+     phone: "",
+     subject: "",
+     message: "",
+   });
+   const [isSending, setIsSending] = useState(false);
+   const [toast, setToast] = useState({ visible: false, message: "", type: "success" });
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
+  const handleInputChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsSending(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xreveraz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          _replyto: formData.email,
+          _subject: "New contact form submission",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Unable to send message. Please try again later.");
+      }
+
+      setToast({ visible: true, message: "Message sent successfully. Thank you!", type: "success" });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      setToast({
+        visible: true,
+        message: error.message || "Send failed. Please try again.",
+        type: "error",
+      });
+    } finally {
+      setIsSending(false);
+      window.setTimeout(() => setToast((prev) => ({ ...prev, visible: false })), 5000);
+    }
+  };
+
   return (
     <div>
+      {toast.visible && (
+        <div className={`fixed right-4 top-4 z-50 rounded-2xl px-4 py-3 text-sm shadow-xl transition-all duration-300 ${toast.type === "success" ? "bg-emerald-600 text-white" : "bg-red-600 text-white"}`}>
+          {toast.message}
+        </div>
+      )}
    <section
   className="relative h-screen w-full bg-cover bg-center bg-no-repeat"
   style={{
@@ -61,7 +122,7 @@ const Contact = () => {
   {/* Main Content */}
   <div className="relative z-10 flex h-full items-center justify-center px-4">
     <div className="max-w-2xl text-center text-white pt-20">
-      <h1 className="mb-3 text-[60px] font-bold md:text-[30px">
+      <h1 className="mb-3 text-[60px] font-bold md:text-[30px]">
     We&apos;re here for you!
       </h1>
       <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">
@@ -131,7 +192,7 @@ Kwara.state@lfcww.org
             Fill out the form below and we will respond as soon as we can.
           </p>
 
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             {/* Full Name */}
             <div>
               <label className="block text-sm font-medium text-black mb-2">
@@ -140,6 +201,8 @@ Kwara.state@lfcww.org
 
               <input
                 type="text"
+                value={formData.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Adeyemo Adesire"
                 className="w-full h-11 border border-gray-300 rounded-md px-4 outline-none focus:border-red-600"
               />
@@ -154,6 +217,8 @@ Kwara.state@lfcww.org
 
                 <input
                   type="email"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
                   placeholder="lfcwebsite@gmeenramy.com"
                   className="w-full h-11 border border-gray-300 rounded-md px-4 outline-none focus:border-red-600"
                 />
@@ -166,6 +231,8 @@ Kwara.state@lfcww.org
 
                 <input
                   type="text"
+                  value={formData.phone}
+                  onChange={(e) => handleInputChange("phone", e.target.value)}
                   placeholder="+234 816 160 8839"
                   className="w-full h-11 border border-gray-300 rounded-md px-4 outline-none focus:border-red-600"
                 />
@@ -178,19 +245,37 @@ Kwara.state@lfcww.org
                 Subject
               </label>
 
+              <input
+                type="text"
+                value={formData.subject}
+                onChange={(e) => handleInputChange("subject", e.target.value)}
+                placeholder="Subject (brief)"
+                className="w-full h-11 border border-gray-300 rounded-md px-4 outline-none focus:border-red-600"
+              />
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className="block text-sm font-medium text-black mb-2">
+                Message
+              </label>
+
               <textarea
-                rows={3}
-                  placeholder="Write your message here..."
-                className="w-full border border-gray-300 rounded-md px-4  outline-none resize-none focus:border-red-600"
+                rows={4}
+                value={formData.message}
+                onChange={(e) => handleInputChange("message", e.target.value)}
+                placeholder="Write your message here..."
+                className="w-full border border-gray-300 rounded-md px-4 outline-none resize-none focus:border-red-600"
               ></textarea>
             </div>
 
             {/* Button */}
             <button
               type="submit"
-              className="w-full bg-[#AC1E1E] hover:bg-red-800 transition-all duration-300 text-white font-medium py-3 rounded-[12px]"
+              disabled={isSending}
+              className="w-full bg-[#AC1E1E] hover:bg-red-800 transition-all duration-300 text-white font-medium py-3 rounded-[12px] disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Submit now
+              {isSending ? "Sending..." : "Submit now"}
             </button>
           </form>
         </div>

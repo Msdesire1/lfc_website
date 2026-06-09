@@ -17,8 +17,12 @@ const Hero = () => {
   {
     id: 3,
     image: "/slide3.svg",
-    text: "I AM THE CHID OF DESTINY",
+    text: "I AM A CHID OF DESTINY",
     subText: "Experience God's Presence With Us",
+  },
+ {
+    id: 4,
+    image: "/pickup.svg",
   },
 ];
 

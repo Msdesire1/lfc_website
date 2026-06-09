@@ -8,9 +8,9 @@ const Speech = () => {
              {/* <ServiceMarquee /> */}
             <div className="py-20 px-4 md:px-10 flex items-center gap-12 justify-between lg:px-20">
                 <span className='text-[14px] font-normal w-[500px] text-[#121212]'>
-Welcome to the Living Faith Church New Jerusalem, Ilorin a divine vision and a landmark sanctuary dedicated to the advancement of God’s kingdom and the spread of the Word of Faith. As an arm of the Living Faith Church Worldwide, under the leadership of God Servant  David Oyedepo, our mandate remains the liberation of mankind from every oppression of the devil through the preaching of the Word of Faith.<br/><br/>
+Welcome to the Living Faith Church New Jerusalem, Ilorin  the tabernacle of God(Rev 21:4) a divine vision and a landmark sanctuary dedicated to the advancement of God’s kingdom and the spread of the Word of Faith. As an arm of the Living Faith Church Worldwide, under the leadership of God Servant  David Oyedepo, our mandate remains the liberation of mankind from every oppression of the devil through the preaching of the Word of Faith.<br/><br/>
 
-For over years, the LFC New Jerusalem Church in Ilorin has stood as a symbol of faith, sacrifice, dedication, and unwavering commitment to God’s vision. This glorious sanctuary is being built to serve as a spiritual home where lives will be transformed, destinies restored, and generations empowered to live victoriously in Christ.<br/><br/>
+For over years, the LFC New Jerusalem Church in Ilorin has stood as a symbol of faith, sacrifice, dedication, and unwavering commitment to God’s vision. This glorious sanctuary has been built to serve as a spiritual home where lives will be transformed, destinies restored, and generations empowered to live victoriously in Christ.<br/><br/>
 
 The LFC New Jerusalem church  is more than just a church building  it is a prophetic landmark designed to accommodate thousands of worshippers, raise kingdom ambassadors, and provide an atmosphere where the presence and power of God will be experienced mightily. Through this divine project, countless souls shall encounter salvation, healing, breakthroughs, and supernatural restoration.
                 </span>

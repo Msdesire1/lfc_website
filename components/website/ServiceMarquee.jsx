@@ -10,7 +10,8 @@ export default function ServiceMarquee() {
     "Winners Satellite Fellowship (Every Saturday) - 5:00pm - 6:00pm",
     "Trumpet Service (First day of the month) - 6:00am - 7:00am",
     "Leadership Empowerment Summit (First Saturday of the month) - 7:00am",
-     " Believers Foundation Class Every Sunday After Service"
+     " Believers Foundation Class Every Sunday After Service",
+      "Week of Spiritual Emphasis (First Wednesday-Friday of the month) - 5:00pm"
   ];
 
   return (

@@ -28,7 +28,7 @@ const Pastors = () => {
                         OUR STATE PASTOR
                     </h2>
 <p className='text-[#000000] text-[14px] font-normal  lg:w-[600px]'>
-  Pastor Kayode Martins currently serves as the State and Resident Pastor of Living Faith Church, New Jerusalem, Ilorin, following his transfer to Ilorin in August 2025. A devoted servant of God, he is passionately committed to the preaching of the Word and the advancement of the liberation mandate. <br /><br />
+  Pastor Kayode Martins currently serves as the State and Resident Pastor of Living Faith Church, New Jerusalem, Ilorin, following his transfer to Ilorin in September 2025. A devoted servant of God, he is passionately committed to the preaching of the Word and the advancement of the liberation mandate. <br /><br />
 
 Through his teachings and leadership, many lives have continued to experience transformation, restoration, and spiritual growth. His ministry is centered on faith, kingdom service, and raising believers to fulfil their glorious destinies in Christ. <br /><br />
 

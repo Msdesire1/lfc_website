@@ -5,7 +5,7 @@ export const infos = [
         image: "/child.svg"
     },
  {
-        title: "Deacon Assembly",
+        title: "Curch Board",
         description: "The Deacon Assembly is a group of men and women who are committed to serving the church and its members. They are responsible for assisting in the administration of the church, providing support to the pastor and other church leaders, and ensuring that the needs of the congregation are met.",
         image: "/dcn.jpeg"
     },
@@ -14,6 +14,18 @@ export const infos = [
         description: "This team performs protocol duties during services, such as manning the church entrance, main sanctuary, and Pastor’s office. In addition they tend to visiting ministers, VIPs, and other church guests.",
         image: "/protocol.svg"
     },
+
+{
+        title: "Deacon Assembly",
+        description: "The Deacon Assembly is a group of men and women who are committed to serving the church and its members. They are responsible for assisting in the administration of the church, providing support to the pastor and other church leaders, and ensuring that the needs of the congregation are met.",
+        image: "/dcn.jpeg"
+    },
+ {
+        title: "social media team",
+        description: "This team is responsible for managing the church's social media presence, creating content, and engaging with the online community to share the message of the church and connect with members and followers.",
+        image: "/choir.svg"
+    },
+
     {
         title: "Drama Team",
         description: "The mission of this team is to use theater as a ministry to encourage, instruct, and uplift the body of Christ and in the process, build up a vibrant and enthusiastic group of young people who are on fire for God.",

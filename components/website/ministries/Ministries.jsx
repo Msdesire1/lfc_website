@@ -114,7 +114,7 @@ Pre-Teens church
  <div className="flex justify-center lg:justify-start">
       <div className="overflow-hidden rounded-md">
         <img
-          src="/thekids.svg"
+          src="/thekids.jpg"
           alt="Adult Church"
           className="h-[356px] w-full max-w-[500px] object-cover"
         />

@@ -122,7 +122,7 @@ const Contact = () => {
   {/* Main Content */}
   <div className="relative z-10 flex h-full items-center justify-center px-4">
     <div className="max-w-2xl text-center text-white pt-20">
-      <h1 className="mb-3 text-[60px] font-bold md:text-[30px]">
+      <h1 className="mb-3 text-[30px] font-bold md:text-[60px]">
     We&apos;re here for you!
       </h1>
       <p className="mx-auto mb-8 max-w-xl text-[24px] leading-7 text-gray-200 md:text-base">

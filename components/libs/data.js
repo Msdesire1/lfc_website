@@ -1,24 +1,19 @@
 export const infos = [
-    {
-        title: "Children Department",
-        description: "It is not just a service group but also a ministry of its own: a colorful, energetic, entertaining and dynamic ministry focused on teaching the word of faith to children from age one month to 12 years.",
-        image: "/child.svg"
-    },
+
  {
         title: "Curch Board",
+        description: "The Church Board is a group of individuals who are responsible for overseeing the operations and management of the church. They work closely with the pastor and other church leaders to ensure that the church is running smoothly and effectively.",
+        image: "/b.svg"
+    },
+{
+        title: "Deacon Assembly",
         description: "The Deacon Assembly is a group of men and women who are committed to serving the church and its members. They are responsible for assisting in the administration of the church, providing support to the pastor and other church leaders, and ensuring that the needs of the congregation are met.",
-        image: "/dcn.jpeg"
+        image: "/dcn.svg"
     },
     {
         title: "Protocol Team",
         description: "This team performs protocol duties during services, such as manning the church entrance, main sanctuary, and Pastor’s office. In addition they tend to visiting ministers, VIPs, and other church guests.",
-        image: "/protocol.svg"
-    },
-
-{
-        title: "Deacon Assembly",
-        description: "The Deacon Assembly is a group of men and women who are committed to serving the church and its members. They are responsible for assisting in the administration of the church, providing support to the pastor and other church leaders, and ensuring that the needs of the congregation are met.",
-        image: "/dcn.jpeg"
+        image: "/pt.svg"
     },
  {
         title: "social media team",
@@ -26,36 +21,45 @@ export const infos = [
         image: "/choir.svg"
     },
 
-    {
-        title: "Drama Team",
-        description: "The mission of this team is to use theater as a ministry to encourage, instruct, and uplift the body of Christ and in the process, build up a vibrant and enthusiastic group of young people who are on fire for God.",
-        image: "/drama.svg"
+      {
+        title: "Technical Team",
+        description: "This group is made up of skilled and trained media personnel who are responsible for our graphics, TV outreach programs, film editing, and all forms of electronic and print media.",
+        image: "/media.svg"
     },
+
  {
         title: "Choir (Praise Team)",
         description: "The Music Ministry is made up of God-fearing men and women, who are talented music ministers and are committed to the work of God in music. To belong to this group, experience in singing and skill to play instruments will be an added advantage.",
         image: "/choir.svg"
     },
+
+      {
+        title: "Children Department",
+        description: "It is not just a service group but also a ministry of its own: a colorful, energetic, entertaining and dynamic ministry focused on teaching the word of faith to children from age one month to 12 years.",
+        image: "/child.svg"
+    },
     {
         title: "Hospitality Team",
         description: "This team loves to create a friendly and welcoming atmosphere in and around our church services. Besides welcoming worshippers at the entrance of the church, and assisting those who may need help to their seats",
-        image: "/child.svg"
+      image: "/decoration.svg"
     },
     {
         title: "Sanctuary Keepers",
         description: "We have a team of committed men and women, devoted to making sure that the house of God is clean and tidy to ensure God’s welcoming presence in our services.",
-        image: "/sanctuary.svg"
+        image: "/san.svg"
+    },
+
+     {
+        title: "Home Cell Team",
+        description: "This team is responsible for organizing and facilitating small group gatherings, known as home cells, where members can connect, study the Bible, and support one another in their faith journey.",
+        image: "/ce.svg"
     },
     {
-        title: "Security",
+        title: "Security Team",
         description: "The security, health and safety of all is the priority of this team. Serving military personnel, paramilitary personnel, ex-service men, and security service operators are welcome to the team.",
         image: "/security.svg"
     },
-    {
-        title: "Technical Team",
-        description: "This group is made up of skilled and trained media personnel who are responsible for our graphics, TV outreach programs, film editing, and all forms of electronic and print media.",
-        image: "/media.svg"
-    },
+
     {
         title: "Medical Team (The Gilead Squad)",
         description: "Our worship services are undeniably safe at all times, and by God’s grace, we have had no incidence since inception. However, the Medical team exist to provide initial care in an unlikely case of an injury, to prevent a condition from worsening or danger of further injury.",
@@ -96,6 +100,7 @@ export const infos = [
         description: "This team is responsible for spreading the message of the gospel and reaching out to those who may not yet know Christ. They engage in various outreach activities, including street evangelism, community events, and personal evangelism.",
         image: "/medical.svg"
     },
+
 
 ]
 

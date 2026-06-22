@@ -3,7 +3,16 @@ import React from 'react'
 
 const Yoruba = () => {
   return (
+<>
+<div className="mx-auto max-w-7xl   justify-around items-center gap-1 flex flex-col">
+    <h2 className="text-[30px] font-semibold text-[#0a0203] leading-tight">
+        Kilasi Yoruba
+    </h2>
+<p className='py-2'></p>
+</div>
+
     <section className="w-full bg-[#F5F5F5] py-16 px-4 md:px-10 lg:px-20">
+
       <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
         <div className="flex flex-col gap-5">
           <span className="text-[30px] font-semibold uppercase tracking-[3px] text-[#EC3237]">
@@ -47,6 +56,7 @@ const Yoruba = () => {
         </div>
       </div>
     </section>
+</>
   )
 }
 

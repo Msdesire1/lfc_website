@@ -3,6 +3,12 @@ import React from "react";
 
 const Class = () => {
     return (
+<>
+        <div className="mx-auto max-w-7xl py-7  justify-around items-center gap-1 flex flex-col">
+    <h2 className="text-[30px] font-semibold text-[#000] leading-tight">
+        Believers&apos; Foundation Class
+    </h2>
+</div>
         <div className="w-full bg-[#F5F5F5] py-16 px-4 md:px-10 lg:px-20">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
 
@@ -91,6 +97,7 @@ const Class = () => {
                 </div>
             </div>
         </div>
+</>
     );
 };
 

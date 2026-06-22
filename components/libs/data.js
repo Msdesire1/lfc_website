@@ -3,7 +3,7 @@ export const infos = [
  {
         title: "Curch Board",
         description: "The Church Board is a group of individuals who are responsible for overseeing the operations and management of the church. They work closely with the pastor and other church leaders to ensure that the church is running smoothly and effectively.",
-        image: "/b.svg"
+        image: "/thebed.svg"
     },
 {
         title: "Deacon Assembly",
@@ -52,7 +52,7 @@ export const infos = [
      {
         title: "Home Cell Team",
         description: "This team is responsible for organizing and facilitating small group gatherings, known as home cells, where members can connect, study the Bible, and support one another in their faith journey.",
-        image: "/ce.svg"
+        image: "/cell.svg"
     },
     {
         title: "Security Team",

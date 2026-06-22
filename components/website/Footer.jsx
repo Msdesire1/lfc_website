@@ -332,7 +332,7 @@ export default function Footer() {
             © 2026 LFC New Jerusalem, Ilorin Church. All Right Reserved. Powered
             by Protocol Unit |
             <Link
-              href="https://dev-desire-n2vl.vercel.app"
+              href="https://desire-portfolio-plum.vercel.app/"
               target="_blank"
               className="ml-1 font-medium text-white transition hover:text-red-500"
             >

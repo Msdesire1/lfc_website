@@ -142,7 +142,7 @@ export default function Media() {
         </div>
 
         <div className="mt-16 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-stretch">
-          <div className="rounded-4xl border border-[#c9c5bf] bg-[#3b3f52] p-8 text-white shadow-2xl shadow-[#0b090f40]">
+          <div className="rounded-4xl border border-[#c9c5bf] bg-[#0d0d0e] p-8 text-white shadow-2xl shadow-[#0b090f40]">
             <p className="text-sm uppercase tracking-[0.3em] text-white">Live media</p>
             <h3 className="mt-4 text-3xl font-semibold leading-tight">Experience worship in real time</h3>
             <p className="mt-4 text-sm leading-7 text-white">

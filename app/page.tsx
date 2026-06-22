@@ -10,6 +10,7 @@ import NewHere from "@/components/website/NewHere";
 import Class from "@/components/website/Class";
 import ServiceMarquee from "@/components/website/ServiceMarquee";
 import Download from "@/components/website/Download";
+import Yoruba from "@/components/website/Yoruba";
 
 
 export default function Home() {
@@ -25,7 +26,8 @@ export default function Home() {
       < OurPastors />
       <Done />
       <NewHere />
-<Class/>
+      <Class/>
+<Yoruba/>
     </div>
   );
 }

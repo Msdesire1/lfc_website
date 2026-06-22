@@ -33,7 +33,7 @@ const NewHere = () => {
                     </Link>
 
                     {/* Accepted Jesus */}
-                    <Link href="@lfcwwilr@yahoo.com ">
+                    <Link href="https://t.me/+LNIVt-0iDflkMzg0">
                         <div
                             className="relative rounded-xl overflow-hidden shadow-lg min-h-[320px] flex flex-col justify-end pb-6 bg-cover bg-center cursor-pointer hover:scale-[1.02] transition duration-300"
                             style={{ backgroundImage: `url("/pray.svg")` }}

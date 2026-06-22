@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const Hero = () => {
  const slides = [
+
   {
     id: 1,
     image: "/slide1.svg",

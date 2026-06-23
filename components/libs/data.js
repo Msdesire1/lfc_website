@@ -70,6 +70,11 @@ export const infos = [
         description: "This team is responsible for interceding on behalf of the church and its members. They pray for the needs of the congregation, the community, and the world, and provide spiritual support to those in need.",
         image: "/medical.svg"
     },
+ {
+        title: "Traffic control team",
+        description: "This team is responsible for managing traffic flow and ensuring the safety of pedestrians and drivers during church services and events. They direct traffic, manage parking, and help maintain order in the surrounding areas.",
+        image: "/traffic.svg"
+    },
     {
         title: "Decoration",
         description: "This team is responsible for creating a visually appealing and welcoming environment for church services and events. They use their creativity and design skills to enhance the overall experience for attendees.",
@@ -78,12 +83,12 @@ export const infos = [
     {
         title: "Transportation Team",
         description: "The objective of this ministry is to provide transportation services and relieve our members, who have no alternatives transportation means, or stress related to transportation issues.",
-        image: "/transport.svg"
+        image: "/transportation.svg"
     },
     {
         title: "Ushering Team",
         description: "Members of this team create a friendly and welcoming atmosphere in the church services. They show kindness and care for those in need of physical support, receive worshippers and usher them to their seats",
-        image: "/protocol.svg"
+        image: "/ushers.svg"
     },
     {
         title: "Follow-up Team",
@@ -101,6 +106,12 @@ export const infos = [
         image: "/medical.svg"
     },
 
+
+     {
+        title: "Believers foundation  team",
+        description: "The Believers' Foundation Class and Membership Classes at Living Faith Church (Winners Chapel) is a platform for all new believers and first-time worshippers to be established in the faith. In this class, new members are inducted into the principles and Christian beliefs of the ministry. Everyone is encouraged to attend and become grounded in the Word of God.",
+        image: "/belivers.svg"
+    },
 
 ]
 

@@ -1,8 +1,11 @@
 import React from 'react'
+import Khms from './Khms'
 
 const Education = () => {
   return (
-    <div>Education</div>
+    <div>
+<Khms/>
+    </div>
   )
 }
 

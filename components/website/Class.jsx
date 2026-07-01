@@ -15,8 +15,8 @@ const Class = () => {
                 {/* Left Image */}
                 <div className="w-full overflow-hidden rounded-2xl shadow-lg">
                     <Image
-                        src="/bfc.png"
-                        alt="Believers Foundation Class"
+                        src="/believer.png"
+                        alt="believer"
                         width={700}
                         height={980}
                         className="w-full h-full object-cover hover:scale-105 transition duration-500"

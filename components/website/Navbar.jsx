@@ -7,39 +7,39 @@ import Link from "next/link";
 import Image from "next/image";
 
 const ministriesLinks = [
-  { label: "Main's Church", href: "/website/mainchurch" },
-  { label: "Teens", href: "/website/youthchurch" },
-  { label: "Pre-Teens Church", href: "/website/teenschurch" },
-  { label: "Children's Church", href: "/website/childrenchurch" },
+  { label: "Main's Church", href: "/mainchurch" },
+  { label: "Teens", href: "/youthchurch" },
+  { label: "Pre-Teens Church", href: "/teenschurch" },
+  { label: "Children's Church", href: "/childrenchurch" },
 ];
 
 const wsfLinks = [
-  { label: "WSF Locations", href: "/website/wsflocation" },
-  { label: "Books", href: "/website/books" },
+  { label: "WSF Locations", href: "/wsflocation" },
+  { label: "Books", href: "/books" },
 ];
 
 const educationLinks = [
-  { label: "KHMS", href: "/website/khms" },
-  { label: "Faith Academy", href: "/website/faithacademy" },
-    { label: "Landmark University", href: "/website/landmark" },
+  { label: "KHMS", href: "/khms" },
+  { label: "Faith Academy", href: "/faithacademy" },
+    { label: "Landmark University", href: "/landmark" },
 ];
 
 const aboutLinks = [
-  { label:"The Mandate", href: "/website/mandate" },
-  { label:"Our Pastors", href: "/website/ourpastors" },
-   { label:"Service Unit", href: "/website/service-unit" },
-{ label: "Other Branches ", href: "/website/winbranchs" },
+  { label:"The Mandate", href: "/mandate" },
+  { label:"Our Pastors", href: "/ourpastors" },
+   { label:"Service Unit", href: "/service-unit" },
+{ label: "Other Branches ", href: "/winbranchs" },
 ];
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/website/about",dropdown: aboutLinks},
-  { label: "Ministries", href: "/website/ministries", dropdown: ministriesLinks },
-  { label: "WSF", href: "/website/wsf", dropdown: wsfLinks },
-   { label: "WOFBI", href: "/website/wofbi" },
-  { label: "Media Center", href: "/website/media" },
-  { label: "Education", href: "/website/education", dropdown: educationLinks },
-  { label: "Contact Us", href: "/website/contact" },
+  { label: "About", href: "/about",dropdown: aboutLinks},
+  { label: "Ministries", href: "/ministries", dropdown: ministriesLinks },
+  { label: "WSF", href: "/wsf", dropdown: wsfLinks },
+   { label: "WOFBI", href: "/wofbi" },
+  { label: "Media Center", href: "/media" },
+  { label: "Education", href: "/education", dropdown: educationLinks },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -164,7 +164,7 @@ export default function Navbar() {
 
         {/* Give Button */}
         <Link
-          href="/website/giveonline"
+          href="/giveonline"
           className="hidden lg:flex items-center gap-2 px-5 py-2 text-[13px] font-semibold uppercase tracking-wide
           bg-red-500 text-white rounded-[10px] hover:bg-[#78343e] transition-all hover:-translate-y-[1px]"
         >
@@ -269,7 +269,7 @@ export default function Navbar() {
           ))}
 
           <Link
-            href="/website/giveonline"
+            href="/giveonline"
             className="block mt-4 text-center py-3  bg-red-500 text-white rounded-[10px] hover:bg-[#78343e] text-black"
           >
             Give Online

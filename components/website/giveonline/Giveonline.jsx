@@ -44,12 +44,7 @@ const Giveonline = () => {
   {/* Top Left Small Preview */}
   <div className="absolute top-2 left-4 z-20">
     <div className="overflow-hidden border border-white/10 shadow-lg">
-      <img
-        src="/images/giving-bg.jpg"
-        alt="preview"
-        className="
-          object-cover opacity-80 "
-      />
+
     </div>
   </div>
 

@@ -47,7 +47,7 @@ const Yoruba = () => {
 
         <div className="overflow-hidden rounded-[24px] shadow-lg">
           <Image
-            src="/yruba.jpg"
+            src="/yoruba.jpg"
             alt="Yoruba class"
             width={650}
             height={520}

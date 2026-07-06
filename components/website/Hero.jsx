@@ -18,8 +18,8 @@ const Hero = () => {
   {
     id: 3,
     image: "/slide3.svg",
-    text: "I AM A CHID OF DESTINY",
-    subText: "Experience God's Presence With Us",
+    text: "FINANCIAL FORTUNE IS MY HERITAGE",
+    subText: "Experience God's Presence With Us Every Sunday's",
   },
  {
     id: 4,
@@ -32,7 +32,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -74,7 +74,7 @@ const Hero = () => {
         <h1 className="text-white text-3xl md:text-6xl font-bold">
           {slide.text}
 {/* <p className="py-2">WONDERS TODAY</p> */}
-<p>ROMAMS  8:29-30</p>
+<p>JOB 22:21-25 </p>
         </h1>
 
         <p className="text-white mt-4 text-sm md:text-xl max-w-2xl">

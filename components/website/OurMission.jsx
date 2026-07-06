@@ -16,7 +16,7 @@ const OurMission = () => {
                         <span className='text-[14px] font-semibold'>
                             This was the Divine mandate received from the LORD:
                         </span>
-                        <p className='lg:w-[600px] text-[20px] font-normal'>
+                        <p className='lg:w-[600px] text-[18px] font-normal'>
                             “The hour has come to liberate the world from all oppressions of the devil through the preaching of the word of faith, and I am sending you to undertake this task.”
                         </p>
                     </div>

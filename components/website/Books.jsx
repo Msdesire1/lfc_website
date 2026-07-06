@@ -9,28 +9,28 @@ import React from "react";
 const Books = () => {
   const books = [
     {
-      image: "/di.png",
-      name: "Following The Path Of The Eagle",
+      image: "/new.png",
+      name: "Breaking Financial Hardship",
       author: "Bishop David Oyedepo",
-      pdf: "/pdfs/following-the-path.pdf",
+      pdf: "/pdfs/breaking-financial-hardship.pdf",
     },
     {
-      image: "/dii.png",
-      name: "In Pursuit of  vision",
-      author: "Bishop David Oyedepo",
-      pdf: "/pdfs/in-pusuit.pdf",
+      image: "/newi.png",
+      name: "Convenat Wealth ",
+      author:"Bishop David Oyedepo",
+      pdf: "/pdfs/covenant-wealth.pdf",
     },
     {
-      image: "/diii.png",
-      name: "Understanding Divine Direction",
+      image: "/newii.png",
+      name: "Wining The War Against Poverty",
       author: "Bishop David Oyedepo",
-      pdf: "/pdfs/understanding-divine-direcion.pdf",
+      pdf: "/pdfs/winning-the-war-against-poverty.pdf",
     },
     {
-      image: "/diiii.png",
-      name: "The Breakingthrough Power of Vision",
+      image: "/new.jpg",
+      name: "Understanding Financial Prosperity",
       author: "Bishop David Oyedepo",
-      pdf: "/pdfs/break-power.pdf",
+      pdf: "/pdfs/understanding-financial-prosperity.pdf",
     },
   ];
 

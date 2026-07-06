@@ -1,5 +1,6 @@
 import React from 'react'
-import Faithacademy from '../../components/faithacademy/Faithacademy'
+import Faithacademy from '../../components/website/faithacademy/Faithacademy'
+
 
 const page = () => {
   return (

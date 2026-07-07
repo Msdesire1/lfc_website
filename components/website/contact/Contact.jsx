@@ -261,7 +261,7 @@ Kwara.state@lfcww.org
               </label>
 
               <textarea
-                rows={4}
+                rows={10}
                 value={formData.message}
                 onChange={(e) => handleInputChange("message", e.target.value)}
                 placeholder="Write your message here..."

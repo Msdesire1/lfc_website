@@ -106,7 +106,7 @@ A supportive space where youth can explore their faith,<br/> build confidence, a
         {/* Map Link */}
         <div className="mt-4">
           <a
-            href="/website/contact"
+            href="/contact"
             className="inline-flex items-center gap-2 text-sm font-medium text-red-500 transition hover:text-red-600"
           >
             <svg

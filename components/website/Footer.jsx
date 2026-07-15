@@ -27,7 +27,7 @@ export default function Footer() {
       </h2>
 
       <Link
-        href={"/website/giveonline"}
+        href={"/giveonline"}
         className="mt-4 rounded-[10px] bg-[#EC3237] px-5 py-2 text-xs font-medium text-white transition hover:bg-red-700 sm:mt-6 sm:px-6 sm:py-3 sm:text-sm md:mt-8 md:px-8"
       >
         Give Now

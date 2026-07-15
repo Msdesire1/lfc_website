@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import "antd/dist/reset.css";
-import Navbar from "@/components/website/Navbar";
-import Footer from "@/components/website/Footer";
-import Quick from "@/components/website/Quick";
+import AppShell from "@/components/layout/AppShell";
 import { Bricolage_Grotesque } from "next/font/google";
 
 const bricolage = Bricolage_Grotesque({
@@ -26,13 +22,9 @@ export default function RootLayout({
       lang="en"
       className={`${bricolage.className} h-full antialiased`}
     >
-      <body className=" flex flex-col">
-        <Navbar />
-        {children}
-
-        <Quick/>
-        <Footer />
-        </body>
+      <body className="min-h-screen">
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

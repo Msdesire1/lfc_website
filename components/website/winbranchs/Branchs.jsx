@@ -266,7 +266,7 @@ const Branchs = () => {
           Each Living Faith branch is committed to providing a meaningful worship experience, prayer support, and community fellowship. Reach out through our contact page for directions or service times.
         </p>
         <a
-          href="/website/contact"
+          href="/contact"
           className="mt-8 inline-flex rounded-full bg-[#EC3237] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#c81b25]"
         >
           Contact Us for Directions

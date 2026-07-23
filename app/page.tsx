@@ -27,7 +27,7 @@ export default function Home() {
       <Done />
       <NewHere />
       <Class/>
-<Yoruba/>
+       <Yoruba/>
     </div>
   );
 }

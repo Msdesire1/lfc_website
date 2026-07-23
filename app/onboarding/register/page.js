@@ -5,7 +5,7 @@ export default function RegisterPage() {
   return (
     <div className="mx-auto max-w-7xl rounded-4xl  sm:p-10">
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
-        <div className="relative overflow-hidden rounded-[12px] bg-slate-950/10 p-6 sm:p-10">
+        <div className="relative overflow-hidden rounded-[12px] bg-slate-500/10 p-6 sm:p-10">
           <div className="absolute inset-0 opacity-10">
             <Image
               src="/wobiimage.jpg"

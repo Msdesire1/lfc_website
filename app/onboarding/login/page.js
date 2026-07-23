@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export default function LoginPage() {
   return (
     <div className="mx-auto max-w-7xl rounded-2xl  sm:p-10">
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
-        <div className="relative overflow-hidden rounded-4xl bg-slate-950/30 p-6 sm:p-10">
+        <div className="relative overflow-hidden rounded-4xl bg-slate-500/10 p-6 sm:p-10">
           <div className="absolute inset-0 opacity-10">
             <Image
               src="/wobiimage.jpg"
@@ -17,6 +18,7 @@ export default function LoginPage() {
           </div>
           <div className="relative z-10 flex h-full flex-col justify-between gap-6 text-white">
             <div>
+               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-red-400">Welcome to WOFBI</p>
               <h1 className="mt-4 text-4xl font-semibold leading-tight">Welcome back</h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-200">
                 Sign in to access your course dashboard and continue where you left off.
@@ -53,12 +55,12 @@ export default function LoginPage() {
               />
             </label>
 
-            <button
-              type="submit"
-              className="w-full rounded-full bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700"
-            >
+        <div className=' justify-center flex w-full  py-3  '>
+          <Link href="/dashboard/user"  className="rounded-full  text-center w-full  bg-red-600  py-3 text-sm font-semibold text-white transition hover:bg-red-700">
               Sign In
-            </button>
+            </Link>
+            </div>
+
 
             <p className="text-center text-sm text-slate-600">
               Don’t have an account? <a href="/onboarding/register" className="font-semibold text-red-600 hover:text-red-700">Register here</a>

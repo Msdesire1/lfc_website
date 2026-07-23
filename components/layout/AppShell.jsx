@@ -1,119 +1,119 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { LayoutDashboard, UserPlus, BookOpen, ArrowUpRight, Home, Lock, KeyRound, ShieldCheck } from 'lucide-react';
-import Navbar from '@/components/website/Navbar';
-import Footer from '@/components/website/Footer';
-import Quick from '@/components/website/Quick';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  Bell,
+  BookOpen,
+  CalendarDays,
+  ClipboardList,
+  Clock3,
+  CreditCard,
+  FileBadge,
+  GraduationCap,
+  LayoutDashboard,
+  LifeBuoy,
+  Settings2,
+  TimerReset,
+  Users,
+  Video,
+} from "lucide-react";
+import Navbar from "@/components/website/Navbar";
+import Footer from "@/components/website/Footer";
+import Quick from "@/components/website/Quick";
 
-const dashboardNav = [
-  { label: 'Overview', href: '/dashboard', icon: LayoutDashboard },
-  { label: 'New Entry', href: '/dashboard/new', icon: BookOpen },
+const studentNav = [
+  { label: "Dashboard", href: "/dashboard/user", icon: LayoutDashboard },
+  { label: "My Courses", href: "/dashboard/user/new", icon: BookOpen },
+  { label: "Payments", href: "/dashboard/user/payments", icon: CreditCard },
 ];
+const adminNav = [
+  { label: "Dashboard", href: "/dashboard/admin", icon: LayoutDashboard },
+  { label: "Admissions", href: "/dashboard/admin/admissions", icon: ClipboardList },,
+  { label: "Payments", href: "/dashboard/admin/payments", icon: CreditCard },
 
-// const onboardingNav = [
-//   { label: 'Register', href: '/onboarding/register', icon: UserPlus },
-//   { label: 'Login', href: '/onboarding/login', icon: Lock },
-//   { label: 'Forgot password', href: '/onboarding/forgot-password', icon: KeyRound },
-//   { label: 'Reset password', href: '/onboarding/reset-password', icon: ShieldCheck },
-// ];
+];
 
 export default function AppShell({ children }) {
   const pathname = usePathname();
-  const isDashboardRoute = pathname?.startsWith('/dashboard');
-  const isOnboardingRoute = pathname?.startsWith('/onboarding');
-
-  if (isDashboardRoute) {
+  const isDashboard = pathname?.startsWith("/dashboard");
+  const isAdmin = pathname?.startsWith("/dashboard/admin");
+  const isOnboarding = pathname?.startsWith("/onboarding");
+  if (isDashboard) {
+    const nav = isAdmin ? adminNav : studentNav;
     return (
-      <div className="min-h-screen bg-slate-50 text-slate-900">
+      <div className="min-h-screen bg-[#f6f7f4] text-slate-900">
         <div className="flex min-h-screen flex-col lg:flex-row">
-          <aside className="w-full  p-6 shadow-sm lg:w-72 lg:border-b-0 lg:border-r">
+          <aside className="w-full border-b border-slate-200/80 bg-[#343A40] p-5 text-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-72 lg:flex-col lg:border-b-0 lg:border-r lg:border-white/10 lg:p-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-red-600 text-white">
-                <LayoutDashboard size={20} />
+              <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-[#12342b]">
+                <GraduationCap size={22} />
               </div>
               <div>
-                <p className="text-sm font-semibold text-red-600">LFC Admin</p>
-                <p className="text-xs text-slate-500">Member workspace</p>
+                <p className="text-sm font-bold">
+                  {isAdmin ? "WOFBI Administration" : "WOFBI Learning"}
+                </p>
+                <p className="text-xs text-emerald-100/65">
+                  {isAdmin ? "Administrator workspace" : "Student portal"}
+                </p>
               </div>
             </div>
-
-            <nav className="mt-8 space-y-2">
-              {dashboardNav.map((item) => {
-                const Icon = item.icon;
-                const active = pathname === item.href;
-
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition ${
-                      active
-                        ? 'bg-red-600 text-white shadow-sm'
-                        : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                    }`}
-                  >
-                    <span className="flex items-center gap-3">
-                      <Icon size={18} />
-                      {item.label}
-                    </span>
-                    <ArrowUpRight size={16} />
-                  </Link>
-                );
-              })}
-            </nav>
-
-            <div className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-sm font-semibold text-slate-800">Need to return to the site?</p>
-              <Link
-                href="/"
-                className="mt-3 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-sm font-medium text-white transition hover:bg-slate-700"
-              >
-                <Home size={16} />
-                Go to website
-              </Link>
-            </div>
-          </aside>
-
-          <div className="flex-1">
-            <header className="border-b border-slate-200 bg-white/80 backdrop-blur">
-              <div className="flex items-center justify-between px-4 py-4 sm:px-6">
-                <div>
-                  <p className="text-sm font-medium text-red-600">Dashboard</p>
-                  <h1 className="text-xl font-semibold text-slate-900">Welcome back</h1>
-                </div>
+            <nav className="mt-7 flex gap-2 overflow-x-auto pb-1 lg:block lg:space-y-1 lg:overflow-visible">
+              {nav.map(({ label, href, icon: Icon }) => (
                 <Link
-                  href="/dashboard/new"
-                  className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-red-200 hover:text-red-600"
+                  key={href}
+                  href={href}
+                  className={`flex shrink-0 items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition ${pathname === href.split("#")[0] && !href.includes("#") ? "bg-white text-[#12342b] shadow-sm" : "text-emerald-50/70 hover:bg-white/10 hover:text-white"}`}
                 >
-                  Open new workspace
+                  <Icon size={18} />
+                  {label}
                 </Link>
+              ))}
+            </nav>
+          </aside>
+          <div className="flex-1">
+            <header className="sticky top-0 z-10 border-b border-slate-200/80 bg-[#f6f7f4]/85 backdrop-blur-xl">
+              <div className="flex items-center justify-between px-5 py-4 sm:px-7 lg:px-9">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[.16em] text-red-600">
+                    {isAdmin ? "Operations overview" : "Your learning space"}
+                  </p>
+                  <h1 className="mt-0.5 text-lg font-bold">
+                    {isAdmin ? "Good morning, Admin" : "Good morning, Esther"}
+                  </h1>
+                </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    aria-label="Notifications"
+                    className="relative rounded-xl border border-slate-200 bg-white p-2.5 text-slate-600"
+                  >
+                    <Bell size={18} />
+                    <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-red-500" />
+                  </button>
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#e7f4dc] text-sm font-bold text-[#12342b]">
+                    {isAdmin ? "AO" : "EO"}
+                  </div>
+                </div>
               </div>
             </header>
-
-            <main className="p-4 sm:p-6 lg:p-8">{children}</main>
+            <main className="p-5 sm:p-7 lg:p-9">{children}</main>
           </div>
         </div>
       </div>
     );
   }
-
-  if (isOnboardingRoute) {
+  if (isOnboarding)
     return (
-      <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.25),transparent_35%),linear-gradient(135deg,#0f172a,#111827_45%,#7f1d1d)] text-white">
+      <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,.25),transparent_35%),linear-gradient(135deg,#0f172a,#111827_45%,#7f1d1d)] text-white">
         <div className="mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
-
           <main className="flex-1 py-6">{children}</main>
         </div>
       </div>
     );
-  }
-
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-15">{children}</div>
+      <div>{children}</div>
       <Quick />
       <Footer />
     </div>

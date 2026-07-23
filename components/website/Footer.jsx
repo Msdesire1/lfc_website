@@ -27,7 +27,7 @@ export default function Footer() {
       </h2>
 
       <Link
-        href={"/website/giveonline"}
+        href={"/giveonline"}
         className="mt-4 rounded-[10px] bg-[#EC3237] px-5 py-2 text-xs font-medium text-white transition hover:bg-red-700 sm:mt-6 sm:px-6 sm:py-3 sm:text-sm md:mt-8 md:px-8"
       >
         Give Now
@@ -172,7 +172,7 @@ export default function Footer() {
             <ul className="space-y-5 text-[12px] text-[#D1D1D1]">
               <li>
                 <a
-                  href="/website/wsflocation"
+                  href="/wsflocation"
                   className="transition hover:text-red-500"
                 >
                   WSF Finder
@@ -181,7 +181,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="/website/books"
+                  href="/books"
                   className="transition hover:text-red-500"
                 >
                   Bookshop
@@ -233,7 +233,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="/website/about"
+                  href="/about"
                   className="transition hover:text-red-500"
                 >
                   About Us
@@ -242,7 +242,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="/website/ministries"
+                  href="/ministries"
                   className="transition hover:text-red-500"
                 >
                   Ministries
@@ -251,7 +251,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="/website/wofbi"
+                  href="/wofbi"
                   className="transition hover:text-red-500"
                 >
                   WOFBI
@@ -259,14 +259,14 @@ export default function Footer() {
               </li>
 
               <li>
-                <a href="/website/education" className="transition hover:text-red-500">
+                <a href="/education" className="transition hover:text-red-500">
                   Education
                 </a>
               </li>
 
               <li>
                 <a
-                  href="/website/contact"
+                  href="/contact"
                   className="transition hover:text-red-500"
                 >
                   Contact Us
@@ -284,7 +284,7 @@ export default function Footer() {
             <ul className="space-y-5 text-[12px] text-[#D1D1D1]">
               <li>
                 <a
-                  href="/website/teens"
+                  href="/teens"
                   className="transition hover:text-red-500"
                 >
                   Teens Church
@@ -320,6 +320,15 @@ export default function Footer() {
                   className="transition hover:text-red-500"
                 >
                   Landmark University
+                </a>
+              </li>
+
+               <li>
+                <a
+                  href="https://covenantuniversity.edu.ng"
+                  className="transition hover:text-red-500"
+                >
+                 Covenant University
                 </a>
               </li>
             </ul>

@@ -1,20 +1,7 @@
-'use client';
+﻿'use client';
 
-import { useState } from 'react';
-import {
-  ArrowRight,
-  BadgeCheck,
-  BookOpen,
-  Camera,
-  Check,
-  ChevronRight,
-  Clock3,
-  GraduationCap,
-  LockKeyhole,
-  MapPin,
-  Sparkles,
-  UserRound,
-} from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ArrowLeft, ArrowRight, BadgeCheck, BookOpen, Check, ChevronRight, ClipboardCheck, Clock3, LockKeyhole, Camera } from 'lucide-react';
 
 const courses = [
   { name: 'Basic Certificate Course', period: 'Two-week intensive', description: 'Build a solid foundation in the Word and develop habits for victorious living.', status: 'Available now', accent: 'border-red-500 bg-red-50', available: true },
@@ -22,181 +9,74 @@ const courses = [
   { name: 'Leadership Diploma Course', period: 'Advanced level', description: 'A deeper equipping programme for leaders pursuing excellence in every sphere.', status: 'Available after Leadership Certificate', accent: 'border-slate-200 bg-slate-50' },
 ];
 
-const fieldClass = 'w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 outline-none transition focus:border-red-500 focus:bg-white';
+const initialForm = { title: '', firstName: '', lastName: '', email: '', phone: '', gender: '', dateOfBirth: '', placeOfBirth: '', nativeTown: '', state: '', country: '', address: '', maritalStatus: '', children: '', understandsEnglish: '', writesEnglish: '', languages: '', workplace: '', position: '', employmentDate: '', occupation: '', specialSkills: '', schoolType: '', schoolName: '', dateAttended: '', certificate: '', physicalDefects: '', defectDetails: '', bornAgainDate: '', waterBaptized: '', waterBaptizedDate: '', holySpiritBaptized: '', holySpiritBaptizedDate: '', discipleshipClass: '', discipleshipChurch: '', discipleshipDate: '', bibleTraining: '', trainingName: '', trainingCertificates: '', wofbiReason: '', afterCoursePlan: '', christianService: '', pastorNameAddress: '', churchSponsorship: '', preferredCourse: '', declarationName: '', declarationDate: '' };
+const steps = ['Personal details', 'Work, education & health', 'Spiritual information', 'Declaration'];
+const fieldClass = 'mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 outline-none transition focus:border-red-500 focus:bg-white';
+
+function Input({ label, name, value, onChange, required = false, type = 'text', options, wide = false }) {
+  return <label className={`block text-sm font-medium text-slate-700 ${wide ? 'sm:col-span-2' : ''}`}><span>{label}{required && <b className="text-red-600"> *</b>}</span>{options ? <select name={name} value={value} onChange={onChange} required={required} className={fieldClass}><option value="">Select an option</option>{options.map((option) => <option value={option} key={option}>{option}</option>)}</select> : <input name={name} value={value} type={type} onChange={onChange} required={required} className={fieldClass} />}</label>;
+}
+function Area({ label, name, value, onChange, required = false, placeholder = '' }) {
+  return <label className="block text-sm font-medium text-slate-700 sm:col-span-2"><span>{label}{required && <b className="text-red-600"> *</b>}</span><textarea name={name} value={value} onChange={onChange} required={required} placeholder={placeholder} rows="3" className={`${fieldClass} resize-y`} /></label>;
+}
 
 export default function CourseEnrollment() {
-  const [profileComplete, setProfileComplete] = useState(false);
+  const [step, setStep] = useState(0);
+  const [form, setForm] = useState(initialForm);
+  const [complete, setComplete] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState('');
+  const [profilePhoto, setProfilePhoto] = useState(null);
   const [photoPreview, setPhotoPreview] = useState('');
+  const formRef = useRef(null);
 
-  const completeProfile = (event) => {
-    event.preventDefault();
-    setProfileComplete(true);
-  };
 
-  const previewPhoto = (event) => {
+  const change = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+  const selectPhoto = (event) => {
     const [file] = event.target.files;
-    if (file) setPhotoPreview(URL.createObjectURL(file));
+    if (!file) return;
+    setProfilePhoto(file);
+    setPhotoPreview(URL.createObjectURL(file));
   };
+  const save = (data = form, applicationComplete = complete) => localStorage.setItem('wofbi-application', JSON.stringify({ ...data, applicationComplete }));
+  const next = () => { if (formRef.current?.reportValidity()) { save(); setStep((current) => current + 1); } };
+  const submit = () => { if (!formRef.current?.reportValidity()) return; const data = { ...form, declarationName: form.declarationName || `${form.firstName} ${form.lastName}`.trim() }; setForm(data); save(data, true); setComplete(true); };
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      <div className="mx-auto max-w-6xl pb-8 flex-grow">
-        <div className="mb-8 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">
-          <span className="text-red-600">WOFBI student journey</span>
-          <span className="h-px w-8 bg-slate-300" />
-          <span>{profileComplete ? 'Choose your course' : 'Complete your profile'}</span>
-        </div>
-        {!profileComplete ? (
-          <section className="grid overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-slate-200/70 lg:grid-cols-[.82fr_1.18fr]">
-            <aside className="relative overflow-hidden bg-[#343A40] p-7 text-white sm:p-10">
-              <div className="absolute -left-12 top-20 h-52 w-52 rounded-full border-[18px] border-emerald-400/15" />
-              <div className="absolute -bottom-20 -right-10 h-64 w-64 rounded-full bg-red-500/20 blur-2xl" />
-              <div className="relative flex h-full flex-col">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#14342c]">
-                  <GraduationCap size={25} />
-                </div>
-                <p className="mt-10 text-xs font-bold uppercase tracking-[0.22em] text-emerald-200">Student record</p>
-                <h1 className="mt-3 text-3xl font-semibold leading-tight">Complete your WOFBI profile to unlock courses.</h1>
-                <p className="mt-4 text-sm leading-6 text-emerald-50/85">This information is collected after sign-in, separately from your account registration, to prepare your student record and course placement.</p>
-                <div className="mt-auto space-y-4 pt-10">
-                  {['Student information', 'Church and contact details', 'Course preference'].map((item, index) => (
-                    <div key={item} className="flex items-center gap-3 text-sm">
-                      <span className={`flex h-7 w-7 items-center justify-center rounded-full border ${index === 0 ? 'border-emerald-300 bg-emerald-400 text-[#14342c]' : 'border-white/30 text-emerald-100'}`}>
-                        {index === 0 ? <Check size={15} /> : index + 1}
-                      </span>
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </aside>
-            <div className="p-7 sm:p-10">
-              <p className="text-sm font-semibold text-red-600">Profile completion</p>
-              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">Your student information</h2>
-              <p className="mt-3 max-w-lg text-sm leading-6 text-slate-500">Complete the details below once. Your available WOFBI programmes appear after you submit this form.</p>
-              <form onSubmit={completeProfile} className="mt-8 grid gap-5 sm:grid-cols-2">
-                <label className="flex cursor-pointer items-center gap-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4 transition hover:border-red-300 hover:bg-red-50/30 sm:col-span-2">
-                  <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white text-red-600 shadow-sm">
-                    {photoPreview ? <img src={photoPreview} alt="Profile preview" className="h-full w-full object-cover" /> : <Camera size={24} />}
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold text-slate-800">Add a profile photo</span>
-                    <span className="mt-1 block text-xs leading-5 text-slate-500">Clear headshot, JPG or PNG, maximum 5 MB.</span>
-                  </span>
-                  <input required type="file" accept="image/png,image/jpeg" onChange={previewPhoto} className="sr-only" />
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700">
-                  <span>Title</span>
-                  <select required defaultValue="" className={fieldClass}>
-                    <option value="" disabled>Select title</option>
-                    <option>Mr.</option>
-                    <option>Mrs.</option>
-                    <option>Miss</option>
-                    <option>Dcn.</option>
-                    <option>Pastor</option>
-                  </select>
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700">
-                  <span>Gender</span>
-                  <select required defaultValue="" className={fieldClass}>
-                    <option value="" disabled>Select gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700">
-                  <span>Phone number</span>
-                  <input required type="tel" placeholder="0800 000 0000" className={fieldClass} />
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700">
-                  <span>Occupation</span>
-                  <input required placeholder="Teacher, student, entrepreneur..." className={fieldClass} />
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700 sm:col-span-2">
-                  <span>Home church / assembly</span>
-                  <input required placeholder="e.g. Living Faith Church, Lekki" className={fieldClass} />
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700">
-                  <span>City / state</span>
-                  <input required placeholder="e.g. Lagos, Lagos State" className={fieldClass} />
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700">
-                  <span>Residential address</span>
-                  <input required placeholder="Street and area" className={fieldClass} />
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700 sm:col-span-2">
-                  <span>Preferred WOFBI course</span>
-                  <select required defaultValue="" className={fieldClass}>
-                    <option value="" disabled>Choose your preferred course</option>
-                    <option>Basic Certificate Course</option>
-                    <option>Leadership Certificate Course</option>
-                    <option>Leadership Diploma Course</option>
-                  </select>
-                </label>
-                <label className="space-y-2 text-sm font-medium text-slate-700 sm:col-span-2">
-                  <span>Why are you attending WOFBI? <em className="font-normal text-slate-400">(optional)</em></span>
-                  <textarea rows="3" placeholder="Share briefly..." className={`${fieldClass} resize-none`} />
-                </label>
-                <button type="submit" className="flex items-center justify-center gap-2 rounded-xl bg-red-600 px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-red-700 sm:col-span-2">
-                  Save profile and unlock courses <ArrowRight size={17} />
-                </button>
-              </form>
-            </div>
-          </section>
-        ) : (
-          <section>
-            <div className="flex flex-col justify-between gap-4 rounded-[2rem] bg-[#f5f1ea] p-7 sm:flex-row sm:items-end sm:p-10">
-              <div>
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-red-600 shadow-sm">
-                  <Sparkles size={21} />
-                </div>
-                <p className="mt-6 text-sm font-semibold text-red-600">Profile complete</p>
-                <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">Choose the programme for your next step.</h1>
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">The selection below is based on your profile. Courses with prerequisites stay locked until the previous level is completed.</p>
-              </div>
-              <button onClick={() => setProfileComplete(false)} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-red-600">
-                <UserRound size={17} /> Edit profile
-              </button>
-            </div>
-            <div className="mt-6 grid gap-5 lg:grid-cols-3">
-              {courses.map((course) => (
-                <article key={course.name} className={`flex min-h-80 flex-col rounded-[1.75rem] border-t-4 p-6 ${course.accent}`}>
-                  <div className="flex items-start justify-between">
-                    <BookOpen className={course.available ? 'text-red-600' : 'text-slate-500'} size={25} />
-                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${course.available ? 'bg-white text-red-600' : 'bg-white/70 text-slate-500'}`}>
-                      {course.available ? 'Open now' : 'Next step'}
-                    </span>
-                  </div>
-                  <p className="mt-8 text-xs font-bold uppercase tracking-[0.14em] text-slate-500">{course.period}</p>
-                  <h2 className="mt-2 text-xl font-semibold text-slate-900">{course.name}</h2>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{course.description}</p>
-                  <div className="mt-auto pt-6">
-                    <p className="mb-4 flex items-center gap-2 text-xs font-medium text-slate-500">
-                      {course.available ? <Clock3 size={15} /> : <LockKeyhole size={15} />}
-                      {course.status}
-                    </p>
-                    <button
-                      disabled={!course.available}
-                      onClick={() => setSelectedCourse(course.name)}
-                      className={`flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold transition ${course.available ? 'bg-[#14342c] text-white hover:bg-[#204c40]' : 'cursor-not-allowed bg-white/70 text-slate-400'}`}
-                    >
-                      {course.available ? 'Select this course' : 'Locked'}
-                      {course.available && <ChevronRight size={17} />}
-                    </button>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <div className="mt-6 flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-sm text-slate-600">
-              <MapPin className="mt-0.5 shrink-0 text-red-600" size={19} />
-              <p>
-                <strong className="text-slate-900">Course placement is confirmed by your WOFBI centre.</strong> Your local assembly and location help us communicate the appropriate schedule.
-              </p>
-            </div>
-          </section>
-        )}
-      </div>
+  const contents = [
+    <div className="grid gap-5 sm:grid-cols-2" key="personal">
+      <label className="flex cursor-pointer items-center gap-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-4 transition hover:border-red-300 hover:bg-red-50/30 sm:col-span-2">
+        <span className="grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-full bg-white text-red-600 shadow-sm">{photoPreview ? <img src={photoPreview} alt="Profile preview" className="h-full w-full object-cover" /> : <Camera size={24} />}</span>
+        <span><span className="block text-sm font-semibold text-slate-800">Upload passport photograph <b className="text-red-600">*</b></span><span className="mt-1 block text-xs text-slate-500">Clear headshot, JPG or PNG, maximum 5 MB.</span></span>
+        <input type="file" accept="image/png,image/jpeg" onChange={selectPhoto} required={!profilePhoto} className="sr-only" />
+      </label>
+      <Input label="Title" name="title" value={form.title} onChange={change} required options={['Mr.', 'Mrs.', 'Miss', 'Dr.', 'Pastor', 'Dcn.', 'Dcnss.']} /><Input label="Gender" name="gender" value={form.gender} onChange={change} required options={['Male', 'Female']} />
+      <Input label="First name" name="firstName" value={form.firstName} onChange={change} required /><Input label="Surname" name="lastName" value={form.lastName} onChange={change} required />
+      <Input label="Email address" name="email" value={form.email} onChange={change} required type="email" /><Input label="Telephone number" name="phone" value={form.phone} onChange={change} required type="tel" />
+      <Input label="Date of birth" name="dateOfBirth" value={form.dateOfBirth} onChange={change} required type="date" /><Input label="Place of birth" name="placeOfBirth" value={form.placeOfBirth} onChange={change} required />
+      <Input label="Native town" name="nativeTown" value={form.nativeTown} onChange={change} required /><Input label="State" name="state" value={form.state} onChange={change} required />
+      <Input label="Country" name="country" value={form.country} onChange={change} required /><Input label="Marital status" name="maritalStatus" value={form.maritalStatus} onChange={change} required options={['Single', 'Engaged', 'Married', 'Separated', 'Divorced', 'Widow', 'Widower']} />
+      <Input label="Number of children" name="children" value={form.children} onChange={change} type="number" /><Input label="Languages spoken" name="languages" value={form.languages} onChange={change} required />
+      <Area label="Present address in full" name="address" value={form.address} onChange={change} required /><Input label="Do you understand English?" name="understandsEnglish" value={form.understandsEnglish} onChange={change} required options={['Yes', 'No']} /><Input label="Can you write in English?" name="writesEnglish" value={form.writesEnglish} onChange={change} required options={['Yes', 'No']} />
+    </div>,
+    <div className="grid gap-5 sm:grid-cols-2" key="work">
+      <Input label="Present place of work" name="workplace" value={form.workplace} onChange={change} /><Input label="Position" name="position" value={form.position} onChange={change} /><Input label="Date of employment" name="employmentDate" value={form.employmentDate} onChange={change} type="date" /><Input label="Occupation" name="occupation" value={form.occupation} onChange={change} required /><Area label="Special skills" name="specialSkills" value={form.specialSkills} onChange={change} />
+      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:col-span-2"><p className="font-semibold text-slate-900">Academic background <span className="font-normal text-slate-500">(secondary school and above)</span></p><div className="mt-4 grid gap-4 sm:grid-cols-2"><Input label="Type of school" name="schoolType" value={form.schoolType} onChange={change} required /><Input label="Name of school" name="schoolName" value={form.schoolName} onChange={change} required /><Input label="Date attended" name="dateAttended" value={form.dateAttended} onChange={change} required /><Input label="Certificate obtained" name="certificate" value={form.certificate} onChange={change} required /></div></div>
+      <Input label="Any physical defects?" name="physicalDefects" value={form.physicalDefects} onChange={change} required options={['No', 'Yes']} /><Input label="If yes, state details" name="defectDetails" value={form.defectDetails} onChange={change} />
+    </div>,
+    <div className="grid gap-5 sm:grid-cols-2" key="spiritual">
+      <Input label="Date born again" name="bornAgainDate" value={form.bornAgainDate} onChange={change} required type="date" /><Input label="Baptized in water by immersion?" name="waterBaptized" value={form.waterBaptized} onChange={change} required options={['Yes', 'No']} /><Input label="If yes, when?" name="waterBaptizedDate" value={form.waterBaptizedDate} onChange={change} type="date" /><Input label="Baptized in the Holy Spirit with tongues?" name="holySpiritBaptized" value={form.holySpiritBaptized} onChange={change} required options={['Yes', 'No']} /><Input label="If yes, when?" name="holySpiritBaptizedDate" value={form.holySpiritBaptizedDate} onChange={change} type="date" /><Input label="Attended discipleship / believers' class?" name="discipleshipClass" value={form.discipleshipClass} onChange={change} required options={['Yes', 'No']} /><Input label="Which church?" name="discipleshipChurch" value={form.discipleshipChurch} onChange={change} /><Input label="When?" name="discipleshipDate" value={form.discipleshipDate} onChange={change} type="date" /><Input label="Attended Bible training college or ministry school?" name="bibleTraining" value={form.bibleTraining} onChange={change} required options={['Yes', 'No']} /><Input label="School / training name" name="trainingName" value={form.trainingName} onChange={change} /><Area label="Certificates obtained" name="trainingCertificates" value={form.trainingCertificates} onChange={change} /><Area label="Why do you want to be trained in WOFBI?" name="wofbiReason" value={form.wofbiReason} onChange={change} required /><Area label="Your plan after completing the course" name="afterCoursePlan" value={form.afterCoursePlan} onChange={change} required /><Area label="Experience in Christian service" name="christianService" value={form.christianService} onChange={change} required placeholder="Preaching, tract distribution, Sunday school, music / choir..." />
+    </div>,
+    <div className="grid gap-5 sm:grid-cols-2" key="declaration">
+      <Area label="Name and address of your pastor" name="pastorNameAddress" value={form.pastorNameAddress} onChange={change} required /><Input label="Will your church / pastor assume financial responsibility for your school fees?" name="churchSponsorship" value={form.churchSponsorship} onChange={change} required options={['Yes', 'No']} wide /><Input label="Preferred WOFBI course" name="preferredCourse" value={form.preferredCourse} onChange={change} required options={courses.map((course) => course.name)} wide /><div className="rounded-2xl border border-red-100 bg-red-50 p-5 text-sm leading-6 text-slate-700 sm:col-span-2"><p className="font-semibold text-slate-900">Declaration</p><p className="mt-2">I declare that the information provided is true. If accepted as a student, I agree to live in harmony with the objectives and standards of the Word of Faith Bible Institute.</p></div><Input label="Type your full name as signature" name="declarationName" value={form.declarationName} onChange={change} required /><Input label="Declaration date" name="declarationDate" value={form.declarationDate} onChange={change} required type="date" />
     </div>
-  );
+  ];
+
+  if (complete) return <CourseAccess selectedCourse={selectedCourse} setSelectedCourse={setSelectedCourse} onEdit={() => { setComplete(false); setStep(0); }} />;
+  return <div className="mx-auto max-w-6xl pb-8"><div className="mb-8 flex items-center gap-3 text-xs font-semibold uppercase tracking-[.16em] text-slate-400"><span className="text-red-600">WOFBI application</span><span className="h-px w-8 bg-slate-300" /><span>{steps[step]}</span></div><section className="overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-slate-200/70"><div className="grid lg:grid-cols-[.68fr_1.32fr]"><aside className="bg-[#343A40] p-7 text-white sm:p-10"><ClipboardCheck size={26} /><p className="mt-10 text-xs font-bold uppercase tracking-[.22em] text-emerald-200">Student application</p><h1 className="mt-3 text-3xl font-semibold leading-tight">Complete your form to access your course.</h1><p className="mt-4 text-sm leading-6 text-emerald-50/85">Your account information is used as the default in the first step. Continue through all four steps to unlock courses.</p><div className="mt-10 space-y-4">{steps.map((item, index) => <div key={item} className={`flex items-center gap-3 text-sm ${index === step ? 'text-white' : 'text-emerald-100/65'}`}><span className={`grid h-7 w-7 place-items-center rounded-full border ${index < step ? 'border-emerald-300 bg-emerald-300 text-[#14342c]' : index === step ? 'border-red-300 bg-red-500' : 'border-white/30'}`}>{index < step ? <Check size={15} /> : index + 1}</span>{item}</div>)}</div></aside><div className="p-7 sm:p-10"><p className="text-sm font-semibold text-red-600">Step {step + 1} of {steps.length}</p><h2 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">{steps[step]}</h2><p className="mt-3 text-sm text-slate-500">Complete required fields, then use the button below to continue.</p><form ref={formRef} onSubmit={(event) => event.preventDefault()} className="mt-8">{contents[step]}<div className="mt-8 flex justify-between border-t border-slate-100 pt-6">{step ? <button type="button" onClick={() => setStep((current) => current - 1)} className="inline-flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold text-slate-600 hover:text-red-600"><ArrowLeft size={17} /> Previous</button> : <span />}{step === 3 ? <button type="button" onClick={submit} className="inline-flex items-center gap-2 rounded-xl bg-red-600 px-5 py-3 text-sm font-semibold text-white hover:bg-red-700">Submit application <BadgeCheck size={17} /></button> : <button type="button" onClick={next} className="inline-flex items-center gap-2 rounded-xl bg-[#14342c] px-5 py-3 text-sm font-semibold text-white hover:bg-[#204c40]">Save and continue <ArrowRight size={17} /></button>}</div></form></div></div></section></div>;
 }
+
+function CourseAccess({ selectedCourse, setSelectedCourse, onEdit }) {
+  return <div className="mx-auto max-w-6xl pb-8"><section className="rounded-[2rem] bg-[#f5f1ea] p-7 sm:p-10"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-red-600"><ClipboardCheck size={21} /></div><p className="mt-6 text-sm font-semibold text-red-600">Application complete</p><h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">Your WOFBI courses are now available.</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">Your application has been submitted. Select an available course; your WOFBI centre will confirm placement.</p></div><button onClick={onEdit} className="text-sm font-semibold text-slate-600 hover:text-red-600">Edit application</button></div></section><div className="mt-6 grid gap-5 lg:grid-cols-3">{courses.map((course) => <article key={course.name} className={`flex min-h-80 flex-col rounded-[1.75rem] border-t-4 p-6 ${course.accent}`}><div className="flex items-start justify-between"><BookOpen className={course.available ? 'text-red-600' : 'text-slate-500'} size={25} /><span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500">{course.available ? 'Open now' : 'Next step'}</span></div><p className="mt-8 text-xs font-bold uppercase tracking-[.14em] text-slate-500">{course.period}</p><h2 className="mt-2 text-xl font-semibold text-slate-900">{course.name}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{course.description}</p><div className="mt-auto pt-6"><p className="mb-4 flex items-center gap-2 text-xs font-medium text-slate-500">{course.available ? <Clock3 size={15} /> : <LockKeyhole size={15} />}{course.status}</p><button disabled={!course.available} onClick={() => setSelectedCourse(course.name)} className={`flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold ${course.available ? 'bg-[#14342c] text-white hover:bg-[#204c40]' : 'cursor-not-allowed bg-white/70 text-slate-400'}`}>{selectedCourse === course.name ? 'Course selected' : course.available ? 'Select this course' : 'Locked'}{course.available && <ChevronRight size={17} />}</button></div></article>)}</div></div>;
+}
+
+
+

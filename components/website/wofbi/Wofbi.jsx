@@ -116,7 +116,7 @@ It takes training to triumph and no one arms a man who
         </div>
       </div>
 
-      <Image width={500} height={486} src="/wobi.svg" alt="mandate" className='object-cover rounded-[32px]' />
+      <Image width={500} height={486} src="/wobi.svg"alt="mandate" className='object-cover rounded-[32px]' />
     </div>
 </section>
 

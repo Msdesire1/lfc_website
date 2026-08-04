@@ -89,7 +89,7 @@ const Books = () => {
 
 <div className="mt-auto flex gap-2">
   <a
-    href={"/website/books"}
+    href={"/books"}
     target="_blank"
     rel="noopener noreferrer"
     className="flex-1 flex items-center justify-center h-8 text-[14px] rounded-[12px] border border-[#bab4b4]"

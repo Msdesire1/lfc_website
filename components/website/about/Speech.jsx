@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-// import ServiceMarquee from '../ServiceMarquee'
 
 const Speech = () => {
     return (

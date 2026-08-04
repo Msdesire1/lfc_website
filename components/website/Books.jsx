@@ -9,22 +9,46 @@ import React from "react";
 const Books = () => {
   const books = [
     {
-      image: "/new.png",
-      name: "Breaking Financial Hardship",
+      image: "/newh.png",
+      name: "The Healing Balm",
       author: "Bishop David Oyedepo",
-      pdf: "/pdfs/breaking-financial-hardship.pdf",
+      pdf: "/pdfs/the-healing.pdf",
     },
     {
-      image: "/newi.png",
-      name: "Convenat Wealth ",
+      image: "/neww.png",
+      name: "Healing Health and Wholeness",
+      author:"Pastor Faith Oyedepo",
+      pdf: "/pdfs/healing-health-and-wholeness.pdf",
+    },
+    {
+      image: "/newf.png",
+      name: "Fulfilling Your Days",
+      author: "Bishop David Oyedepo",
+      pdf: "/pdfs/pdfcoffee.com-fulfilling-your-days.pdf",
+    },
+  {
+      image: "/newiii.png",
+      name: "Rescued From Destruction",
+      author:"Pastor Faith Oyedepo",
+      pdf: "/pdfs/rescued-from-destruction.pdf",
+    },
+    {
+      image: "/newvi.png",
+      name: "Keys To Divine Health",
       author:"Bishop David Oyedepo",
-      pdf: "/pdfs/covenant-wealth.pdf",
+      pdf: "/pdfs/keys-to-divine-health.pdf",
     },
     {
-      image: "/newii.png",
-      name: "Wining The War Against Poverty",
+      image: "/newsix.png",
+      name: "The Healing Ministry of Jesus Christ",
+       author:"Pastor Faith Oyedepo",
+      pdf: "/pdfs/the-healing-ministry-of-jesus-Christ.pdf",
+    },
+     {
+      image: "/newmea.jpg",
+      name: "Understanding Financial Prosperity",
       author: "Bishop David Oyedepo",
-      pdf: "/pdfs/winning-the-war-against-poverty.pdf",
+      pdf: "/pdfs/the-miracle-meal.pdf",
     },
     {
       image: "/new.jpg",

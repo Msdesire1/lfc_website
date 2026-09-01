@@ -1,21 +1,5 @@
 'use client';
 
-/**
- * The six-digit code screen.
- *
- * Two different journeys land here, and they need different endings:
- *
- *   register  -> a token was already stored, so verifying finishes onboarding
- *                and the dashboard is reachable immediately.
- *   login     -> /auth/login refused an unverified address with 403 and issued
- *                no token, so after verifying there is still nothing to sign in
- *                with and the login page is the right destination.
- *
- * Which one it was is decided by looking for a stored token rather than by a flag
- * in the URL, because the token is the thing that actually decides whether the
- * dashboard will load.
- */
-
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';

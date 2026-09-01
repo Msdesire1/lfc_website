@@ -1,9 +1,53 @@
+"use client";
+
+/**
+ * The admissions queue, from GET /api/admin/applications.
+ *
+ * Drafts are excluded by default — a half-typed form is not a submission — but
+ * they are still reachable by choosing "Draft" in the filter. The search box
+ * matches the reference, name, email or phone, and runs on the server, so it
+ * searches every application rather than only the page on screen.
+ *
+ * The table carries just enough for its own row and hands the reference
+ * ("APP-1284") to the modal, which fetches the full record itself.
+ */
+
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ClipboardList, Search, ShieldCheck, Mail, MessageCircle } from "lucide-react";
+import { ArrowLeft, Search } from "lucide-react";
+import ApplicantDetailsModal from "../_components/ApplicantDetailsModal";
+import { admin } from "@/lib/api";
+import { useApi } from "@/lib/useApi";
+import { ErrorNote, Loading } from "@/components/dashboard/Async";
+
+const FILTERS = ["All", "Review", "Request info", "Approved", "Rejected", "Draft"];
+
+const statusTone = (status) =>
+  status === "Paid" || status === "Approved"
+    ? "bg-emerald-50 text-emerald-700"
+    : status === "Rejected"
+    ? "bg-red-50 text-red-700"
+    : status === "Draft"
+    ? "bg-slate-100 text-slate-700"
+    : "bg-amber-50 text-amber-700";
 
 export default function AdminAdmissionsPage() {
+  const [selected, setSelected] = useState(null);
+  const [status, setStatus] = useState("Review");
+  // Typing filters on submit rather than on every keystroke: one request per
+  // search, not one per letter.
+  const [term, setTerm] = useState("");
+  const [search, setSearch] = useState("");
+
+  const list = useApi(() => admin.applications.list({ status, search }), {
+    as: "admin",
+    deps: [status, search],
+  });
+  const applications = list.data?.applications || [];
+  const total = list.data?.pagination?.total ?? 0;
+
   return (
-    <div className="mx-auto max-w-7xl space-y-6">
+    <div className="mx-auto max-w-5xl space-y-6">
       <section className="rounded-3xl border border-slate-200/80 bg-white p-8 shadow-sm">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
           <div>
@@ -15,29 +59,12 @@ export default function AdminAdmissionsPage() {
           </div>
           <Link
             href="/dashboard/admin"
-            className="inline-flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700"
+            className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700"
           >
             <ArrowLeft size={16} /> Back to admin dashboard
           </Link>
         </div>
       </section>
-
-      <section className="grid gap-4 md:grid-cols-3">
-        {[
-          ["Search applications", Search, "Search by applicant name, programme, or application ID."],
-          ["Review status", ShieldCheck, "Track payment, approval, and application progress."],
-          ["Outreach", Mail, "Send email, SMS, and WhatsApp updates to applicants."],
-        ].map(([title, Icon, description]) => (
-          <article key={title} className="rounded-3xl border border-slate-200/80 bg-slate-50 p-6 shadow-sm">
-            <div className="flex items-center gap-3 text-emerald-700">
-              <Icon size={20} />
-              <p className="font-semibold">{title}</p>
-            </div>
-            <p className="mt-4 text-sm text-slate-600">{description}</p>
-          </article>
-        ))}
-      </section>
-
       <section className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm">
         <div className="flex items-center justify-between">
           <div>
@@ -45,48 +72,106 @@ export default function AdminAdmissionsPage() {
             <p className="mt-1 text-sm text-slate-500">Search, filter, and take action on applicant records.</p>
           </div>
           <div className="rounded-2xl bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-700">
-            UI only
+            {total} record{total === 1 ? "" : "s"}
           </div>
         </div>
-        <div className="mt-6 overflow-x-auto">
-          <table className="w-full min-w-180 text-left text-sm text-slate-700">
-            <thead className="border-b border-slate-200 text-xs uppercase tracking-[.16em] text-slate-400">
-              <tr>
-                <th className="px-4 py-3">Applicant</th>
-                <th className="px-4 py-3">Application ID</th>
-                <th className="px-4 py-3">Programme</th>
-                <th className="px-4 py-3">Intake</th>
-                <th className="px-4 py-3">Payment</th>
-                <th className="px-4 py-3">Status</th>
-                <th className="px-4 py-3"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["Aisha Abimbola", "APP-1284", "Leadership", "Aug 2026", "Paid", "Review"],
-                ["Daniel Emeka", "APP-1283", "Basic Certificate", "Aug 2026", "Pending", "Request info"],
-                ["Ruth Okon", "APP-1282", "Leadership", "Sept 2026", "Paid", "Approved"],
-              ].map(([name, id, programme, intake, payment, status]) => (
-                <tr key={id} className="border-b border-slate-100 hover:bg-slate-50">
-                  <td className="px-4 py-4">{name}</td>
-                  <td className="px-4 py-4 font-semibold">{id}</td>
-                  <td className="px-4 py-4">{programme}</td>
-                  <td className="px-4 py-4">{intake}</td>
-                  <td className="px-4 py-4">{payment}</td>
-                  <td className="px-4 py-4">
-                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${status === "Paid" || status === "Approved" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
-                      {status}
-                    </span>
-                  </td>
-                  <td className="px-4 py-4 text-right text-xs font-semibold text-emerald-700">
-                    View details
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap gap-2">
+            {FILTERS.map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => setStatus(option)}
+                className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                  status === option
+                    ? "bg-emerald-700 text-white"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                }`}
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              setSearch(term.trim());
+            }}
+            className="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2"
+          >
+            <Search size={16} className="text-slate-400" />
+            <input
+              value={term}
+              onChange={(event) => setTerm(event.target.value)}
+              placeholder="Name, reference, email…"
+              className="w-48 text-sm outline-none"
+            />
+            <button type="submit" className="text-xs font-semibold text-emerald-700">
+              Search
+            </button>
+          </form>
         </div>
+
+        {list.loading && <Loading label="Loading applications…" />}
+        {!list.loading && list.error && <ErrorNote error={list.error} onRetry={list.reload} />}
+
+        {!list.loading && !list.error && (
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-180 text-left text-sm text-slate-700">
+              <thead className="border-b border-slate-200 text-xs uppercase tracking-[.16em] text-slate-400">
+                <tr>
+                  <th className="px-4 py-3">Applicant</th>
+                  <th className="px-4 py-3">Application ID</th>
+                  <th className="px-4 py-3">Programme</th>
+                  <th className="px-4 py-3">Intake</th>
+                  <th className="px-4 py-3">Status</th>
+                  <th className="px-4 py-3"> View details</th>
+                </tr>
+              </thead>
+              <tbody>
+                {applications.length === 0 && (
+                  <tr>
+                    <td colSpan={6} className="px-4 py-10 text-center text-sm text-slate-500">
+                      No applications match this filter.
+                    </td>
+                  </tr>
+                )}
+                {applications.map((applicant) => (
+                  <tr key={applicant.id} className="border-b border-slate-100 hover:bg-slate-50">
+                    <td className="px-4 py-4">{applicant.name}</td>
+                    <td className="px-4 py-4 font-semibold">{applicant.id}</td>
+                    <td className="px-4 py-4">{applicant.programme}</td>
+                    <td className="px-4 py-4">{applicant.intake}</td>
+                    <td className="px-4 py-4">
+                      <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusTone(applicant.status)}`}>
+                        {applicant.status}
+                      </span>
+                    </td>
+                    <td className="px-4 py-4">
+                      <button
+                        type="button"
+                        onClick={() => setSelected(applicant.id)}
+                        className="text-xs font-semibold text-emerald-700 transition hover:text-emerald-800 hover:underline"
+                      >
+                        View details
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
+
+      <ApplicantDetailsModal
+        reference={selected}
+        onClose={() => setSelected(null)}
+        // A decision changes which filter the row belongs to, so the queue has to
+        // be refetched rather than patched in place.
+        onDecided={() => list.reload()}
+      />
     </div>
   );
 }

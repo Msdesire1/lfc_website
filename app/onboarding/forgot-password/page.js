@@ -1,7 +1,33 @@
+'use client';
+
 import Image from 'next/image';
-import React from 'react';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { auth } from '@/lib/api';
+import { messageOf, useAction } from '@/lib/useApi';
+import { useToast } from '@/components/ui/Toast';
 
 export default function ForgotPasswordPage() {
+  const [email, setEmail] = useState('');
+  const [sent, setSent] = useState(false);
+  const send = useAction(() => auth.forgotPassword(email.trim().toLowerCase()));
+  const toast = useToast();
+
+  const submit = async (event) => {
+    event.preventDefault();
+    const { ok, data, error } = await send.run();
+    // The API answers the same way whether or not the address is registered — that
+    // is deliberate, so an attacker cannot use this form to discover who has an
+    // account. The screen has to be just as uninformative, so there is one message
+    // and no "no such user" branch.
+    if (!ok) {
+      toast.error(messageOf(error));
+      return;
+    }
+    toast.success(data?.message || 'If that address has an account, a reset link is on its way.');
+    setSent(true);
+  };
+
   return (
     <div className="mx-auto max-w-7xl rounded-4xl  sm:p-10">
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
@@ -35,27 +61,59 @@ export default function ForgotPasswordPage() {
             Provide your email and we’ll send a reset link to your inbox.
           </p>
 
-          <form className="mt-8 space-y-6">
-            <label className="space-y-2 text-sm text-slate-700">
-              <span>Email Address</span>
-              <input
-                type="email"
-                placeholder="you@example.com"
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-red-500"
-              />
-            </label>
+          {sent ? (
+            <div className="mt-8 space-y-6">
+              <div className="rounded-2xl border border-green-200 bg-green-50 p-5">
+                <p className="text-sm font-semibold text-green-800">Check your inbox</p>
+                <p className="mt-2 text-sm leading-6 text-green-900">
+                  If an account exists for {email.trim().toLowerCase()}, a password reset link is on
+                  its way. The link is valid for 15 minutes.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSent(false)}
+                className="w-full rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-300"
+              >
+                Use a different email
+              </button>
+              <p className="text-center text-sm text-slate-600">
+                Remembered your password? <Link href="/onboarding/login" className="font-semibold text-red-600 hover:text-red-700">Sign in</Link>
+              </p>
+            </div>
+          ) : (
+            <form className="mt-8 space-y-6" onSubmit={submit}>
+              <label className="space-y-2 text-sm text-slate-700">
+                <span>Email Address</span>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  required
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-red-500"
+                />
+              </label>
 
-            <button
-              type="submit"
-              className="w-full rounded-full bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700"
-            >
-              Send reset link
-            </button>
+              {/* Failures are toasts now. */}
 
-            <p className="text-center text-sm text-slate-600">
-              Remembered your password? <a href="/onboarding/login" className="font-semibold text-red-600 hover:text-red-700">Sign in</a>
-            </p>
-          </form>
+<div className="mt-6">
+  <button
+                type="submit"
+                disabled={send.busy}
+                className="w-full rounded-full bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700 disabled:opacity-60"
+              >
+                {send.busy ? 'Sending…' : 'Send reset link'}
+              </button>
+</div>
+
+              <p className="text-center text-sm text-slate-600">
+                Remembered your password? <Link href="/onboarding/login" className="font-semibold text-red-600 hover:text-red-700">Sign in</Link>
+              </p>
+            </form>
+          )}
         </div>
       </div>
     </div>

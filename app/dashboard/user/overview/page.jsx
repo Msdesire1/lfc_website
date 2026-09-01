@@ -1,13 +1,5 @@
 "use client";
 
-/**
- * The overview page, from the same GET /api/dashboard the main dashboard uses.
- *
- * This was a server component reading `userDashboardData` from
- * lib/dashboard/user, a four-line placeholder with no milestones in it — so the
- * milestone grid rendered nothing at all. It is a client component now because
- * the data needs a token, and the token only exists in the browser.
- */
 
 import Link from "next/link";
 import {

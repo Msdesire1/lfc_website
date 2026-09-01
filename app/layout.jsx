@@ -1,11 +1,6 @@
 import "./globals.css";
-import { Bricolage_Grotesque } from "next/font/google";
 import AppShell from "@/components/layout/AppShell";
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-bricolage",
-});
+import { ToastProvider } from "@/components/ui/Toast";
 
 export const metadata = {
   title: "Living Faith Church New Jerusalem",
@@ -14,9 +9,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${bricolage.className} h-full antialiased`}>
+    <html lang="en" className="h-full antialiased">
       <body className="min-h-screen">
-        <AppShell>{children}</AppShell>
+        {/* Outside AppShell so the shell itself can raise toasts, and so a toast
+            survives the shell swapping its children on navigation. */}
+        <ToastProvider>
+          <AppShell>{children}</AppShell>
+        </ToastProvider>
       </body>
     </html>
   );

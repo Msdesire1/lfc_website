@@ -170,6 +170,12 @@ export default function Navbar() {
         >
           Give Online
         </Link>
+        {/* <Link
+          href="/admin"
+          className="hidden lg:block text-[13px] font-semibold text-slate-700 transition hover:text-red-600"
+        >
+          Admin login
+        </Link> */}
 
         {/* Mobile Burger */}
         <button
@@ -274,6 +280,13 @@ export default function Navbar() {
           >
             Give Online
           </Link>
+          {/* <Link
+            href="/admin"
+            className="mt-3 block py-3 text-center text-sm font-semibold text-[#F0EDE6]"
+            onClick={() => setMobileOpen(false)}
+          >
+            Admin login
+          </Link> */}
         </div>
       </div>
     </nav>

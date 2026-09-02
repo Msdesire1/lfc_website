@@ -7,12 +7,14 @@ import { useRouter } from 'next/navigation';
 import { auth, tokens } from '@/lib/api';
 import { messageOf, useAction, useQueryParam } from '@/lib/useApi';
 import { useToast } from '@/components/ui/Toast';
+import { emailError } from '@/lib/onboardingValidation';
 
 export default function VerifyEmailPage() {
   const router = useRouter();
   const { value: emailFromLink, ready } = useQueryParam('email');
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
+  const [error, setError] = useState('');
   const toast = useToast();
 
   // The address arrives in the query string from both register and login. It is
@@ -27,6 +29,12 @@ export default function VerifyEmailPage() {
 
   const submit = async (event) => {
     event.preventDefault();
+    const validationError = emailError(email) || (otp.length === 6 ? '' : 'Enter the six-digit verification code.');
+    setError(validationError);
+    if (validationError) {
+      toast.error(validationError);
+      return;
+    }
     const { ok, error } = await verify.run();
     if (!ok) {
       toast.error(messageOf(error));
@@ -42,6 +50,12 @@ export default function VerifyEmailPage() {
   };
 
   const sendAgain = async () => {
+    const validationError = emailError(email);
+    setError(validationError);
+    if (validationError) {
+      toast.error(validationError);
+      return;
+    }
     const { ok, data, error } = await resend.run();
     if (!ok) {
       toast.error(messageOf(error));
@@ -51,7 +65,7 @@ export default function VerifyEmailPage() {
   };
 
   // Keep the field to digits only so a pasted "123 456" or "123-456" still works.
-  const changeOtp = (event) => setOtp(event.target.value.replace(/\D/g, '').slice(0, 6));
+  const changeOtp = (event) => { setOtp(event.target.value.replace(/\D/g, '').slice(0, 6)); setError(''); };
 
   const canSubmit = otp.length === 6 && email.trim() !== '' && !verify.busy;
 
@@ -99,12 +113,13 @@ export default function VerifyEmailPage() {
                 type="email"
                 name="email"
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={(event) => { setEmail(event.target.value); setError(''); }}
                 required
                 autoComplete="email"
                 placeholder="you@example.com"
                 className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-red-500"
               />
+              {error && <span className="block text-sm text-red-600">{error}</span>}
             </label>
 
             <label className="space-y-5 text-sm text-slate-700">

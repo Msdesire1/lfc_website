@@ -8,17 +8,32 @@ import { auth } from '@/lib/api';
 import { messageOf, useAction } from '@/lib/useApi';
 import { useToast } from '@/components/ui/Toast';
 import PasswordField from '@/components/ui/PasswordField';
+import { emailError } from '@/lib/onboardingValidation';
 
 export default function LoginPage() {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
+  const [clientErrors, setClientErrors] = useState({});
   const signIn = useAction(() => auth.login(form.email.trim(), form.password));
   const toast = useToast();
 
-  const change = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+  const change = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+    setClientErrors((current) => ({ ...current, [name]: undefined }));
+  };
 
   const submit = async (event) => {
     event.preventDefault();
+    const errors = {};
+    const email = emailError(form.email);
+    if (email) errors.email = email;
+    if (!form.password) errors.password = 'Enter your password.';
+    setClientErrors(errors);
+    if (Object.keys(errors).length) {
+      toast.error('Please correct the highlighted fields.');
+      return;
+    }
     const { ok, data, error } = await signIn.run();
 
     if (ok) {
@@ -42,7 +57,7 @@ export default function LoginPage() {
     toast.error(messageOf(error));
   };
 
-  const fieldError = (name) => signIn.error?.errors?.[name];
+  const fieldError = (name) => clientErrors[name] || signIn.error?.errors?.[name];
 
   return (
     <div className="mx-auto max-w-7xl rounded-2xl  sm:p-10">

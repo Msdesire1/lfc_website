@@ -6,15 +6,23 @@ import React, { useState } from 'react';
 import { auth } from '@/lib/api';
 import { messageOf, useAction } from '@/lib/useApi';
 import { useToast } from '@/components/ui/Toast';
+import { emailError } from '@/lib/onboardingValidation';
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState('');
   const send = useAction(() => auth.forgotPassword(email.trim().toLowerCase()));
   const toast = useToast();
 
   const submit = async (event) => {
     event.preventDefault();
+    const validationError = emailError(email);
+    setError(validationError);
+    if (validationError) {
+      toast.error(validationError);
+      return;
+    }
     const { ok, data, error } = await send.run();
     // The API answers the same way whether or not the address is registered — that
     // is deliberate, so an attacker cannot use this form to discover who has an
@@ -89,12 +97,13 @@ export default function ForgotPasswordPage() {
                   type="email"
                   name="email"
                   value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(event) => { setEmail(event.target.value); setError(''); }}
                   required
                   autoComplete="email"
                   placeholder="you@example.com"
                   className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-red-500"
                 />
+                {error && <span className="block text-sm text-red-600">{error}</span>}
               </label>
 
               {/* Failures are toasts now. */}

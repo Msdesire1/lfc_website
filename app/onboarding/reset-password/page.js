@@ -8,6 +8,7 @@ import { auth } from '@/lib/api';
 import { messageOf, useAction, useQueryParam } from '@/lib/useApi';
 import { useToast } from '@/components/ui/Toast';
 import PasswordField from '@/components/ui/PasswordField';
+import { passwordError } from '@/lib/onboardingValidation';
 
 export default function ResetPasswordPage() {
   const router = useRouter();
@@ -16,14 +17,28 @@ export default function ResetPasswordPage() {
   const { value: token, ready } = useQueryParam('token');
   const [form, setForm] = useState({ password: '', confirmPassword: '' });
   const [done, setDone] = useState(false);
+  const [clientErrors, setClientErrors] = useState({});
   const toast = useToast();
 
   const reset = useAction(() => auth.resetPassword(token, form.password, form.confirmPassword));
 
-  const change = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+  const change = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+    setClientErrors((current) => ({ ...current, [name]: undefined }));
+  };
 
   const submit = async (event) => {
     event.preventDefault();
+    const errors = {};
+    const password = passwordError(form.password);
+    if (password) errors.password = password;
+    if (form.password !== form.confirmPassword) errors.confirmPassword = 'Passwords do not match.';
+    setClientErrors(errors);
+    if (Object.keys(errors).length) {
+      toast.error('Please correct the highlighted fields.');
+      return;
+    }
     const { ok, data, error } = await reset.run();
     if (!ok) {
       toast.error(messageOf(error));
@@ -43,7 +58,7 @@ export default function ResetPasswordPage() {
 
   // The API answers a weak password with { errors: { password: "…" } }, and that
   // belongs on the field rather than only in a toast that scrolls away.
-  const fieldError = (name) => reset.error?.errors?.[name];
+  const fieldError = (name) => clientErrors[name] || reset.error?.errors?.[name];
 
   return (
     <div className="mx-auto max-w-7xl rounded-2xl   sm:p-10">

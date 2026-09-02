@@ -8,6 +8,7 @@ import { auth } from '@/lib/api';
 import { messageOf, useAction } from '@/lib/useApi';
 import { useToast } from '@/components/ui/Toast';
 import PasswordField from '@/components/ui/PasswordField';
+import { registrationErrors } from '@/lib/onboardingValidation';
 
 const empty = {
   firstName: '',
@@ -22,13 +23,24 @@ export default function RegisterPage() {
   const router = useRouter();
   const [form, setForm] = useState(empty);
   const [accepted, setAccepted] = useState(false);
+  const [clientErrors, setClientErrors] = useState({});
   const create = useAction(() => auth.register({ ...form, email: form.email.trim().toLowerCase() }));
   const toast = useToast();
 
-  const change = (event) => setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
+  const change = (event) => {
+    const { name, value } = event.target;
+    setForm((current) => ({ ...current, [name]: value }));
+    setClientErrors((current) => ({ ...current, [name]: undefined }));
+  };
 
   const submit = async (event) => {
     event.preventDefault();
+    const errors = registrationErrors(form, accepted);
+    setClientErrors(errors);
+    if (Object.keys(errors).length) {
+      toast.error('Please correct the highlighted fields.');
+      return;
+    }
     const { ok, data, error } = await create.run();
     if (!ok) {
       toast.error(messageOf(error));
@@ -42,7 +54,7 @@ export default function RegisterPage() {
 
   // The API answers 422 with { errors: { firstName: "…", password: "…" } }, which
   // is exactly one message per input.
-  const fieldError = (name) => create.error?.errors?.[name];
+  const fieldError = (name) => clientErrors[name] || create.error?.errors?.[name];
 
   const inputClass = (name) =>
     `w-full rounded-2xl border bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-red-500 ${
@@ -178,12 +190,13 @@ export default function RegisterPage() {
               <input
                 type="checkbox"
                 checked={accepted}
-                onChange={(event) => setAccepted(event.target.checked)}
+                onChange={(event) => { setAccepted(event.target.checked); setClientErrors((current) => ({ ...current, accepted: undefined })); }}
                 required
                 className="h-4 w-4 rounded border-slate-300 text-red-600 accent-red-600"
               />
               <span>I agree to the Terms of Service and Privacy Policy</span>
             </label>
+            {fieldError('accepted') && <span className="-mt-4 block text-sm text-red-600">{fieldError('accepted')}</span>}
 
             {/* Page-level failures are toasts now; the per-field messages above
                 stay inline. */}

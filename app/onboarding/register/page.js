@@ -80,7 +80,12 @@ export default function RegisterPage() {
           </div>
           <div className="relative z-10 flex h-full flex-col justify-between gap-6 text-white">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-red-400">Welcome to WOFBI</p>
+      <div>
+      <div className="">
+        <Image src="/wofbilogo.png" alt="WOFBI Logo" width={200} height={150} className="bg-white rounded-[10px] " />
+       </div>
+       </div>
+              <p className="text-sm font-semibold pt-4 uppercase tracking-[0.3em] text-red-400">Welcome to WOFBI</p>
               <h1 className="mt-4 text-4xl font-semibold leading-tight">Create your account</h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-200">
                 Start your WOFBI course today. Complete the registration form and unlock access to your learning dashboard.
@@ -93,6 +98,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="rounded-[12px] border border-slate-200 bg-white p-8  sm:p-10">
+
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-600">Register</p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-900">Create your account</h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
@@ -209,9 +215,25 @@ export default function RegisterPage() {
               {create.busy ? 'Creating your account…' : 'Create Account'}
             </button>
 
-            <p className="pt-2 text-center text-sm text-slate-600">
-              Already have an account? <Link href="/onboarding/login" className="font-semibold text-red-600 hover:text-red-700">Sign in here</Link>
+<div className="flex  justify-between items-center gap-4 ">
+   <p className="pt-2 flex flex-col  text-sm text-slate-600">
+<span>
+  Already have an account?
+</span>
+
+          <span>
+             <Link href="/onboarding/login" className="font-semibold text-red-600 hover:text-red-700">Sign in here</Link>
+            </span>
             </p>
+
+<p className="pt-2  flex flex-col text-sm text-slate-600">
+             <span>Admin log in here</span>
+
+               <span>
+                 <Link href="/onboarding/admin" className="font-semibold text-red-600 hover:text-red-700">Admin Sign in here</Link>
+               </span>
+            </p>
+</div>
           </form>
         </div>
       </div>

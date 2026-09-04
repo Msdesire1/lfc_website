@@ -14,6 +14,7 @@
  */
 
 import Link from "next/link";
+import { useMemo, useState } from "react";
 import {
   ArrowRight,
   BarChart3,
@@ -27,10 +28,14 @@ import {
   FileBadge,
   Users,
   UsersRound,
+  Search,
 } from "lucide-react";
 import { admin } from "@/lib/api";
 import { useApi } from "@/lib/useApi";
 import { ErrorNote, Loading } from "@/components/dashboard/Async";
+import SortableTableHeader from "@/components/dashboard/SortableTableHeader";
+import TablePagination from "@/components/dashboard/TablePagination";
+import { nextSort, sortRows } from "@/lib/tableSort";
 
 /**
  * Keyed on the label rather than the array position: the API is free to reorder
@@ -47,6 +52,8 @@ const KPI_STYLES = {
   "Certificates issued": [FileBadge, "bg-cyan-50 text-cyan-700"],
 };
 const FALLBACK_KPI = [ClipboardList, "bg-slate-100 text-slate-700"];
+const EMPTY_ROWS = [];
+const REGISTRATION_PAGE_SIZE = 5;
 
 const statusTone = (status) =>
   status === "Paid" || status === "Approved" || status === "Successful"
@@ -59,6 +66,31 @@ const statusTone = (status) =>
 
 export default function AdminDashboard() {
   const overview = useApi(() => admin.overview(), { as: "admin" });
+  const [registrationTerm, setRegistrationTerm] = useState("");
+  const [registrationStatus, setRegistrationStatus] = useState("All");
+  const [registrationSort, setRegistrationSort] = useState({ column: "registeredOn", direction: "desc" });
+  const [registrationPage, setRegistrationPage] = useState(1);
+  const recentRegistrations = overview.data?.recentRegistrations ?? EMPTY_ROWS;
+  const filteredRegistrations = useMemo(() => {
+    const query = registrationTerm.trim().toLowerCase();
+    return recentRegistrations.filter((registration) => {
+      const matchesStatus = registrationStatus === "All" || registration.status === registrationStatus;
+      const matchesQuery = !query || [registration.id, registration.name, registration.programme, registration.payment]
+        .some((value) => String(value ?? "").toLowerCase().includes(query));
+      return matchesStatus && matchesQuery;
+    });
+  }, [recentRegistrations, registrationStatus, registrationTerm]);
+  const sortedRegistrations = useMemo(
+    () => sortRows(filteredRegistrations, registrationSort, (registration, column) => {
+      const value = registration[column];
+      return column === "registeredOn" && !Number.isNaN(Date.parse(value)) ? Date.parse(value) : value;
+    }),
+    [filteredRegistrations, registrationSort]
+  );
+  const visibleRegistrations = useMemo(
+    () => sortedRegistrations.slice((registrationPage - 1) * REGISTRATION_PAGE_SIZE, registrationPage * REGISTRATION_PAGE_SIZE),
+    [registrationPage, sortedRegistrations]
+  );
 
   if (overview.loading) {
     return (
@@ -78,12 +110,12 @@ export default function AdminDashboard() {
   const {
     hero,
     kpis = [],
-    recentRegistrations = [],
     recentRegistrationsLabel,
     recentPayments = [],
     upcomingClasses = [],
     notifications = [],
   } = overview.data;
+  const registrationStatuses = ["All", ...new Set(recentRegistrations.map((registration) => registration.status))];
 
   return (
     <div className="mx-auto max-w-7xl space-y-6">
@@ -134,26 +166,47 @@ export default function AdminDashboard() {
             <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">{recentRegistrationsLabel}</span>
           </div>
           <div className="mt-6 overflow-x-auto">
+            <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <label className="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2 text-sm">
+                <Search size={16} className="text-slate-400" />
+                <input
+                  value={registrationTerm}
+                  onChange={(event) => { setRegistrationTerm(event.target.value); setRegistrationPage(1); }}
+                  placeholder="Search registrations"
+                  className="w-44 outline-none"
+                />
+              </label>
+              <label className="text-sm text-slate-600">
+                <span className="sr-only">Filter registrations by status</span>
+                <select
+                  value={registrationStatus}
+                  onChange={(event) => { setRegistrationStatus(event.target.value); setRegistrationPage(1); }}
+                  className="rounded-xl border border-slate-200 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-600"
+                >
+                  {registrationStatuses.map((option) => <option key={option}>{option}</option>)}
+                </select>
+              </label>
+            </div>
             <table className="w-full min-w-160 text-left text-sm text-slate-700">
               <thead className="border-b border-slate-200 text-xs uppercase tracking-[.2em] text-slate-400">
                 <tr>
-                  <th className="px-4 py-3">Application ID</th>
-                  <th className="px-4 py-3">Name</th>
-                  <th className="px-4 py-3">Programme</th>
-                  <th className="px-4 py-3">Registration</th>
-                  <th className="px-4 py-3">Payment</th>
-                  <th className="px-4 py-3">Status</th>
+                  <SortableTableHeader column="id" sort={registrationSort} onSort={(column) => setRegistrationSort(nextSort(registrationSort, column))}>Application ID</SortableTableHeader>
+                  <SortableTableHeader column="name" sort={registrationSort} onSort={(column) => setRegistrationSort(nextSort(registrationSort, column))}>Name</SortableTableHeader>
+                  <SortableTableHeader column="programme" sort={registrationSort} onSort={(column) => setRegistrationSort(nextSort(registrationSort, column))}>Programme</SortableTableHeader>
+                  <SortableTableHeader column="registeredOn" sort={registrationSort} onSort={(column) => setRegistrationSort(nextSort(registrationSort, column))}>Registration</SortableTableHeader>
+                  <SortableTableHeader column="payment" sort={registrationSort} onSort={(column) => setRegistrationSort(nextSort(registrationSort, column))}>Payment</SortableTableHeader>
+                  <SortableTableHeader column="status" sort={registrationSort} onSort={(column) => setRegistrationSort(nextSort(registrationSort, column))}>Status</SortableTableHeader>
                 </tr>
               </thead>
               <tbody>
-                {recentRegistrations.length === 0 && (
+                {sortedRegistrations.length === 0 && (
                   <tr>
                     <td colSpan={6} className="px-4 py-10 text-center text-sm text-slate-500">
-                      No applications have been submitted yet.
+                      No registrations match the current filters.
                     </td>
                   </tr>
                 )}
-                {recentRegistrations.map(({ id, name, programme, registeredOn, payment, status }) => (
+                {visibleRegistrations.map(({ id, name, programme, registeredOn, payment, status }) => (
                   <tr key={id} className="border-b border-slate-100 hover:bg-slate-50">
                     <td className="px-4 py-4 font-semibold text-slate-900">{id}</td>
                     <td className="px-4 py-4">{name}</td>
@@ -170,6 +223,12 @@ export default function AdminDashboard() {
               </tbody>
             </table>
           </div>
+          <TablePagination
+            page={registrationPage}
+            pageSize={REGISTRATION_PAGE_SIZE}
+            total={sortedRegistrations.length}
+            onPageChange={setRegistrationPage}
+          />
           <Link
             href="/dashboard/admin/admissions"
             className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:underline"

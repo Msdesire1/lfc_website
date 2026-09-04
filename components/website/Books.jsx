@@ -9,53 +9,53 @@ import React from "react";
 const Books = () => {
   const books = [
     {
-      image: "/newh.png",
-      name: "The Healing Balm",
+      image: "/newew.png",
+      name: "Excellency of Wisdom",
       author: "Bishop David Oyedepo",
-      pdf: "/pdfs/the-healing.pdf",
+       pdf: "/pdfs/excellency-of-wisdom.pdf",
     },
     {
-      image: "/neww.png",
-      name: "Healing Health and Wholeness",
-      author:"Pastor Faith Oyedepo",
-      pdf: "/pdfs/healing-health-and-wholeness.pdf",
+      image: "/windo.png",
+      name: "The Winning Wisdom",
+      author: "Bishop David Oyedepo",
+     pdf: "/pdfs/the-winning-wisdom.pdf",
     },
     {
-      image: "/newf.png",
-      name: "Fulfilling Your Days",
+      image: "/newinw.png",
+      name: "Walking in Wisdom",
       author: "Bishop David Oyedepo",
-      pdf: "/pdfs/pdfcoffee.com-fulfilling-your-days.pdf",
+      pdf: "/pdfs/walking-in-wisdom.pdf",
     },
   {
-      image: "/newiii.png",
-      name: "Rescued From Destruction",
-      author:"Pastor Faith Oyedepo",
-      pdf: "/pdfs/rescued-from-destruction.pdf",
+      image: "/book2.svg",
+      name: "The Wisdom That Works",
+     author: "Bishop David Oyedepo",
+      pdf: "/pdfs/the-wisdom-that-works.pdf",
     },
-    {
-      image: "/newvi.png",
-      name: "Keys To Divine Health",
-      author:"Bishop David Oyedepo",
-      pdf: "/pdfs/keys-to-divine-health.pdf",
-    },
-    {
-      image: "/newsix.png",
-      name: "The Healing Ministry of Jesus Christ",
-       author:"Pastor Faith Oyedepo",
-      pdf: "/pdfs/the-healing-ministry-of-jesus-Christ.pdf",
-    },
-     {
-      image: "/newmea.jpg",
-      name: "Understanding Financial Prosperity",
-      author: "Bishop David Oyedepo",
-      pdf: "/pdfs/the-miracle-meal.pdf",
-    },
-    {
-      image: "/new.jpg",
-      name: "Understanding Financial Prosperity",
-      author: "Bishop David Oyedepo",
-      pdf: "/pdfs/understanding-financial-prosperity.pdf",
-    },
+    // {
+    //   image: "/newvi.png",
+    //   name: "Keys To Divine Health",
+    //   author:"Bishop David Oyedepo",
+    //   pdf: "/pdfs/keys-to-divine-health.pdf",
+    // },
+    // {
+    //   image: "/newsix.png",
+    //   name: "The Healing Ministry of Jesus Christ",
+    //    author:"Pastor Faith Oyedepo",
+    //   pdf: "/pdfs/the-healing-ministry-of-jesus-Christ.pdf",
+    // },
+    //  {
+    //   image: "/newmea.jpg",
+    //   name: "Understanding Financial Prosperity",
+    //   author: "Bishop David Oyedepo",
+    //   pdf: "/pdfs/the-miracle-meal.pdf",
+    // },
+    // {
+    //   image: "/new.jpg",
+    //   name: "Understanding Financial Prosperity",
+    //   author: "Bishop David Oyedepo",
+    //   pdf: "/pdfs/understanding-financial-prosperity.pdf",
+    // },
   ];
 
   return (

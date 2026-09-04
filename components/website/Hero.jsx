@@ -18,7 +18,7 @@ const Hero = () => {
   {
     id: 3,
     image: "/slide3.svg",
-    text: "JESUS CHRIST STILL HEALS AND DELIVERS TODAY!",
+    text: "CREATIVE WISDOM IS MY HERITAGE",
     subText: "Experience God's Presence With Us Every Sunday's",
   },
  {
@@ -74,7 +74,7 @@ const Hero = () => {
         <h1 className="text-white text-3xl md:text-6xl font-bold">
           {slide.text}
 {/* <p className="py-2">WONDERS TODAY</p> */}
-<p>Matthew 8:16-17 </p>
+<p>Proverbs 8:12</p>
         </h1>
 
         <p className="text-white mt-4 text-sm md:text-xl max-w-2xl">

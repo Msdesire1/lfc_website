@@ -12,15 +12,20 @@
  * ("APP-1284") to the modal, which fetches the full record itself.
  */
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Search } from "lucide-react";
 import ApplicantDetailsModal from "../_components/ApplicantDetailsModal";
 import { admin } from "@/lib/api";
 import { useApi } from "@/lib/useApi";
 import { ErrorNote, Loading } from "@/components/dashboard/Async";
+import SortableTableHeader from "@/components/dashboard/SortableTableHeader";
+import TablePagination from "@/components/dashboard/TablePagination";
+import { nextSort, sortRows } from "@/lib/tableSort";
 
 const FILTERS = ["All", "Review", "Request info", "Approved", "Rejected", "Draft"];
+const EMPTY_APPLICATIONS = [];
+const PAGE_SIZE = 10;
 
 const statusTone = (status) =>
   status === "Paid" || status === "Approved"
@@ -38,12 +43,18 @@ export default function AdminAdmissionsPage() {
   // search, not one per letter.
   const [term, setTerm] = useState("");
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState({ column: "name", direction: "asc" });
+  const [page, setPage] = useState(1);
 
-  const list = useApi(() => admin.applications.list({ status, search }), {
+  const list = useApi(() => admin.applications.list({ status, search, page, limit: PAGE_SIZE }), {
     as: "admin",
-    deps: [status, search],
+    deps: [status, search, page],
   });
-  const applications = list.data?.applications || [];
+  const applications = list.data?.applications ?? EMPTY_APPLICATIONS;
+  const sortedApplications = useMemo(
+    () => sortRows(applications, sort, (applicant, column) => applicant[column]),
+    [applications, sort]
+  );
   const total = list.data?.pagination?.total ?? 0;
 
   return (
@@ -82,7 +93,7 @@ export default function AdminAdmissionsPage() {
               <button
                 key={option}
                 type="button"
-                onClick={() => setStatus(option)}
+                onClick={() => { setStatus(option); setPage(1); }}
                 className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                   status === option
                     ? "bg-emerald-700 text-white"
@@ -97,6 +108,7 @@ export default function AdminAdmissionsPage() {
             onSubmit={(event) => {
               event.preventDefault();
               setSearch(term.trim());
+              setPage(1);
             }}
             className="flex items-center gap-2 rounded-xl border border-slate-200 px-3 py-2"
           >
@@ -117,15 +129,16 @@ export default function AdminAdmissionsPage() {
         {!list.loading && list.error && <ErrorNote error={list.error} onRetry={list.reload} />}
 
         {!list.loading && !list.error && (
-          <div className="mt-6 overflow-x-auto">
+          <>
+            <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-180 text-left text-sm text-slate-700">
               <thead className="border-b border-slate-200 text-xs uppercase tracking-[.16em] text-slate-400">
                 <tr>
-                  <th className="px-4 py-3">Applicant</th>
-                  <th className="px-4 py-3">Application ID</th>
-                  <th className="px-4 py-3">Programme</th>
-                  <th className="px-4 py-3">Intake</th>
-                  <th className="px-4 py-3">Status</th>
+                  <SortableTableHeader column="name" sort={sort} onSort={(column) => setSort(nextSort(sort, column))}>Applicant</SortableTableHeader>
+                  <SortableTableHeader column="id" sort={sort} onSort={(column) => setSort(nextSort(sort, column))}>Application ID</SortableTableHeader>
+                  <SortableTableHeader column="programme" sort={sort} onSort={(column) => setSort(nextSort(sort, column))}>Programme</SortableTableHeader>
+                  <SortableTableHeader column="intake" sort={sort} onSort={(column) => setSort(nextSort(sort, column))}>Intake</SortableTableHeader>
+                  <SortableTableHeader column="status" sort={sort} onSort={(column) => setSort(nextSort(sort, column))}>Status</SortableTableHeader>
                   <th className="px-4 py-3"> View details</th>
                 </tr>
               </thead>
@@ -137,7 +150,7 @@ export default function AdminAdmissionsPage() {
                     </td>
                   </tr>
                 )}
-                {applications.map((applicant) => (
+                {sortedApplications.map((applicant) => (
                   <tr key={applicant.id} className="border-b border-slate-100 hover:bg-slate-50">
                     <td className="px-4 py-4">{applicant.name}</td>
                     <td className="px-4 py-4 font-semibold">{applicant.id}</td>
@@ -161,7 +174,9 @@ export default function AdminAdmissionsPage() {
                 ))}
               </tbody>
             </table>
-          </div>
+            </div>
+            <TablePagination page={page} pageSize={PAGE_SIZE} total={total} onPageChange={setPage} />
+          </>
         )}
       </section>
 

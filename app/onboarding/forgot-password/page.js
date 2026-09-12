@@ -50,6 +50,11 @@ export default function ForgotPasswordPage() {
             />
           </div>
           <div className="relative z-10 flex h-full flex-col justify-between gap-6 text-white">
+ <div>
+      <div className="">
+        <Image src="/wofbilogo.png" alt="WOFBI Logo" width={200} height={150} className="bg-white rounded-[10px] " />
+       </div>
+       </div>
             <div>
               <h1 className="mt-4 text-4xl font-semibold leading-tight">Recover your account</h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-200">

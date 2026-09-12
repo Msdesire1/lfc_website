@@ -3,7 +3,7 @@ import Ministries from '../../components/website/ministries/Ministries'
 
 const page = () => {
   return (
-    <div>
+  <div className="mb-50">
         <Ministries/>
     </div>
   )

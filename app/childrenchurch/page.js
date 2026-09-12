@@ -4,7 +4,7 @@ import AboutMinistry from '../../components/website/Reuseable/AboutMinistry'
 
 const page = () => {
   return (
-    <div>
+   <div className="mb-50">
       <Children />
       <AboutMinistry />
     </div>

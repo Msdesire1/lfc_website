@@ -3,7 +3,7 @@ import Media from '../../components/website/media/Media'
 
 const page = () => {
   return (
-    <div>
+   <div className="mb-50">
 <Media />
     </div>
   )

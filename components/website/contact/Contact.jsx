@@ -282,6 +282,25 @@ Kwara.state@lfcww.org
       </div>
     </section>
 {/* 3 */}
+<section className="w-full py-16 lg:px-10 px-4 md:px-10 bg-[#F5F5F5]">
+  <div className="max-w-7xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6">
+      Get in Touch
+    </h2>
+    <div className="w-full overflow-hidden rounded-2xl">
+      <video
+        src="/newjerusalem.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls
+        className="w-full h-full "
+      />
+    </div>
+  </div>
+</section>
+
   <section className='py-16 px-4 md:px-10'>
  <div className="w-full h-[500px] rounded-2xl overflow-hidden shadow-lg">
        <iframe

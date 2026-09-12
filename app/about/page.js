@@ -4,7 +4,7 @@ import Speech from '../../components/website/about/Speech'
 
 const page = () => {
   return (
-    <div className="mb-20">
+    <div className="mb-50">
       <About />
       <Speech />
     </div>

@@ -14,7 +14,7 @@ At Winners Chapel, every age group is nurtured through a dedicated ministry desi
         </span>
       </div>
 
-      <Image width={500} height={486} src="/mainch.svg" alt="mandate" className='object-cover' />
+      <Image width={500} height={486} src="/mainc.jpeg" alt="mandate" className='object-cover rounded-2xl' />
     </div>
     <div className='py-10 justify-center items-center flex'>
 <h1 className='font-bold text-[30px] text-center'> Explore Our Church <br/> Ministries</h1>
@@ -44,9 +44,9 @@ At Winners Chapel, every age group is nurtured through a dedicated ministry desi
     <div className="flex justify-center lg:justify-end">
       <div className="overflow-hidden rounded-md">
         <img
-          src="/mainone.svg"
+          src="/mainh.jpeg"
           alt="Adult Church"
-          className="h-[356px] w-full max-w-[500px] object-cover"
+          className="h-[356px] w-full max-w-[500px] object-cover "
         />
       </div>
     </div>
@@ -59,7 +59,7 @@ At Winners Chapel, every age group is nurtured through a dedicated ministry desi
  <div className="flex justify-center lg:justify-start">
       <div className="overflow-hidden rounded-md">
         <img
-          src="/theyouth.svg"
+          src="/youthn.jpeg"
           alt="Adult Church"
           className="h-[356px] w-full max-w-[500px] object-cover"
         />

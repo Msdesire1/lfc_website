@@ -13,7 +13,7 @@ const Mandate = () => {
         </span>
       </div>
 
-      <Image width={500} height={486} src="/mandate.svg" alt="mandate" className='object-cover' />
+      <Image width={500} height={500} src="/forman.jpeg" alt="mandate" className='object-cover rounded-2xl' />
     </div>
   )
 }

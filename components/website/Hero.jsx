@@ -1,3 +1,134 @@
+// "use client";
+
+// import React, { useEffect, useState } from "react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
+// import Link from "next/link";
+
+// const Hero = () => {
+//  const slides = [
+
+//   {
+//     id: 1,
+//     image: "/slide1.svg",
+//   },
+//   {
+//     id: 2,
+//     image: "/call.svg",
+//   },
+//   {
+//     id: 3,
+//     image: "/slide3.svg",
+//     text: "CREATIVE WISDOM IS MY HERITAGE",
+//     subText: "Experience God's Presence With Us Every Sunday's",
+//   },
+//  {
+//     id: 4,
+//     image: "/pickup.svg",
+//   },
+// ];
+
+//   const [current, setCurrent] = useState(0);
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setCurrent((prev) => (prev + 1) % slides.length);
+//     }, 10000);
+
+//     return () => clearInterval(interval);
+//   }, [slides.length]);
+
+//   const nextSlide = () => {
+//     setCurrent((prev) => (prev + 1) % slides.length);
+//   };
+
+//   const prevSlide = () => {
+//     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+//   };
+
+//   return (
+//     <section className="w-full py-8 px-4 md:px-10 lg:px-20">
+//       <div className="relative lg:w-full mx-auto overflow-hidden rounded-[30px]">
+
+//         <div
+//           className="flex transition-transform duration-700 ease-in-out"
+//           style={{
+//             transform: `translateX(-${current * 100}%)`,
+//           }}
+//         >
+// {slides.map((slide) => (
+//   <div
+//     key={slide.id}
+//     className="relative min-w-full h-[550px] sm:h-[350px] md:h-[700px]"
+//   >
+//     <img
+//       src={slide.image}
+//       alt="slide"
+//       className=" w-full h-full object-cover rounded-b-[30px]"
+//     />
+
+
+
+//     {/* Center Text */}
+//     {slide.text && (
+//       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
+//         <h1 className="text-white text-3xl md:text-6xl font-bold">
+//           {slide.text}
+// {/* <p className="py-2">WONDERS TODAY</p> */}
+// <p>Proverbs 8:12</p>
+//         </h1>
+
+//         <p className="text-white mt-4 text-sm md:text-xl max-w-2xl">
+//           {slide.subText}
+//         </p>
+
+//         <Link href={"/website/contact"} className="mt-6 bg-red-500 hover:bg-red-600 text-white px-10 py-3 rounded-[12px] transition-all duration-300">
+//           Join Us
+//         </Link>
+//       </div>
+//     )}
+//   </div>
+// ))}
+//         </div>
+
+//         {/* Left Button */}
+//         <button
+//           onClick={prevSlide}
+//           className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-[#ef4444] hover:bg-red-600 transition-all w-8 h-8 rounded-md flex items-center justify-center"
+//         >
+//           <ChevronLeft className="text-white w-4 h-4" />
+//         </button>
+
+//         {/* Right Button */}
+//         <button
+//           onClick={nextSlide}
+//           className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-[#ef4444] hover:bg-red-600 transition-all w-8 h-8 rounded-md flex items-center justify-center"
+//         >
+//           <ChevronRight className="text-white w-4 h-4" />
+//         </button>
+
+//         {/* Dots */}
+//         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+//           {slides.map((_, index) => (
+//             <button
+//               key={index}
+//               onClick={() => setCurrent(index)}
+//               className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+//                 current === index
+//                   ? "bg-red-500 scale-110"
+//                   : "bg-white"
+//               }`}
+//             />
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Hero;
+
+
+
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -5,37 +136,49 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
- const slides = [
-
-  {
-    id: 1,
-    image: "/slide1.svg",
-  },
-  {
-    id: 2,
-    image: "/call.svg",
-  },
-  {
-    id: 3,
-    image: "/slide3.svg",
-    text: "CREATIVE WISDOM IS MY HERITAGE",
-    subText: "Experience God's Presence With Us Every Sunday's",
-  },
- {
-    id: 4,
-    image: "/pickup.svg",
-  },
-];
+  const slides = [
+    {
+      id: 1,
+      video: "/newjerusalem.mp4",
+    },
+    {
+      id: 2,
+      image: "/slide1.svg",
+    },
+    {
+      id: 3,
+      image: "/call.svg",
+    },
+    {
+      id: 4,
+      image: "/slide3.svg",
+      text: "CREATIVE WISDOM IS MY HERITAGE",
+      subText: "Experience God's Presence With Us Every Sunday's",
+    },
+    {
+      id: 5,
+      image: "/pickup.svg",
+    },
+  ];
 
   const [current, setCurrent] = useState(0);
 
+  // Automatically move images after 5 seconds.
+  // Video slides are controlled by onEnded.
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 10000);
+    const currentSlide = slides[current];
 
-    return () => clearInterval(interval);
-  }, [slides.length]);
+    // If it is a video, don't start the 5-second timer.
+    if (currentSlide.video) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [current]);
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -49,45 +192,65 @@ const Hero = () => {
     <section className="w-full py-8 px-4 md:px-10 lg:px-20">
       <div className="relative lg:w-full mx-auto overflow-hidden rounded-[30px]">
 
+        {/* Slides */}
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{
             transform: `translateX(-${current * 100}%)`,
           }}
         >
-{slides.map((slide) => (
-  <div
-    key={slide.id}
-    className="relative min-w-full h-[550px] sm:h-[350px] md:h-[700px]"
-  >
-    <img
-      src={slide.image}
-      alt="slide"
-      className=" w-full h-full object-cover rounded-b-[30px]"
-    />
+          {slides.map((slide) => (
+            <div
+              key={slide.id}
+              className="relative min-w-full h-[550px] sm:h-[350px] md:h-[700px]"
+            >
 
+              {/* VIDEO */}
+              {slide.video ? (
+                <video
+                  key={slide.video}
+                  src={slide.video}
+                  autoPlay
+                  muted
+                  playsInline
+                  controls
+                  onEnded={() => {
+                    setCurrent((prev) => (prev + 1) % slides.length);
+                  }}
+                  className="w-full h-full object-cover rounded-b-[30px]"
+                />
+              ) : (
+                /* IMAGE */
+                <img
+                  src={slide.image}
+                  alt="slide"
+                  className="w-full h-full object-cover rounded-b-[30px]"
+                />
+              )}
 
+              {/* Center Text */}
+              {slide.text && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
+                  <h1 className="text-white text-3xl md:text-6xl font-bold">
+                    {slide.text}
 
-    {/* Center Text */}
-    {slide.text && (
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-white text-3xl md:text-6xl font-bold">
-          {slide.text}
-{/* <p className="py-2">WONDERS TODAY</p> */}
-<p>Proverbs 8:12</p>
-        </h1>
+                    <p>Proverbs 8:12</p>
+                  </h1>
 
-        <p className="text-white mt-4 text-sm md:text-xl max-w-2xl">
-          {slide.subText}
-        </p>
+                  <p className="text-white mt-4 text-sm md:text-xl max-w-2xl">
+                    {slide.subText}
+                  </p>
 
-        <Link href={"/website/contact"} className="mt-6 bg-red-500 hover:bg-red-600 text-white px-10 py-3 rounded-[12px] transition-all duration-300">
-          Join Us
-        </Link>
-      </div>
-    )}
-  </div>
-))}
+                  <Link
+                    href="/website/contact"
+                    className="mt-6 bg-red-500 hover:bg-red-600 text-white px-10 py-3 rounded-[12px] transition-all duration-300"
+                  >
+                    Join Us
+                  </Link>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Left Button */}
@@ -117,6 +280,7 @@ const Hero = () => {
                   ? "bg-red-500 scale-110"
                   : "bg-white"
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
@@ -126,3 +290,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

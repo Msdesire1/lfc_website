@@ -14,7 +14,11 @@ const Join = () => {
             Take the next step by signing up for a ministry that aligns with your interests, gifts, and availability. We are excited to have you serve and grow with us.
           </p>
         </div>
-        <Image width={700} height={600} src="/cars.svg" alt="join" className="object-cover" />
+<div className='w-full flex flex-col gap-3 '>
+          <Image width={700} height={600} src="/cars.jpeg" alt="join" className="object-cover rounded-2xl" />
+                  <Image width={700} height={600} src="/serviceunit.jpeg" alt="join" className="object-cover rounded-2xl" />
+
+</div>
       </div>
       <div className='bg-[#FDFDFD] rounded-[20px] h-fit py-4 w-full px-5'>
         <h2 className='text-[#121212] text-[14px] font-semibold'>

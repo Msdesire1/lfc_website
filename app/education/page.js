@@ -3,7 +3,7 @@ import Education from '../../components/website/education/Education'
 
 const page = () => {
   return (
-    <div>
+   <div className="mb-50">
 <Education/>
     </div>
   )

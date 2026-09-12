@@ -3,7 +3,7 @@ import Contact from '../../components/website/contact/Contact'
 
 const page = () => {
   return (
-    <div>
+  <div className="mb-50">
 <Contact />
     </div>
   )

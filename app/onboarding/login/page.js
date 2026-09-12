@@ -74,7 +74,13 @@ export default function LoginPage() {
           </div>
           <div className="relative z-10 flex h-full flex-col justify-between gap-6 text-white">
             <div>
-               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-red-400">Welcome to WOFBI</p>
+ <div>
+      <div className="">
+        <Image src="/wofbilogo.png" alt="WOFBI Logo" width={200} height={150} className="bg-white rounded-[10px] " />
+       </div>
+       </div>
+
+               <p className="text-sm font-semibold pt-3 uppercase tracking-[0.3em] text-red-400">Welcome to WOFBI</p>
               <h1 className="mt-4 text-4xl font-semibold leading-tight">Welcome back</h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-200">
                 Sign in to access your course dashboard and continue where you left off.

@@ -60,7 +60,12 @@ export default function AdminLoginPage() {
           </div>
           <div className="relative z-10 flex h-full flex-col justify-between gap-6 text-white">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-red-400">WOFBI Administration</p>
+               <div>
+                    <div className="">
+                      <Image src="/wofbilogo.png" alt="WOFBI Logo" width={200} height={150} className="bg-white rounded-[10px] " />
+                     </div>
+                     </div>
+              <p className="text-sm font-semibold pt-3 uppercase tracking-[0.3em] text-red-400">WOFBI Administration</p>
               <h1 className="mt-4 text-4xl font-semibold leading-tight">Console sign-in</h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-slate-200">
                 Review admissions, confirm payments and manage courses from the administrator

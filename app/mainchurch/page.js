@@ -3,7 +3,7 @@ import Mainchurch from '../../components/website/mainchurch/Mainchurch'
 
 const page = () => {
   return (
-    <div>
+  <div className="mb-50">
 <Mainchurch/>
     </div>
   )

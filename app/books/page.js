@@ -3,7 +3,7 @@ import Books from '../../components/website/books/Books'
 
 const page = () => {
   return (
-    <div>
+    <div className="mb-40">
 <Books />
     </div>
   )

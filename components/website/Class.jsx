@@ -28,7 +28,7 @@ const Class = () => {
   Believers Foundation Class
                     {/* Heading */}
                     <div className="flex flex-1 items-center gap-4">
-                        <h2 className="lg:text-[30px] md:text-[50px] font-bold text-[#EC3237] leading-tight">
+                        <h2 className="lg:text-[32px] md:text-[50px] font-bold text-[#EC3237] leading-tight">
                             Believers&apos;
                         </h2>
 
@@ -38,14 +38,14 @@ const Class = () => {
                     </div>
 
                     {/* Intro Text */}
-                    <p className="text-black text-[14px] font-light">
+                    <p className="text-black text-[15px] font-light">
                         The Believers&apos; Foundation Class and Membership Classes at
                         Living Faith Church (Winners Chapel) is a platform for all
                         new believers and first-time worshippers to be established
                         in the faith.
                     </p>
 
-                    <p className="text-black text-[14px] font-light">
+                    <p className="text-black text-[15px] font-light">
                         In this class, new members are inducted into the principles
                         and Christian beliefs of the ministry. Everyone is encouraged
                         to attend and become grounded in the Word of God.
@@ -87,7 +87,7 @@ const Class = () => {
                     </div>
 
                     {/* Bottom Text */}
-                    <p className="text-black text-[14px]  font-light">
+                    <p className="text-black text-[15px]  font-light">
                         Every growth-thirsty Christian should seek to attend the
                         Believers Class. It helps to create a solid spiritual
                         foundation that is strong enough to withstand the challenges

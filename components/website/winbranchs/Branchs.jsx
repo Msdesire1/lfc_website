@@ -3,13 +3,13 @@ import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 
 const heroSlides = [
-  {
+{
   // NEW JERUSALEM, ILORIN
-    title: 'Explore our growing branch network',
-    subtitle: 'Living Faith church New Jerusalem Ilorin, The State church.',
-    note: 'Each branch delivers dedicated fellowship and a warm welcome for families, students, and professionals alike.',
-    image: '/newmain.jpg',
-  },
+  title: 'Explore Our Growing Branch Network',
+  subtitle: 'Living Faith Church New Jerusalem Ilorin, The State Church.',
+  note: 'Each branch delivers dedicated fellowship and a warm welcome for families, students, and professionals alike.',
+  video: '/newjerusalem.mp4',
+},
   {
     title: 'Discover our newest ministry hubs',
     subtitle: 'Offa Garage Railway Line, Ilorin',
@@ -154,13 +154,22 @@ const branchList = [
 const Branchs = () => {
   const [activeHero, setActiveHero] = useState(0)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveHero((prev) => (prev + 1) % heroSlides.length)
-    }, 5000)
+useEffect(() => {
+  const currentSlide = heroSlides[activeHero]
 
-    return () => clearInterval(interval)
-  }, [])
+  // If the current slide is a video,
+  // don't use the 5-second timer.
+  if (currentSlide.video) {
+    return
+  }
+
+  // Images stay for 5 seconds
+  const timer = setTimeout(() => {
+    setActiveHero((prev) => (prev + 1) % heroSlides.length)
+  }, 5000)
+
+  return () => clearTimeout(timer)
+}, [activeHero])
 
   return (
     <div className="lg:px-20 px-6 py-24">
@@ -193,16 +202,33 @@ const Branchs = () => {
             </div>
           </div>
 
-          <div className="relative lg:w-1/2">
-            <div className="relative h-80 overflow-hidden rounded-3xl bg-[#E5E7EB]">
-              <Image
-                src={heroSlides[activeHero].image}
-                alt={heroSlides[activeHero].title}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+<div className="relative lg:w-1/2">
+  <div className="relative h-80 overflow-hidden rounded-3xl bg-[#E5E7EB]">
+    {heroSlides[activeHero].video ? (
+      <video
+        key={heroSlides[activeHero].video}
+        src={heroSlides[activeHero].video}
+        autoPlay
+        muted
+        playsInline
+        controls={false}
+        onEnded={() => {
+          setActiveHero((prev) => (prev + 1) % heroSlides.length)
+        }}
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    ) : (
+      <Image
+        src={heroSlides[activeHero].image}
+        alt={heroSlides[activeHero].title}
+        fill
+        className="object-cover"
+        sizes="(max-width: 1024px) 100vw, 50vw"
+      />
+    )}
+  </div>
+</div>
+
         </div>
       </section>
 

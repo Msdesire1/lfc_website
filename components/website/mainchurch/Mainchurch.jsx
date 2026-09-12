@@ -55,7 +55,7 @@ A supportive space where adults can explore their faith, build confidence, and n
     {/* Left Image */}
     <div className="overflow-hidden rounded-[24px]">
       <img
-        src="/ad.svg"
+        src="/joint.jpeg"
         alt="Church Worship Service"
         className="h-[420px] w-full object-cover"
       />

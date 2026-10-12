@@ -97,7 +97,7 @@ function CourseCard({ course, picked, onChange }) {
     <span className="mt-3 block text-base font-semibold text-slate-900">{course.name}</span>
     <span className="mt-2 block text-sm leading-6 text-slate-600">{course.description || ''}</span>
     <span className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-slate-200/80 pt-4 text-sm">
-      <span className="flex items-center gap-1.5 font-semibold text-slate-900"><Receipt size={15} className="text-red-600" />{course.amountDisplay || '—'}</span>
+      <span className="flex items-center gap-1.5 font-semibold text-slate-900"><Receipt size={15} className="text-red-600" />{course.feeDisplay || '—'}</span>
       <span className="flex items-center gap-1.5 text-slate-600"><Clock3 size={15} className="text-slate-400" />{course.duration || '—'}</span>
     </span>
   </label>;

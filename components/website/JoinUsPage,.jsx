@@ -99,6 +99,10 @@ export default function JoinUsPage({ onClose }) {
         "Thank you! Your information has been submitted successfully."
       );
 
+      // Close the modal after a successful submission. The success message is
+      // retained for the standalone page, where there is no modal to dismiss.
+      onClose?.();
+
       setFormData({
         fullName: "",
         phone: "",
@@ -137,23 +141,23 @@ export default function JoinUsPage({ onClose }) {
         />
       )}
       <main className={onClose
-        ? "fixed inset-4 z-[1101] mx-auto max-w-4xl overflow-y-auto rounded-2xl bg-[#f7f7f7] px-4 pb-10 pt-8 shadow-2xl sm:inset-8 md:inset-y-6"
+        ? "fixed inset-4 z-[1101] mx-auto max-w-2xl overflow-y-auto rounded-2xl bg-[#f7f7f7] px-4 pb-10 pt-8  sm:inset-8 md:inset-y-6"
         : "min-h-screen bg-[#f7f7f7] pt-24 pb-16"}
       >
-      {onClose && (
-        <div className="mx-auto mb-6 flex max-w-4xl items-center justify-between">
+      <div className="relative mx-auto mb-5 flex max-w-3xl items-center justify-center">
           <Image
             src="/logo.svg"
             alt="Living Faith Church New Jerusalem logo"
-            width={50}
-            height={48}
+            width={64}
+            height={64}
             priority
+            className="h-14 w-14 object-contain sm:h-16 sm:w-16"
           />
-          <button
+          {/* {onClose && <button
             type="button"
             aria-label="Close join us form"
             onClick={onClose}
-            className="rounded-full bg-white p-2 text-gray-700 shadow transition hover:bg-gray-100"
+            className="absolute right-0 rounded-full bg-white p-2 text-gray-700 shadow transition hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
           >
             <svg
               aria-hidden="true"
@@ -168,21 +172,20 @@ export default function JoinUsPage({ onClose }) {
                 strokeLinecap="round"
               />
             </svg>
-          </button>
-        </div>
-      )}
+          </button>} */}
+      </div>
 
       {/* Page Header */}
-      <div className="max-w-4xl mx-auto mb-8 text-center">
-        <p className="text-red-500 text-sm font-semibold uppercase tracking-wider">
+      <div className="mx-auto mb-8 max-w-3xl text-center">
+        <p className="text-red-600 text-xs font-semibold uppercase tracking-[0.2em]">
           LFC New Jerusalem, Ilorin
         </p>
 
-        <h1 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           Join Us
         </h1>
 
-        <p className="mt-3 text-gray-500 max-w-2xl mx-auto">
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-gray-600 sm:text-base">
           Welcome to Living Faith Church New Jerusalem.
           Please fill out the form below with your details
           so we can get to know you and connect with you.
@@ -190,10 +193,10 @@ export default function JoinUsPage({ onClose }) {
       </div>
 
       {/* Form Card */}
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl shadow-gray-900/5">
 
         {/* Card Header */}
-        <div className="bg-red-500 px-6 md:px-8 py-6 text-white">
+        <div className="bg-red-500 px-5 py-6 text-white sm:px-8">
           <h2 className="text-xl md:text-2xl font-bold">
             Church Member Registration
           </h2>
@@ -205,7 +208,7 @@ export default function JoinUsPage({ onClose }) {
 
         <form
           onSubmit={handleSubmit}
-          className="p-5 md:p-8 space-y-8"
+          className="space-y-8 p-5 sm:p-8"
         >
           {/* Success */}
           {success && (
@@ -592,7 +595,7 @@ export default function JoinUsPage({ onClose }) {
           </div>
 
           {/* Submit */}
-          <div className="border-t pt-6 flex flex-col sm:flex-row gap-3 justify-end">
+          <div className="border-t pt-6 flex flex-col sm:flex-row gap-3 justify-between items-center">
             {onClose ? (
               <button
                 type="button"
@@ -635,18 +638,18 @@ export default function JoinUsPage({ onClose }) {
 
         .form-input {
           width: 100%;
-          padding: 12px 16px;
-          border: 1px solid #d1d5db;
-          border-radius: 8px;
+          padding: 12px 14px;
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
           outline: none;
           background: white;
           color: #111827;
-          transition: all 0.2s ease;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .form-input:focus {
           border-color: #ef4444;
-          box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15);
+          box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
         }
 
         .form-input::placeholder {

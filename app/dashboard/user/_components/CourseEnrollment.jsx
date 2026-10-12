@@ -97,7 +97,7 @@ function CourseCard({ course, picked, onChange }) {
     <span className="mt-3 block text-base font-semibold text-slate-900">{course.name}</span>
     <span className="mt-2 block text-sm leading-6 text-slate-600">{course.description || ''}</span>
     <span className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-slate-200/80 pt-4 text-sm">
-      <span className="flex items-center gap-1.5 font-semibold text-slate-900"><Receipt size={15} className="text-red-600" />{course.feeDisplay || '—'}</span>
+      <span className="flex items-center gap-1.5 font-semibold text-slate-900"><Receipt size={15} className="text-red-600" />{course.amountDisplay || '—'}</span>
       <span className="flex items-center gap-1.5 text-slate-600"><Clock3 size={15} className="text-slate-400" />{course.duration || '—'}</span>
     </span>
   </label>;
@@ -382,7 +382,14 @@ function CourseAccess({ onEdit }) {
   const courses = catalogue.data?.courses || [];
   const studying = courses.find((course) => course.enrolled && course.enrollmentStatus === 'Active') || null;
 
-  return <div className="mx-auto max-w-6xl pb-8"><section className="rounded-[2rem] bg-[#f5f1ea] p-7 sm:p-10"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-red-600"><ClipboardCheck size={21} /></div><p className="mt-6 text-sm font-semibold text-red-600">Application complete</p><h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">{studying ? 'You are studying with WOFBI.' : 'Your WOFBI courses are now available.'}</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{studying ? `You are taking the ${studying.name}. Students take one course at a time, so the others open up once this one is complete.` : 'Your application has been submitted. Select one course to begin; your WOFBI centre will confirm placement.'}</p></div><button onClick={onEdit} className="text-sm font-semibold text-slate-600 hover:text-red-600">Edit application</button></div></section>
+  return <div className="mx-auto max-w-6xl pb-8"><section className="rounded-[2rem] bg-[#f5f1ea] p-7 sm:p-10">
+    <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <div>
+        <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-red-600">
+          <ClipboardCheck size={21} />
+          </div>
+          <p className="mt-6 text-sm font-semibold text-red-600">Application complete</p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">{studying ? 'You are studying with WOFBI.' : 'Your WOFBI courses are now available.'}</h1><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{studying ? `You are taking the ${studying.name}. Students take one course at a time, so the others open up once this one is complete.` : 'Your application has been submitted. Select one course to begin; your WOFBI centre will confirm placement.'}</p></div><button onClick={onEdit} className="text-sm font-semibold text-slate-600 hover:text-red-600">Edit application</button></div></section>
     {catalogue.loading && <div className="mt-6"><Loading label="Loading courses…" /></div>}
     {catalogue.error && <div className="mt-6"><ErrorNote error={catalogue.error} onRetry={catalogue.reload} /></div>}
     <div className="mt-6 grid gap-5 lg:grid-cols-3">{courses.map((course) => { const open = !course.locked; return <article key={course.code} className={`flex min-h-80 flex-col rounded-[1.75rem] border-t-4 p-6 ${course.accent}`}><div className="flex items-start justify-between"><BookOpen className={open ? 'text-red-600' : 'text-slate-500'} size={25} /><span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-500">{course.enrolled ? 'Enrolled' : open ? 'Open now' : 'Next step'}</span></div><p className="mt-8 text-xs font-bold uppercase tracking-[.14em] text-slate-500">{course.period}</p><h2 className="mt-2 text-xl font-semibold text-slate-900">{course.name}</h2><p className="mt-3 text-sm leading-6 text-slate-600">{course.description}</p>

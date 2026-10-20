@@ -187,18 +187,13 @@ export default function Footer() {
                   Bookshop
                 </a>
               </li>
-
-              <li>
-                <a href="#" className="transition hover:text-red-500">
-                  Webmail
+              <li className="cursor-pointer bg-[#EC3237] px-4 py-2 rounded-md text-white">
+                <a href="https://play.google.com/store/apps/details?id=com.komonchat.android" className="transition">
+                  Download lfc mobile App
                 </a>
               </li>
 
-              <li>
-                <a href="#" className="transition hover:text-red-500">
-                  Vacancies
-                </a>
-              </li>
+
               <li>(First Saturday of the month) - 7:00am</li>
             </ul>
           </div>

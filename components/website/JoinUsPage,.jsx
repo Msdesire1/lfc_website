@@ -12,19 +12,21 @@ export default function JoinUsPage({ onClose }) {
 
   const [formData, setFormData] = useState({
     fullName: "",
+    title: "",
     phone: "",
     email: "",
     dateOfBirth: "",
     gender: "",
     maritalStatus: "",
+    weddingAnniversary: "",
+    spouseName: "",
+    spousePhone: "",
+    numberOfChildren: "",
     address: "",
     membershipStatus: "",
     wsfLocation: "",
     serviceUnit: "",
-    previousChurch: "",
-    emergencyContactName: "",
-    emergencyContactPhone: "",
-    additionalInformation: "",
+    birthdayAnniversarySmsConsent: false,
     consent: false,
   });
 
@@ -48,10 +50,18 @@ export default function JoinUsPage({ onClose }) {
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
 
-    setFormData((previous) => ({
-      ...previous,
-      [name]: type === "checkbox" ? checked : value,
-    }));
+    setFormData((previous) => {
+      const updated = {
+        ...previous,
+        [name]: type === "checkbox" ? checked : value,
+      };
+
+      if (name === "maritalStatus" && value !== "Married") {
+        updated.weddingAnniversary = "";
+      }
+
+      return updated;
+    });
   };
 
   const handleSubmit = async (event) => {
@@ -105,19 +115,21 @@ export default function JoinUsPage({ onClose }) {
 
       setFormData({
         fullName: "",
+        title: "",
         phone: "",
         email: "",
         dateOfBirth: "",
         gender: "",
         maritalStatus: "",
+        weddingAnniversary: "",
+        spouseName: "",
+        spousePhone: "",
+        numberOfChildren: "",
         address: "",
         membershipStatus: "",
         wsfLocation: "",
         serviceUnit: "",
-        previousChurch: "",
-        emergencyContactName: "",
-        emergencyContactPhone: "",
-        additionalInformation: "",
+        birthdayAnniversarySmsConsent: false,
         consent: false,
       });
     } catch (err) {
@@ -249,6 +261,31 @@ export default function JoinUsPage({ onClose }) {
                 />
               </div>
 
+              {/* Title */}
+              <div>
+                <label className="form-label">
+                  Title *
+                </label>
+
+                <select
+                  name="title"
+                  value={formData.title}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                >
+                  <option value="">Select title</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Dcn">Dcn</option>
+                  <option value="Dcns">Dcns</option>
+                  <option value="Dr">Dr</option>
+                  <option value="Pastor">Pastor</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
               {/* Phone */}
               <div>
                 <label className="form-label">
@@ -269,7 +306,7 @@ export default function JoinUsPage({ onClose }) {
               {/* Email */}
               <div>
                 <label className="form-label">
-                  Email Address
+                  Email Address *
                 </label>
 
                 <input
@@ -277,6 +314,7 @@ export default function JoinUsPage({ onClose }) {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                   placeholder="example@email.com"
                   className="form-input"
                 />
@@ -285,7 +323,7 @@ export default function JoinUsPage({ onClose }) {
               {/* Date of Birth */}
               <div>
                 <label className="form-label">
-                  Date of Birth
+                  Date of Birth *
                 </label>
 
                 <input
@@ -293,6 +331,7 @@ export default function JoinUsPage({ onClose }) {
                   name="dateOfBirth"
                   value={formData.dateOfBirth}
                   onChange={handleChange}
+                  required
                   className="form-input"
                 />
               </div>
@@ -327,13 +366,14 @@ export default function JoinUsPage({ onClose }) {
               {/* Marital Status */}
               <div>
                 <label className="form-label">
-                  Marital Status
+                  Marital Status *
                 </label>
 
                 <select
                   name="maritalStatus"
                   value={formData.maritalStatus}
                   onChange={handleChange}
+                  required
                   className="form-input"
                 >
                   <option value="">
@@ -358,18 +398,105 @@ export default function JoinUsPage({ onClose }) {
                 </select>
               </div>
 
+              {formData.maritalStatus === "Married" && (
+                <>
+                  <div>
+                    <label className="form-label">
+                      Wedding Anniversary Date *
+                    </label>
+
+                    <input
+                      type="date"
+                      name="weddingAnniversary"
+                      value={formData.weddingAnniversary}
+                      onChange={handleChange}
+                      required
+                      className="form-input"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="form-label">
+                      Spouse&apos;s Name (optional)
+                    </label>
+
+                    <input
+                      type="text"
+                      name="spouseName"
+                      value={formData.spouseName}
+                      onChange={handleChange}
+                      placeholder="Enter spouse's name"
+                      className="form-input"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="form-label">
+                      Spouse&apos;s Phone Number (optional)
+                    </label>
+
+                    <input
+                      type="tel"
+                      name="spousePhone"
+                      value={formData.spousePhone}
+                      onChange={handleChange}
+                      placeholder="08012345678"
+                      className="form-input"
+                    />
+                  </div>
+
+                </>
+              )}
+
+              {/* Number of Children */}
+              <div>
+                <label htmlFor="numberOfChildren" className="form-label">
+                  Number of Children (optional)
+                </label>
+
+                <input
+                  id="numberOfChildren"
+                  type="number"
+                  name="numberOfChildren"
+                  value={formData.numberOfChildren}
+                  onChange={handleChange}
+                  min="0"
+                  step="1"
+                  placeholder="0"
+                  className="form-input"
+                />
+              </div>
+
+              {/* House Fellowship/WSF Centre */}
+              <div>
+                <label htmlFor="wsfLocation" className="form-label">
+                  House Fellowship/WSF Centre
+                </label>
+
+                <input
+                  id="wsfLocation"
+                  type="text"
+                  name="wsfLocation"
+                  value={formData.wsfLocation}
+                  onChange={handleChange}
+                  placeholder="Enter your WSF location"
+                  className="form-input"
+                />
+              </div>
+
               {/* Address */}
               <div className="md:col-span-2">
                 <label className="form-label">
-                  Residential Address
+                  Residential Address or Area *
                 </label>
 
                 <textarea
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
+                  required
                   rows="3"
-                  placeholder="Enter your residential address"
+                  placeholder="Enter your residential address or area"
                   className="form-input resize-none"
                 />
               </div>
@@ -409,36 +536,18 @@ export default function JoinUsPage({ onClose }) {
                     Existing Member
                   </option>
 
-                  <option value="First Timer">
-                    First Timer
-                  </option>
-
-                  <option value="Returning Member">
-                    Returning Member
+                  <option value="First-time visitor">
+                    First-time visitor
                   </option>
                 </select>
               </div>
 
-              {/* WSF */}
-              <div>
-                <label className="form-label">
-                  WSF Location
-                </label>
 
-                <input
-                  type="text"
-                  name="wsfLocation"
-                  value={formData.wsfLocation}
-                  onChange={handleChange}
-                  placeholder="Enter your WSF location"
-                  className="form-input"
-                />
-              </div>
 
               {/* Service Unit */}
               <div>
                 <label className="form-label">
-                  Service Unit
+                  Service Unit or Department
                 </label>
 
                 <select
@@ -447,12 +556,20 @@ export default function JoinUsPage({ onClose }) {
                   onChange={handleChange}
                   className="form-input"
                 >
-                  <option value="">
+                  <option value="" className="p-10">
                     Select service unit
                   </option>
 
                   <option value="Protocol">
                     Protocol
+                  </option>
+
+                    <option value="Media">
+                    Media
+                  </option>
+
+              <option value="Technical">
+                    Technical
                   </option>
 
                   <option value="Choir">
@@ -463,10 +580,13 @@ export default function JoinUsPage({ onClose }) {
                     Sanctuary
                   </option>
 
-                  <option value="Technical">
-                    Technical
+                  <option value="Hospitality">
+                    Hospitality
                   </option>
 
+  <option value="Security">
+Security
+                  </option>
                   <option value="Ushering">
                     Ushering
                   </option>
@@ -487,88 +607,44 @@ export default function JoinUsPage({ onClose }) {
                     Evangelism
                   </option>
 
-                  <option value="Media">
-                    Media
+                  <option value="Transport">
+                    Transport
+                  </option>
+  <option value="Crowd Control ">
+Crowd Control
+                  </option>
+  <option value="Traffic">
+Traffic control
                   </option>
 
-                  <option value="None">
-                    None
+  <option value="Believers">
+Believers
+                  </option>
+                  <option value="other">
+Others
                   </option>
                 </select>
               </div>
 
-              {/* Previous Church */}
-              <div>
-                <label className="form-label">
-                  Previous Church
-                </label>
-
+              {/* Birthday and anniversary SMS permission */}
+              <div className="md:col-span-2 flex items-start gap-3">
                 <input
-                  type="text"
-                  name="previousChurch"
-                  value={formData.previousChurch}
+                  type="checkbox"
+                  id="birthdayAnniversarySmsConsent"
+                  name="birthdayAnniversarySmsConsent"
+                  checked={formData.birthdayAnniversarySmsConsent}
                   onChange={handleChange}
-                  placeholder="Name of previous church"
-                  className="form-input"
+                  className="mt-1 h-4 w-4 accent-red-500"
                 />
+
+                <label
+                  htmlFor="birthdayAnniversarySmsConsent"
+                  className="text-sm text-gray-600"
+                >
+                  I give permission to receive birthday and wedding anniversary SMS.
+                </label>
               </div>
             </div>
-          </section>
-
-          {/* Emergency Contact */}
-          <section className="border-t pt-8">
-            <h3 className="text-lg font-bold text-gray-900 mb-5">
-              Emergency Contact
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-              <div>
-                <label className="form-label">
-                  Contact Name
-                </label>
-
-                <input
-                  type="text"
-                  name="emergencyContactName"
-                  value={formData.emergencyContactName}
-                  onChange={handleChange}
-                  placeholder="Emergency contact name"
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="form-label">
-                  Contact Phone
-                </label>
-
-                <input
-                  type="tel"
-                  name="emergencyContactPhone"
-                  value={formData.emergencyContactPhone}
-                  onChange={handleChange}
-                  placeholder="08012345678"
-                  className="form-input"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* Additional Information */}
-          <section className="border-t pt-8">
-            <h3 className="text-lg font-bold text-gray-900 mb-5">
-              Additional Information
-            </h3>
-
-            <textarea
-              name="additionalInformation"
-              value={formData.additionalInformation}
-              onChange={handleChange}
-              rows="4"
-              placeholder="Enter any additional information..."
-              className="form-input resize-none"
-            />
           </section>
 
           {/* Consent */}
@@ -650,6 +726,16 @@ export default function JoinUsPage({ onClose }) {
         .form-input:focus {
           border-color: #ef4444;
           box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+        }
+
+        select.form-input {
+          accent-color: #ef4444;
+        }
+
+        select.form-input option:hover,
+        select.form-input option:checked {
+          background: #ef4444 linear-gradient(0deg, #ef4444 0%, #ef4444 100%);
+          color: white;
         }
 
         .form-input::placeholder {

@@ -38,14 +38,14 @@ const Class = () => {
                     </div>
 
                     {/* Intro Text */}
-                    <p className="text-black text-[15px] font-light">
+                    <p className="text-black text-[16px] font-light">
                         The Believers&apos; Foundation Class and Membership Classes at
                         Living Faith Church (Winners Chapel) is a platform for all
                         new believers and first-time worshippers to be established
                         in the faith.
                     </p>
 
-                    <p className="text-black text-[15px] font-light">
+                    <p className="text-black text-[16px] font-light">
                         In this class, new members are inducted into the principles
                         and Christian beliefs of the ministry. Everyone is encouraged
                         to attend and become grounded in the Word of God.
@@ -71,13 +71,13 @@ const Class = () => {
                             ].map((item, index) => (
                                 <div
                                     key={index}
-                                    className="flex items-center gap-4 bg-white text-[12px] rounded-xl px-5 py-2 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-1"
+                                    className="flex items-center gap-4 bg-white text-[16px] rounded-xl px-5 py-3 shadow-sm hover:shadow-md transition duration-300 hover:-translate-y-1"
                                 >
-                                    <div className="w-5 h-5 rounded-full bg-[#EC3237] text-white flex items-center justify-center font-semibold">
+                                    <div className="w-6 h-6 rounded-full bg-[#EC3237] text-white flex items-center justify-center font-semibold">
                                         {index + 1}
                                     </div>
 
-                                    <p className="text-[#5C5C5C] text-[14px] font-medium">
+                                    <p className="text-[#5C5C5C] text-[16px] font-medium">
                                         {item}
                                     </p>
                                 </div>
@@ -87,7 +87,7 @@ const Class = () => {
                     </div>
 
                     {/* Bottom Text */}
-                    <p className="text-black text-[15px]  font-light">
+                    <p className="text-black text-[16px]  font-light">
                         Every growth-thirsty Christian should seek to attend the
                         Believers Class. It helps to create a solid spiritual
                         foundation that is strong enough to withstand the challenges

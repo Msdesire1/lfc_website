@@ -3,10 +3,9 @@
 This document explains how to wire the pages under `app/dashboard/` to the Express
 API in `backend/`. It is written for the person doing that wiring.
 
-**No existing file in this app has been modified.** Three files were added and
-nothing else: this guide, `lib/api.js`, and `.env.local.example`. Every component,
-page and stylesheet is exactly as it was, so you can adopt the API one panel at a
-time and stop whenever you like.
+The dashboard API client lives in `lib/api.js`. Pages can adopt its endpoints one
+panel at a time; it also exposes the public church-member submission flow used by
+the Join Us form.
 
 ## The short version
 
@@ -124,6 +123,18 @@ progression rule), `RATE_LIMITED` (with `errors.retryAfterSeconds`) and
 
 Messages are written to be shown to users as-is. "You do not have a payment record
 yet. Submit your application first." is meant for the screen, not the console.
+
+## Public church membership
+
+The Join Us form submits to `POST /api/church-members` without creating a login.
+The response contains a member reference and a private edit credential, which the
+member must save to access `POST /api/church-members/lookup` and use up to three
+times to update their form. Birthday and anniversary SMS are sent only when the
+member opts in.
+
+Administrators can find the complete paginated member roster at
+`GET /api/admin/church-members` and download its current search results as a CSV
+document from `GET /api/admin/church-members/export`.
 
 ## The student dashboard in one call
 

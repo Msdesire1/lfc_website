@@ -4,11 +4,19 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { churchMembers } from "@/lib/api";
 
 export default function JoinUsPage({ onClose }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [updateMode, setUpdateMode] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [memberId, setMemberId] = useState("");
+  const [editCredential, setEditCredential] = useState("");
+  const [editReference, setEditReference] = useState("");
+  const [editKeyInput, setEditKeyInput] = useState("");
+  const [editsRemaining, setEditsRemaining] = useState(3);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -64,6 +72,44 @@ export default function JoinUsPage({ onClose }) {
     });
   };
 
+  const handleLookup = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const { member } = await churchMembers.lookup(editReference.trim(), editKeyInput.trim());
+      setMemberId(member.id);
+      setEditCredential(editKeyInput.trim());
+      setEditsRemaining(member.editsRemaining);
+      setFormData({
+        fullName: member.fullName || "",
+        title: member.title || "",
+        phone: member.phone || "",
+        email: member.email || "",
+        dateOfBirth: member.dateOfBirth || "",
+        gender: member.gender || "",
+        maritalStatus: member.maritalStatus || "",
+        weddingAnniversary: member.weddingAnniversary || "",
+        spouseName: member.spouseName || "",
+        spousePhone: member.spousePhone || "",
+        numberOfChildren: member.numberOfChildren ?? "",
+        address: member.address || "",
+        membershipStatus: member.membershipStatus || "",
+        wsfLocation: member.wsfLocation || "",
+        serviceUnit: member.serviceUnit || "",
+        birthdayAnniversarySmsConsent: member.birthdayAnniversarySmsConsent === true,
+        consent: member.consent === true,
+      });
+      setEditing(true);
+    } catch (err) {
+      setError(err?.message || "We could not find that member record.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -80,58 +126,18 @@ export default function JoinUsPage({ onClose }) {
     }
 
     try {
-      /*
-       * API connection will go here.
-       *
-       * Example:
-       *
-       * const response = await fetch("/api/members/register", {
-       *   method: "POST",
-       *   headers: {
-       *     "Content-Type": "application/json",
-       *   },
-       *   body: JSON.stringify(formData),
-       * });
-       *
-       * const data = await response.json();
-       *
-       * if (!response.ok) {
-       *   throw new Error(data.message);
-       * }
-       */
-
-      // Temporary simulation
-      await new Promise((resolve) =>
-        setTimeout(resolve, 1000)
-      );
-
-      setSuccess(
-        "Thank you! Your information has been submitted successfully."
-      );
-
-      // Close the modal after a successful submission. The success message is
-      // retained for the standalone page, where there is no modal to dismiss.
-      onClose?.();
-
-      setFormData({
-        fullName: "",
-        title: "",
-        phone: "",
-        email: "",
-        dateOfBirth: "",
-        gender: "",
-        maritalStatus: "",
-        weddingAnniversary: "",
-        spouseName: "",
-        spousePhone: "",
-        numberOfChildren: "",
-        address: "",
-        membershipStatus: "",
-        wsfLocation: "",
-        serviceUnit: "",
-        birthdayAnniversarySmsConsent: false,
-        consent: false,
-      });
+      if (editing) {
+        const { member, message } = await churchMembers.update(memberId, formData, editCredential);
+        setEditsRemaining(member.editsRemaining);
+        setSuccess(message);
+      } else {
+        const { member, editCredential: issuedCredential, message } =
+          await churchMembers.create(formData);
+        setMemberId(member.id);
+        setEditCredential(issuedCredential);
+        setEditsRemaining(member.editsRemaining);
+        setSuccess(message);
+      }
     } catch (err) {
       setError(
         err?.message ||
@@ -204,8 +210,47 @@ export default function JoinUsPage({ onClose }) {
         </p>
       </div>
 
+      {!editing && (
+        <div className="mx-auto mb-5 flex max-w-3xl justify-center">
+          <button
+            type="button"
+            onClick={() => {
+              setUpdateMode((previous) => !previous);
+              setSuccess("");
+              setError("");
+            }}
+            className="text-sm font-semibold text-red-600 underline underline-offset-4"
+          >
+            {updateMode ? "Submit a new member form instead" : "Already submitted? Update your details"}
+          </button>
+        </div>
+      )}
+
+      {updateMode && !editing && (
+        <form onSubmit={handleLookup} className="mx-auto mb-6 max-w-3xl space-y-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm sm:p-7">
+          <div>
+            <h2 className="text-lg font-bold text-gray-900">Find your member record</h2>
+            <p className="mt-1 text-sm text-gray-600">Use the member reference and private edit credential shown after your original submission.</p>
+          </div>
+          {error && <div role="alert" className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">{error}</div>}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="text-sm font-medium text-gray-700">
+              Member reference
+              <input value={editReference} onChange={(event) => setEditReference(event.target.value)} required className="form-input mt-2" />
+            </label>
+            <label className="text-sm font-medium text-gray-700">
+              Edit credential
+              <input value={editKeyInput} onChange={(event) => setEditKeyInput(event.target.value)} required className="form-input mt-2" autoComplete="off" />
+            </label>
+          </div>
+          <button type="submit" disabled={loading} className="rounded-lg bg-red-500 px-5 py-3 font-semibold text-white disabled:opacity-60">
+            {loading ? "Finding record..." : "Continue"}
+          </button>
+        </form>
+      )}
+
       {/* Form Card */}
-      <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl shadow-gray-900/5">
+      {(!updateMode || editing) && <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl shadow-gray-900/5">
 
         {/* Card Header */}
         <div className="bg-red-500 px-5 py-6 text-white sm:px-8">
@@ -225,7 +270,16 @@ export default function JoinUsPage({ onClose }) {
           {/* Success */}
           {success && (
             <div className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-700">
-              {success}
+              <p>{success}</p>
+              {editing ? (
+                <p className="mt-2 text-sm">You have {editsRemaining} update{editsRemaining === 1 ? "" : "s"} remaining.</p>
+              ) : (
+                <div className="mt-3 space-y-1 break-all text-sm">
+                  <p><strong>Member reference:</strong> {memberId}</p>
+                  <p><strong>Private edit credential:</strong> {editCredential}</p>
+                  <p className="mt-2 font-semibold">Save these details securely. You need both to update your form, and the credential cannot be recovered.</p>
+                </div>
+              )}
             </div>
           )}
 
@@ -694,13 +748,11 @@ Others
               disabled={loading}
               className="px-7 py-3 rounded-lg bg-red-500 text-white font-semibold hover:bg-[#78343e] transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {loading
-                ? "Submitting..."
-                : "Submit Registration"}
+              {loading ? (editing ? "Saving..." : "Submitting...") : (editing ? "Save Update" : "Submit Registration")}
             </button>
           </div>
         </form>
-      </div>
+      </div>}
 
       {/* Page styles */}
       <style jsx>{`

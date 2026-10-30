@@ -621,7 +621,7 @@ export default function Navbar() {
           {/* Mobile Join Us */}
           <button
             type="button"
-            className="block mt-3 text-center py-3 bg-red-500 text-white rounded-[10px] hover:bg-[#78343e]"
+            className="block mt-4 w-full text-center py-3 bg-red-500 text-white rounded-[10px] hover:bg-[#78343e]"
             onClick={() => {
               setMobileOpen(false);
               setJoinUsOpen(true);

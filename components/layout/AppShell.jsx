@@ -35,6 +35,7 @@ const adminNav = [
   { label: "Admissions", href: "/dashboard/admin/admissions", icon: ClipboardList },
   { label: "Payments", href: "/dashboard/admin/payments", icon: CreditCard },
   { label: "Courses", href: "/dashboard/admin/courses", icon: BookOpen },
+  { label: "Church members", href: "/dashboard/admin/church-members", icon: Users },
 ];
 
 /** "Good morning" before noon, then afternoon, then evening — in the reader's own clock. */

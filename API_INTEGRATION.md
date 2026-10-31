@@ -136,6 +136,11 @@ Administrators can find the complete paginated member roster at
 `GET /api/admin/church-members` and download its current search results as a CSV
 document from `GET /api/admin/church-members/export`.
 
+The member record includes optional ordination, occupation/workplace, commission
+and LFC New Jerusalem joining details, new-birth date, and WOFBI programme/date
+attended. The existing date-of-birth field remains required. WSF suggestions
+match the entered residential address against the published home-cell directory.
+
 ## The student dashboard in one call
 
 `GET /api/dashboard` returns everything the user dashboard displays. It is one

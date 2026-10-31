@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { churchMembers } from "@/lib/api";
+import { getWsfLocationSuggestions } from "./wsflocation/Homecell";
 
 export default function JoinUsPage({ onClose }) {
   const [loading, setLoading] = useState(false);
@@ -12,6 +13,7 @@ export default function JoinUsPage({ onClose }) {
   const [error, setError] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const [editing, setEditing] = useState(false);
+  const [wsfSuggestionsOpen, setWsfSuggestionsOpen] = useState(false);
   const [memberId, setMemberId] = useState("");
   const [editCredential, setEditCredential] = useState("");
   const [editReference, setEditReference] = useState("");
@@ -24,6 +26,15 @@ export default function JoinUsPage({ onClose }) {
     phone: "",
     email: "",
     dateOfBirth: "",
+    dateOrdained: "",
+    occupation: "",
+    workingPlace: "",
+    dateJoinedCommission: "",
+    commissionLocation: "",
+    newBirthDate: "",
+    dateJoinedLfcNewJerusalem: "",
+    wofbiProgramme: "",
+    wofbiDateAttended: "",
     gender: "",
     maritalStatus: "",
     weddingAnniversary: "",
@@ -37,6 +48,9 @@ export default function JoinUsPage({ onClose }) {
     birthdayAnniversarySmsConsent: false,
     consent: false,
   });
+  const wsfLocationSuggestions = formData.address.trim()
+    ? getWsfLocationSuggestions(formData.address)
+    : [];
 
   useEffect(() => {
     if (!onClose) return;
@@ -64,6 +78,10 @@ export default function JoinUsPage({ onClose }) {
         [name]: type === "checkbox" ? checked : value,
       };
 
+      if (name === "address") {
+        updated.wsfLocation = "";
+      }
+
       if (name === "maritalStatus" && value !== "Married") {
         updated.weddingAnniversary = "";
       }
@@ -89,6 +107,15 @@ export default function JoinUsPage({ onClose }) {
         phone: member.phone || "",
         email: member.email || "",
         dateOfBirth: member.dateOfBirth || "",
+        dateOrdained: member.dateOrdained || "",
+        occupation: member.occupation || "",
+        workingPlace: member.workingPlace || "",
+        dateJoinedCommission: member.dateJoinedCommission || "",
+        commissionLocation: member.commissionLocation || "",
+        newBirthDate: member.newBirthDate || "",
+        dateJoinedLfcNewJerusalem: member.dateJoinedLfcNewJerusalem || "",
+        wofbiProgramme: member.wofbiProgramme || "",
+        wofbiDateAttended: member.wofbiDateAttended || "",
         gender: member.gender || "",
         maritalStatus: member.maritalStatus || "",
         weddingAnniversary: member.weddingAnniversary || "",
@@ -336,6 +363,9 @@ export default function JoinUsPage({ onClose }) {
                   <option value="Dcns">Dcns</option>
                   <option value="Dr">Dr</option>
                   <option value="Pastor">Pastor</option>
+                  <option value="Elder">Elder</option>
+                  <option value="Elder Mrs">Elder Mrs</option>
+                  <option value="Ordained Worker">Ordained Worker</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
@@ -521,23 +551,6 @@ export default function JoinUsPage({ onClose }) {
                 />
               </div>
 
-              {/* House Fellowship/WSF Centre */}
-              <div>
-                <label htmlFor="wsfLocation" className="form-label">
-                  House Fellowship/WSF Centre
-                </label>
-
-                <input
-                  id="wsfLocation"
-                  type="text"
-                  name="wsfLocation"
-                  value={formData.wsfLocation}
-                  onChange={handleChange}
-                  placeholder="Enter your WSF location"
-                  className="form-input"
-                />
-              </div>
-
               {/* Address */}
               <div className="md:col-span-2">
                 <label className="form-label">
@@ -554,6 +567,101 @@ export default function JoinUsPage({ onClose }) {
                   className="form-input resize-none"
                 />
               </div>
+
+              <div>
+                <label htmlFor="occupation" className="form-label">
+                  Occupation
+                </label>
+                <input
+                  id="occupation"
+                  type="text"
+                  name="occupation"
+                  value={formData.occupation}
+                  onChange={handleChange}
+                  maxLength={120}
+                  placeholder="Enter your occupation"
+                  className="form-input"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="workingPlace" className="form-label">
+                  Working Place
+                </label>
+                <input
+                  id="workingPlace"
+                  type="text"
+                  name="workingPlace"
+                  value={formData.workingPlace}
+                  onChange={handleChange}
+                  maxLength={160}
+                  placeholder="Enter your workplace"
+                  className="form-input"
+                />
+              </div>
+
+              {/* House Fellowship/WSF Centre */}
+              <div
+                className="relative"
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setWsfSuggestionsOpen(false);
+                  }
+                }}
+              >
+                <label htmlFor="wsfLocation" className="form-label">
+                  House Fellowship/WSF Centre
+                </label>
+
+                <input
+                  id="wsfLocation"
+                  type="text"
+                  name="wsfLocation"
+                  value={formData.wsfLocation}
+                  onChange={handleChange}
+                  onFocus={() => setWsfSuggestionsOpen(true)}
+                  maxLength={240}
+                  autoComplete="off"
+                  placeholder="Enter or select a nearby WSF location"
+                  className="form-input"
+                />
+                {wsfSuggestionsOpen && (
+                  <div
+                    className="absolute z-20 mt-1 max-h-64 w-full overflow-y-auto rounded-lg border border-gray-200 bg-white p-2 shadow-lg"
+                  >
+                    {!formData.address.trim() ? (
+                      <p className="px-2 py-2 text-sm text-gray-500">
+                        Enter your residential address to find nearby WSF locations.
+                      </p>
+                    ) : wsfLocationSuggestions.length ? (
+                      wsfLocationSuggestions.map((location) => {
+                        const value = [location.name, location.address].filter(Boolean).join(" — ");
+                        return (
+                          <button
+                            key={`${location.name}-${location.address}`}
+                            type="button"
+                            onPointerDown={(event) => event.preventDefault()}
+                            onClick={() => {
+                              setFormData((previous) => ({ ...previous, wsfLocation: value }));
+                              setWsfSuggestionsOpen(false);
+                            }}
+                            className="block w-full rounded-md px-3 py-2 text-left hover:bg-red-50 focus-visible:bg-red-50 focus-visible:outline-none"
+                          >
+                            <span className="block text-sm font-semibold text-gray-900">{location.name}</span>
+                            {location.address && (
+                              <span className="block text-xs text-gray-500">{location.address}</span>
+                            )}
+                          </button>
+                        );
+                      })
+                    ) : (
+                      <p className="px-2 py-2 text-sm text-gray-500">
+                        No matching WSF locations found. You can enter a location manually.
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
           </section>
 
@@ -564,6 +672,110 @@ export default function JoinUsPage({ onClose }) {
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+              {formData.title === "Ordained Worker" && (
+                <div>
+                  <label htmlFor="dateOrdained" className="form-label">
+                    Date Ordained
+                  </label>
+                  <input
+                    id="dateOrdained"
+                    type="date"
+                    name="dateOrdained"
+                    value={formData.dateOrdained}
+                    onChange={handleChange}
+                    className="form-input"
+                  />
+                </div>
+              )}
+
+              <div>
+                <label htmlFor="dateJoinedCommission" className="form-label">
+                  Date of Joining Commission
+                </label>
+                <input
+                  id="dateJoinedCommission"
+                  type="date"
+                  name="dateJoinedCommission"
+                  value={formData.dateJoinedCommission}
+                  onChange={handleChange}
+                  className="form-input"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="commissionLocation" className="form-label">
+                  Where You Joined the Commission
+                </label>
+                <input
+                  id="commissionLocation"
+                  type="text"
+                  name="commissionLocation"
+                  value={formData.commissionLocation}
+                  onChange={handleChange}
+                  maxLength={160}
+                  placeholder="Enter the location"
+                  className="form-input"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="newBirthDate" className="form-label">
+                  New Birth Date
+                </label>
+                <input
+                  id="newBirthDate"
+                  type="date"
+                  name="newBirthDate"
+                  value={formData.newBirthDate}
+                  onChange={handleChange}
+                  className="form-input"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="dateJoinedLfcNewJerusalem" className="form-label">
+                  Date of Joining LFC New Jerusalem
+                </label>
+                <input
+                  id="dateJoinedLfcNewJerusalem"
+                  type="date"
+                  name="dateJoinedLfcNewJerusalem"
+                  value={formData.dateJoinedLfcNewJerusalem}
+                  onChange={handleChange}
+                  className="form-input"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="wofbiProgramme" className="form-label">
+                  WOFBI Programme or Level Attended
+                </label>
+                <input
+                  id="wofbiProgramme"
+                  type="text"
+                  name="wofbiProgramme"
+                  value={formData.wofbiProgramme}
+                  onChange={handleChange}
+                  maxLength={120}
+                  placeholder="Enter programme or level"
+                  className="form-input"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="wofbiDateAttended" className="form-label">
+                  WOFBI Date Attended
+                </label>
+                <input
+                  id="wofbiDateAttended"
+                  type="date"
+                  name="wofbiDateAttended"
+                  value={formData.wofbiDateAttended}
+                  onChange={handleChange}
+                  className="form-input"
+                />
+              </div>
 
               {/* Membership Status */}
               <div>

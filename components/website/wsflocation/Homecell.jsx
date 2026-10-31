@@ -392,6 +392,28 @@ const parseHomecellData = (source) => {
 
 const tableData = parseHomecellData(rawHomecellText);
 
+const normalizeForSearch = (value) =>
+  value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+export const getWsfLocationSuggestions = (address) => {
+  const searchTerms = normalizeForSearch(address)
+    .split(/\s+/)
+    .filter((term) => term.length >= 3);
+
+  if (!searchTerms.length) return [];
+
+  return tableData
+    .map((item) => {
+      const locationText = normalizeForSearch(`${item.name} ${item.address}`);
+      const matchingTerms = searchTerms.filter((term) => locationText.includes(term));
+      return { item, score: matchingTerms.length };
+    })
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score || a.item.name.localeCompare(b.item.name))
+    .slice(0, 8)
+    .map(({ item }) => ({ name: item.name, address: item.address }));
+};
+
 const headerColumns = [
   { label: "Zone", key: "zone" },
   { label: "Home Cell / Address", key: "name" },

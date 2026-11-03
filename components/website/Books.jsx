@@ -19,7 +19,7 @@ const Books = () => {
          image: "/noviii.png",
      name: "Walking in the Miraculous",
       author: "Bishop David Oyedepo",
-      pdf: "/walking-in-the-miraculous.pdf",
+      pdf: "/pdfs/walking-in-the-miraculous.pdf",
     },
     {
       image: "/novii.png",

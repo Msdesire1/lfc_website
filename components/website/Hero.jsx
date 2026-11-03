@@ -187,7 +187,7 @@ const Hero = () => {
     {
       id: 4,
       image: "/slide3.svg",
-      text: "MY COMFORTER IS HERE.",
+      text: "I AM REDEEMED A WONDER TO MY WORLD .",
       subText: "Experience God's Presence With Us Every Sunday's",
     },
     {
@@ -344,7 +344,7 @@ const Hero = () => {
                   <h1 className="text-white text-3xl md:text-6xl font-bold">
                     {slide.text}
 
-                    <p>Isaiah 44:3-5</p>
+                    <p>Isaiah 8:18</p>
                   </h1>
 
                   <p className="text-white mt-4 text-sm md:text-xl max-w-2xl">

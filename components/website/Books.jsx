@@ -8,6 +8,25 @@ import React from "react";
 
 const Books = () => {
   const books = [
+     {
+      image: "/novi.png",
+      name: "Commanding the Supernatural",
+       author:"Bishop David Oyedepo",
+      pdf: "/pdfs/commanding-supernatural.pdf",
+    },
+     {
+
+         image: "/noviii.png",
+     name: "Walking in the Miraculous",
+      author: "Bishop David Oyedepo",
+      pdf: "/walking-in-the-miraculous.pdf",
+    },
+    {
+      image: "/novii.png",
+      name: "operating in the Supernatural",
+      author: "Bishop David Oyedepo",
+      pdf: "/pdfs/operating-in-the-supernatural.pdf",
+    },
     {
       image: "/softi.png",
       name: "Excellency of Wisdom",
@@ -38,24 +57,7 @@ const Books = () => {
       author:"Bishop David Oyedepo",
       pdf: "/pdfs/not-by.pdf",
     },
-    {
-      image: "/newsix.png",
-      name: "The Healing Ministry of Jesus Christ",
-       author:"Pastor Faith Oyedepo",
-      pdf: "/pdfs/the-healing-ministry-of-jesus-Christ.pdf",
-    },
-     {
-      image: "/newmea.jpg",
-      name: "Understanding Financial Prosperity",
-      author: "Bishop David Oyedepo",
-      pdf: "/pdfs/the-miracle-meal.pdf",
-    },
-    {
-      image: "/new.jpg",
-      name: "Understanding Financial Prosperity",
-      author: "Bishop David Oyedepo",
-      pdf: "/pdfs/understanding-financial-prosperity.pdf",
-    },
+
   ];
 
   return (
